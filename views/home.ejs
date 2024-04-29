@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <%- include('./partials/head') %>
+
+        <link rel="stylesheet" href="/styles/main-page-styles.css">
+        <link rel="stylesheet" href="/styles/home-page-styles.css">
+        <title>Главная</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <%- include('./partials/header') %>
+
+        <main class="main">
+            <section class="head-section">
+                <div id="particles-js"></div>
+                <div class="greeting">
+                    <span class="greeting-time"></span>
+                    <% switch(user.role) {
+                        case 1: %>
+                        <span class="greeting-name-student"><%= user.name %></span>
+                        <% break;
+                        case 2: %>
+                        <span class="greeting-name-teacher"><%= user.name %></span>
+                        <% break;
+                        case 3: %>
+                        <span class="greeting-name-admin"><%= user.name %></span>
+                        <% break;
+                    } %>
+                </div>
+            </section>                
+        </main>
+
+        <%- include('./partials/footer') %>
+    </div>
+    <script src="libs/particles-js/particles.min.js"></script>
+    <script src="/scripts/home-page-script.js"></script>
+</body>
+
+</html>

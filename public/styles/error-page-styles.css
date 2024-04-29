@@ -1,0 +1,47 @@
+@import url(../styles/index-styles.css);
+
+/* ======================================= */
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+}
+
+/* ================== ERROR-BLOCK ====================== */
+
+.error-block-header, 
+.error-block-body-name,
+.error-block-body-description {
+    text-align: center;
+    color: var(--color-white);
+}
+
+.error-block-body-description > a {
+    text-decoration: underline;
+    color: var(--color-link-color);
+}
+
+.error-block-header {
+    font-size: 4.2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.error-block-body-name {
+    font-size: 1.25rem;
+    letter-spacing: .1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.error-block-body-description {
+    letter-spacing: .1rem;
+    max-width: 30rem;
+    font-size: 1rem;
+    text-align: center;
+    overflow-wrap: break-word;
+    font-weight: 400;
+}

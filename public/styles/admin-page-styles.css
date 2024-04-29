@@ -1,0 +1,95 @@
+/*========================= GENERAL =========================*/
+
+.users-table-block [class$='-block']:not(:last-child) {
+    margin-bottom: 1.1rem;
+}
+
+.users-table-block {
+    background-color: var(--color-dark-lighter);
+    border-radius: 0.625rem;
+    padding: 1.25rem;
+}
+
+/* == ADMIN-PANEL-TABLE == */
+
+.users-table-table {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.users-table-table thead {
+    width: 100%;
+    border-bottom: .1rem solid var(--color-white);
+}
+
+.users-table-table th {
+    padding: .4rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-white-lighter);
+}
+
+.users-table-table td {
+    padding: .3rem;
+    font-size: .9rem;
+}
+
+.users-table-table-tbody tr:nth-child(even) {
+    background: #3a3a3a;
+}
+
+@media (hover: hover) {
+    .users-table-table-tbody tr:hover {
+        background: #4b4b4b;
+    }
+}
+
+.js-select-status {
+    padding: .4rem .5rem;
+    font-size: .9rem;
+}
+
+.js-delete-row-button {
+    fill: var(--color-red-lighter);
+}
+
+.js-update-row-button {
+    fill: var(--color-green);
+}
+
+.js-button {
+    cursor: pointer;
+    width: 1.5rem;
+    box-sizing: border-box;
+}
+
+.js-select-status {
+    background-color: var(--color-dark-lighter);
+    border: .1rem solid var(--color-white-op-text);
+    cursor: pointer;
+}
+
+.js-select-status:focus {
+    border: .1rem solid var(--color-blue);
+}
+
+.user-delete-result-row {
+    background-color: var(--color-red);
+    padding: .8rem !important;
+}
+
+.dt-input {
+    margin-left: .5rem;
+    border-radius: .3rem;
+    padding: .2rem;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    fill: var(--color-dark);
+    stroke: var(--color-dark);
+}
+
+.dt-empty {
+    text-align: center;
+    padding: 1rem!important;
+    font-weight: 500;
+}

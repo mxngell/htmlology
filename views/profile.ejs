@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <%- include('./partials/head') %>
+    
+    <link rel="stylesheet" href="/libs/micromodal/micromodal.css">
+    <link rel="stylesheet" href="/styles/main-page-styles.css">
+    <link rel="stylesheet" href="/styles/profile-page-styles.css">
+    <title>Личный кабинет</title>
+</head>
+<body>
+    <div class="wrapper">  
+        <%- include('./partials/header') %>
+
+        <main class="main">
+            <div class="main_inner">
+                <section class="profile-section">
+                    <div class="avatar-block content-block">
+                        <svg class="avatar-block-profile-icon" viewBox="0 0 395 395" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="197.5" cy="197.5" r="190.5" stroke="#F9F9F9" stroke-width="14"/>
+                            <path d="M197.5 199.482C184.27 199.482 173.445 195.372 165.026 187.152C156.607 178.932 152.398 168.363 152.398 155.446C152.398 142.529 156.607 131.96 165.026 123.74C173.445 115.52 184.27 111.41 197.5 111.41C210.73 111.41 221.554 115.52 229.973 123.74C238.392 131.96 242.602 142.529 242.602 155.446C242.602 168.363 238.392 178.932 229.973 187.152C221.554 195.372 210.73 199.482 197.5 199.482ZM101.282 293.718V266.122C101.282 258.685 103.186 252.324 106.995 247.04C110.803 241.756 115.714 237.744 121.728 235.004C135.158 229.132 148.038 224.729 160.366 221.793C172.694 218.857 185.072 217.389 197.5 217.389C209.928 217.389 222.256 218.906 234.483 221.94C246.711 224.973 259.54 229.328 272.971 235.004C279.185 237.744 284.196 241.756 288.005 247.04C291.813 252.324 293.718 258.685 293.718 266.122V293.718H101.282ZM119.323 276.104H275.677V266.122C275.677 262.991 274.725 260.006 272.82 257.168C270.916 254.331 268.561 252.227 265.754 250.857C252.925 244.789 241.199 240.631 230.575 238.38C219.951 236.129 208.926 235.004 197.5 235.004C186.074 235.004 174.949 236.129 164.124 238.38C153.3 240.631 141.573 244.789 128.944 250.857C126.138 252.227 123.833 254.331 122.029 257.168C120.225 260.006 119.323 262.991 119.323 266.122V276.104ZM197.5 181.867C205.317 181.867 211.782 179.372 216.894 174.381C222.005 169.391 224.561 163.079 224.561 155.446C224.561 147.813 222.005 141.501 216.894 136.511C211.782 131.52 205.317 129.025 197.5 129.025C189.682 129.025 183.217 131.52 178.106 136.511C172.994 141.501 170.438 147.813 170.438 155.446C170.438 163.079 172.994 169.391 178.106 174.381C183.217 179.372 189.682 181.867 197.5 181.867Z" fill="#F9F9F9"/>
+                        </svg>                            
+                    </div>
+                    <div class="personal-info-block content-block">
+                        <div class="personal-info-block-body">
+                            <div class="personal-info-block-body-header">
+                                ЛИЧНАЯ ИНФОРМАЦИЯ
+                                <hr class="h-line">
+                            </div>
+                            <table class="user-data-table">
+                                <tr class="user-data-table-row">
+                                    <th class="user-data-table-row-field">Имя:</th>
+                                    <td class="user-data-table-row-value"><%= user.name %></td>
+                                </tr>
+                                <tr class="user-data-table-row">
+                                    <th class="user-data-table-row-field">Фамилия:</th>
+                                    <td class="user-data-table-row-value"><%= user.surname %></td>
+                                </tr>
+                                <tr class="user-data-table-row">
+                                    <th class="user-data-table-row-field">Отчество:</th>
+                                    <td class="user-data-table-row-value"><%= user.middle_name %></td>
+                                </tr>
+                                <tr class="user-data-table-row">
+                                    <th class="user-data-table-row-field">Почта:</th>
+                                    <td class="user-data-table-row-value"><%= user.email %></td>
+                                </tr>
+                                <tr class="user-data-table-row">
+                                    <th class="user-data-table-row-field">Статус:</th>
+                                    <% switch(user.role) {
+                                        case 1: %>
+                                            <td class="user-data-table-row-value css-student-user-status"><%= userRole.name %></td>
+                                        <% break;
+                                        case 2: %>
+                                            <td class="user-data-table-row-value css-teacher-user-status"><%= userRole.name %></td>
+                                        <% break;
+                                        case 3: %>
+                                            <td class="user-data-table-row-value css-admin-user-status"><%= userRole.name %></td>
+                                        <% break;
+                                    } %>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="personal-info-block-btns">
+                            <button class="edit-profile-button" data-custom-open="modal-1">
+                                <div class="edit-profile-button-icon">
+                                    <img src="/assets/icons/settings-icon.svg" alt="Log-out-icon" class="edit-profile-button-icon-icon">
+                                </div>
+                                Изменить
+                            </button>
+                            <a href="/profile/log-out" class="log-out-button">
+                                <div class="log-out-button-icon">
+                                    <!-- <img src="/assets/icons/log-out-icon.svg" alt="Log-out-icon" class="log-out-button-icon-icon"> -->
+                                    <svg  class="log-out-button-icon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14 7.63636L14 4.5C14 4.22386 13.7761 4 13.5 4L4.5 4C4.22386 4 4 4.22386 4 4.5L4 19.5C4 19.7761 4.22386 20 4.5 20L13.5 20C13.7761 20 14 19.7761 14 19.5L14 16.3636" stroke="rgb(228,228,228)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M10 12L21 12M21 12L18.0004 8.5M21 12L18 15.5" stroke="rgb(228,228,228)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                Выйти
+                            </a>
+                        </div>
+                    </div>
+                    <div class="statistic-block content-block">
+                        statistic-block (В разработке)
+                    </div>                    
+                </section>
+            </div>
+            <div class="modal micromodal-slide" id="modal-1">
+                <div class="modal__overlay">
+                  <div class="modal__container" role="dialog">
+                    <div class="modal__header">
+                        <h2 class="modal__title">
+                            Личная информация
+                        </h2>
+                        <svg class="modal__close" data-custom-close="modal-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 10.8181 3.23279 9.64778 3.68508 8.55585C4.13738 7.46392 4.80031 6.47177 5.63604 5.63604C6.47177 4.80031 7.46392 4.13738 8.55585 3.68508C9.64778 3.23279 10.8181 3 12 3C13.1819 3 14.3522 3.23279 15.4442 3.68508C16.5361 4.13738 17.5282 4.80031 18.364 5.63604C19.1997 6.47177 19.8626 7.46392 20.3149 8.55585C20.7672 9.64778 21 10.8181 21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4441 20.3149C14.3522 20.7672 13.1819 21 12 21L12 21Z" stroke="rgb(228,228,228)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M9 9L15 15" stroke="rgb(228,228,228)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M15 9L9 15" stroke="rgb(228,228,228)" stroke-width="2" stroke-linecap="round"/>
+                        </svg>                                                
+                    </div>
+                    <div class="modal__content">
+                        <form method="POST" action="/profile/update-user-data" id="editDataModal-form">
+                            <div class="mb-3 edit-form-item">
+                                <label for="name">Имя</label>
+                                <input type="text" value="<%= user.name %>" name="name" id="name">
+                            </div>
+                            <div class="mb-3 edit-form-item">
+                                <label for="name">Фамилия</label>
+                                <input type="text" value="<%= user.surname %>" name="surname" id="surname">
+                            </div>
+                            <div class="mb-3 edit-form-item">
+                                <label for="name">Отчество</label>
+                                <input type="text" value="<%= user.middle_name %>" name="middle_name" id="middle_name">
+                            </div>
+                            <div class="mb-3 edit-form-item">
+                                <label for="name">Почта</label>
+                                <input type="text" value="<%= user.email %>" name="email" id="email">
+                            </div>
+                            <div class="edit-form-item">
+                                <input type="hidden" value="<%= user.user_id %>" name="user_id">
+                                <input type="submit" value="Сохранить">
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </main>
+        
+        <%- include('./partials/footer') %>
+    </div>
+    <script src="/libs/micromodal/micromodal.min.js"></script>
+    <script src="/scripts/profile-page-script.js"></script>
+    <script>
+        MicroModal.init({
+            openTrigger: 'data-custom-open',
+            closeTrigger: 'data-custom-close',
+            openClass: 'is-open',
+            awaitOpenAnimation: true,
+            awaitCloseAnimation: true
+        });
+    </script>
+</body>
+</html>

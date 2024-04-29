@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <%- include('./partials/head') %>
+
+    <link rel="stylesheet" href="/styles/error-page-styles.css">
+    <title>Внутренняя ошибка</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="error-block">
+            <div class="error-block-header">
+                500
+                <%= console.log(error)%>
+            </div>
+            <div class="error-block-body">
+                <div class="error-block-body-name">
+                    Ошибка сервера
+                </div>
+                <div class="error-block-body-description">
+                    На сервере произошла непредвиденная ошибка. Попробуйте перейти на <a href="/home">главную страницу</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

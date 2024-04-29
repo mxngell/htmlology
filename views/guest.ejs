@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <%- include('./partials/head') %>
+
+    <link rel="stylesheet" href="/styles/guest-page-styles.css">
+    <title>HTMLOLOGY</title>
+</head>
+
+<body>
+    <div class="wrapper">   
+        <main class="main">
+            <section class="head-section">
+                <div class="head-section_container">
+                    <div class="head-section-content">
+                        <div class="head-section-logo">
+                            <div class="head-section-logo-logo">
+                                <span class="logo-red-style">HTML</span>OLOGY
+                            </div>
+                            <span class="head-section-logo-cursor"></span>                        
+                        </div>
+                        <div class="head-section-buttons">
+                            <a href="/authorization" id="start-btn">
+                                Начать
+                            </a>
+                            <a id="more-details-btn">
+                                Подробнее
+                                <svg viewBox="0 0 16 13" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.799995 7.31256L13.2687 7.31256L9.03434 11.6132C8.72195 11.9304 8.72195 12.4448 9.03434 12.762C9.34674 13.0793 9.85334 13.0793 10.1657 12.762L15.7657 7.07449C16.0781 6.75721 16.0781 6.24269 15.7657 5.92561L10.1657 0.238065C10.0095 0.0794228 9.80474 9.4311e-07 9.59994 9.52062e-07C9.39534 9.61005e-07 9.19054 0.0794229 9.03434 0.238065C8.72194 0.555348 8.72194 1.06987 9.03434 1.38695L13.2687 5.68754L0.799995 5.68755C0.358397 5.68755 -3.03735e-07 6.05135 -2.84122e-07 6.50005C-2.64508e-07 6.94876 0.358197 7.31256 0.799995 7.31256Z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="about-section">
+                <div class="about-section_container">
+                    <div class="about-us-block">
+                        <div class="block-header">
+                            <svg viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M28.6169 32H34V47.7778H40.8889M34 20.2222C34 20.2222 34.0345 26 34.0345 20.2222M39.3831 64.529C43.3922 63.8221 47.2229 62.3325 50.6563 60.1451C54.0897 57.9578 57.0587 55.1156 59.3937 51.7809C61.7287 48.4461 63.3841 44.6841 64.2652 40.7096C65.1463 36.7351 65.236 32.626 64.529 28.6169C63.8221 24.6078 62.3325 20.7771 60.1451 17.3437C57.9578 13.9103 55.1156 10.9413 51.7809 8.60629C48.4461 6.27127 44.6841 4.61594 40.7096 3.73482C36.7351 2.8537 32.626 2.76404 28.6169 3.47096C24.6078 4.17788 20.7771 5.66753 17.3437 7.85487C13.9103 10.0422 10.9413 12.8844 8.60628 16.2191C6.27127 19.5539 4.61594 23.3159 3.73482 27.2904C2.8537 31.2649 2.76404 35.374 3.47096 39.3831C4.17788 43.3922 5.66753 47.2229 7.85487 50.6563C10.0422 54.0897 12.8844 57.0587 16.2191 59.3937C19.5539 61.7287 23.3159 63.3841 27.2904 64.2652C31.2649 65.1463 35.374 65.236 39.3831 64.529Z" stroke="rgb(249, 0, 59)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>                                
+                            О нас
+                        </div>
+                        <div class="block-body">
+                            <span class="color-red">HTMLOLOGY</span> представляет из себя веб-сайт, 
+                            посвященный обучению основам HTML. Мы стремимся сделать изучение HTML простым, 
+                            увлекательным и доступным для всех, независимо от уровня подготовки.Мы предлагаем
+                            учебный материал на различные темы, понятные примеры кода и практические задания 
+                            для лучшего усвоения.
+
+                        </div>
+                    </div>
+                    <svg viewBox="0 0 1440 320" class="curve-wave">
+                        <path fill="rgb(20,20,20)" fill-opacity="1" d="M0,64L48,58.7C96,53,192,43,288,80C384,117,480,203,576,208C672,213,768,139,864,128C960,117,1056,171,1152,186.7C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                    </svg>                    
+                </div>
+            </section>
+            <section class="features-section">
+                <div class="features-section_container">
+                    <div class="features">
+                        <div class="feature-card">
+                            <div class="card-header">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M3.84299 8.12534L11.1877 4.86101C11.7049 4.63118 12.2951 4.63118 12.8123 4.86101L20.157 8.12534C20.4817 8.26962 20.4817 8.73038 20.157 8.87466L12.8123 12.139C12.2951 12.3688 11.7049 12.3688 11.1877 12.139L3.84299 8.87466C3.51835 8.73038 3.51835 8.26962 3.84299 8.12534Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M20.5 8.5V12.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6.5 10.5V15.5C6.5 15.5 7 17.5 12 17.5C17 17.5 17.5 15.5 17.5 15.5V10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                                    
+                                <h2>Теоретический материал</h2>
+                            </div>
+                            <p class="feature">Каждая тема содержит теорию. Теоретический материал — фундамент на котором будет строится ваше обучение.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="card-header">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23 12L15.9289 19.0711L14.5147 17.6569L20.1716 12L14.5147 6.34317L15.9289 4.92896L23 12ZM3.82843 12L9.48528 17.6569L8.07107 19.0711L1 12L8.07107 4.92896L9.48528 6.34317L3.82843 12Z"></path>
+                                </svg>
+                                <h2>Практика</h2>
+                            </div>
+                            <p class="feature">К каждой теме прилагается практические задание, чтобы вы могли преобразовать полученные знания в реальные навыки.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="card-header">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3 12H7V21H3V12ZM17 8H21V21H17V8ZM10 2H14V21H10V2Z"></path>
+                                </svg>
+                                <h2>Статистика</h2>
+                            </div>
+                            <p class="feature">Статистика — это ваш личный анализатор прогресса. Здесь вы можете отслеживать свои успехи и просматривать свой прогресс.</p>
+                        </div>                        
+                    </div>
+                </div>
+            </section>
+            <button id="scrollToTopBtn">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4L11.2929 3.29289L12 2.58579L12.7071 3.29289L12 4ZM13 19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19L13 19ZM5.29289 9.29289L11.2929 3.29289L12.7071 4.70711L6.70711 10.7071L5.29289 9.29289ZM12.7071 3.29289L18.7071 9.29289L17.2929 10.7071L11.2929 4.70711L12.7071 3.29289ZM13 4L13 19L11 19L11 4L13 4Z" fill="rgb(228,228,228)"/>
+                </svg>                    
+            </button>
+        </main>
+    </div>
+    <script src="/scripts/guest-page-script.js"></script>
+</body>
+
+</html>

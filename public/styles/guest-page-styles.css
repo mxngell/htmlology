@@ -1,0 +1,327 @@
+@import url(../styles/index-styles.css);
+
+html {
+    font-size: 16px;
+}
+
+section {
+    height: 100vh;
+    width: 100%;
+}
+
+[class*=_container] {
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+}
+
+/*========================= GENERAL =========================*/
+
+span.color-blue{
+    color: var(--color-blue);
+}
+
+span.color-red {
+    color: var(--color-red);
+}
+
+span.color-green {
+    color: var(--color-green);
+}
+
+/*========================= HEAD-SECTION =========================*/
+
+.head-section {
+    background-color: var(--color-white-lighter);
+    display: flex;
+    justify-content: center;
+}
+
+.head-section_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.head-section-logo{
+    position: relative;
+    display: flex;
+    gap: .2rem;
+    margin-bottom: .5rem;
+}
+
+.head-section-logo-logo {
+    color: var(--color-dark-lighter);
+    font-size: 7.5rem;
+    font-weight: 700;
+    letter-spacing: .15rem;
+    overflow: hidden;
+    width: 0;
+    position: relative;
+    animation: text_apperance .7s forwards ease-in-out;
+}
+
+.logo-red-style {
+    color: var(--color-red);
+}
+
+@keyframes text_apperance {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.head-section-logo-cursor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4rem;
+    height: 100%;
+    background-color: var(--color-dark-lighter);
+    animation: cursor_apperance .7s forwards ease-in-out;
+}
+
+@keyframes cursor_apperance {
+    0% {
+        right: 100%;
+    }
+    100% {
+        right: -4.5rem;
+    }
+}
+
+.head-section-buttons {
+    display: flex;
+    justify-content: center;
+    gap: .7rem;
+}
+
+#start-btn,
+#more-details-btn {
+    outline: none;
+    border: none;
+    border-radius: 3rem;
+    padding: .7rem 1.2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    animation: showing-from-left-btns .6s ease .7s forwards;
+}
+
+#start-btn {
+    background-color: transparent;
+    color: var(--color-dark);
+    border: .15rem solid var(--color-dark);
+    font-weight: 500;
+    transition: all .1s ease;
+}
+
+@media (hover: hover) {
+    #start-btn:hover {
+        background-color: var(--color-dark);
+        color: var(--color-white);
+    }
+}
+
+#more-details-btn {
+    background-color: var(--color-red);
+    color: var(--color-white-lighter);
+}
+
+#more-details-btn > svg {
+    display: none;
+}
+
+@media (hover: hover) {
+    #more-details-btn > svg {
+        display: block;
+        width: 1.1rem;
+        margin-left: .6rem;
+        transition: all .15s ease;
+        fill: var(--color-white);
+    }
+
+    #more-details-btn:hover > svg {
+        margin-left: 1rem;
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes showing-from-left-btns {
+    0% {
+        opacity: 0;
+        transform: translateX(-70%);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#scrollToTopBtn {
+    opacity: 0;
+    border: .1rem solid var(--color-border);
+    background-color: var(--color-dark);
+    border-radius: .3rem;
+    padding: .8rem;
+    position: fixed;
+    bottom: 1.6rem;
+    right: 1.6rem;
+    z-index: 99;
+    transition: .2s ease all;
+    transform: translateY(100%);
+    border-radius: 50%;
+}
+
+#scrollToTopBtn.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#scrollToTopBtn > svg {
+    width: 1.9rem;
+}
+
+/*========================= ABOUT-SECTION =========================*/
+
+.about-section {
+    background-color: var(--color-white-lighter);
+    position: relative;
+}
+
+.about-section_container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+} 
+
+.curve-wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+.about-us-block {
+    max-width: 50rem;
+    padding: 1rem;
+    font-weight: 300;
+    transition: all 1s ease;
+    margin-bottom: 10rem;
+
+    opacity: 0;
+    transition: 1s ease all;
+}
+
+.about-us-block.visible {
+    animation: showing-from-left .6s ease forwards;
+}
+
+.block-header {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    color: var(--color-dark);
+    font-size: 2.2rem;
+    margin-bottom: .9rem;
+}
+
+.block-header > svg {
+    width: 3.5rem;
+}
+
+.block-body {
+    color: var(--color-dark);
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    text-align: justify;
+}
+
+.block-body > span.color-red {
+    font-weight: 500;
+}
+
+/*========================= FEATURES-SECTION =========================*/
+
+.features-section {
+    background-color: var(--color-dark);
+}
+
+.features-section_container {
+    display: grid;
+    align-items: center;
+}
+
+.features {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    grid-gap: 1rem;
+}
+
+.feature-card {
+    background-color: var(--color-dark);
+    border: .1rem solid var(--color-border);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: rgba(75, 73, 73, 0.15) 0px 48px 100px 0px;
+    transition: transform .5s ease;
+    opacity: 0;
+}
+
+.feature-card.visible:nth-child(1) {
+    animation: showing-from-left .6s ease forwards;
+}
+
+.feature-card.visible:nth-child(2) {
+    animation: showing-from-left .6s ease .6s forwards;
+}
+
+.feature-card.visible:nth-child(3) {
+    animation: showing-from-left .6s ease 1.2s forwards;
+}
+
+.card-header > svg {
+    width: 5rem;
+}
+
+.feature {
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+@keyframes showing-from-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%);
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*========================= MEDIA_QUERIES =========================*/
+
+@media (max-width: 576px) { 
+    
+}
+
+@media (min-width: 576px) and (max-width: 767px) { 
+  
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    
+} 
+
+@media (min-width: 992px) and (max-width: 1299px) {
+
+}

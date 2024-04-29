@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <%- include('./partials/head') %>
+
+    <link rel="stylesheet" href="/styles/alerts.css">
+    <link rel="stylesheet" href="/styles/admin-page-styles.css">
+    <link rel="stylesheet" href="/styles/main-page-styles.css">
+    <title>Админ-панель</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <%- include('./partials/header') %>
+
+        <main class="main">
+            <div class="main_inner" id="main-page">
+                <section class="users-table-section">
+                    <div class="users-table-block">
+                         <table id="users-table-table" class="users-table-table" style="width:100%">
+                            <thead>
+                                <th>Имя</th>
+                                <th>Фамилия</th>
+                                <th>Отчество</th>
+                                <th>Почта</th>
+                                <th>Статус</th>
+                                <th></th>
+                                <th></th>
+                            </thead>
+                            <tbody class="users-table-table-tbody">
+                                <% allUsers.users.forEach((user) => { %>
+                                    <tr>
+                                        <td class="js-user-name"><%=user.name%></td>
+                                        <td class="js-user-surname"><%=user.surname%></td>
+                                        <td class="js-user-middle_name"><%=user.middle_name%></td>
+                                        <td><%=user.email%></td>
+                                        <td>
+                                            <select name="user-status" class="js-select-status">
+                                                <%  allUsers.roles.forEach((role) => { 
+                                                    if(role.role_id == user.role) { %> 
+                                                    <option selected value="<%=role.role_id%>"><%=role.name%></option>
+                                                <% } else { %> 
+                                                    <option value="<%=role.role_id%>"><%=role.name%></option>
+                                                <% }
+                                                }) %>
+                                            </select>
+                                        </td>
+                                        <td class="save-changes-td">
+                                            <svg data-user-id="<%=user.user_id%>" class="js-update-row-button js-button" viewBox="0 0 24 24"><path d="M8 12.052c1.995 0 3.5-1.505 3.5-3.5s-1.505-3.5-3.5-3.5-3.5 1.505-3.5 3.5 1.505 3.5 3.5 3.5zM9 13H7c-2.757 0-5 2.243-5 5v1h12v-1c0-2.757-2.243-5-5-5zm11.294-4.708-4.3 4.292-1.292-1.292-1.414 1.414 2.706 2.704 5.712-5.702z"></path></svg>
+                                        </td>
+                                        <td class="delete-user-td">
+                                            <svg data-user-id="<%=user.user_id%>" class="js-delete-row-button js-button" viewBox="0 0 24 24"><path d="M8 12.052c1.995 0 3.5-1.505 3.5-3.5s-1.505-3.5-3.5-3.5-3.5 1.505-3.5 3.5 1.505 3.5 3.5 3.5zM9 13H7c-2.757 0-5 2.243-5 5v1h12v-1c0-2.757-2.243-5-5-5zm11.293-4.707L18 10.586l-2.293-2.293-1.414 1.414 2.292 2.292-2.293 2.293 1.414 1.414 2.293-2.293 2.294 2.294 1.414-1.414L19.414 12l2.293-2.293z"></path></svg>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <%- include('./partials/footer') %>
+    </div>
+    <script src="/module/datatables.net/js/dataTables.min.js"></script>
+    <script src="/scripts/alerts.js"></script>
+    <script src="/scripts/admin-panel-page-script.js"></script>
+</body>
+
+</html>

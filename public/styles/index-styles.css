@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800&display=swap');
+
+html,body,div,span,applet,iframe,a,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,
+th,td,article,footer,header,menu,nav,output,section,time,audio{margin: 0;padding: 0;border: 0}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display: block}
+html {height: 100%}
+body {line-height: 1;height: 100%;width: 100%}
+table {border-collapse: collapse;border-spacing: 0}
+input {text-decoration: none;outline: none; border: none;}
+a {text-decoration: none;color: inherit}
+
+/* ======================================================= */
+
+:root {
+    --color-dark: rgb(20,20,20);
+    --color-dark-op: rgba(20,20,20,.5);
+    --color-dark-lighter: rgb(43,43,43);
+    --color-error: rgb(204, 44, 44);
+    --color-red: rgb(249, 0, 59);
+    --color-red-lighter: rgb(188, 53,53);
+    --color-white-op-text: rgba(228,228,228, .5);
+    --color-white-op: rgba(228,228,228, .07);
+    --color-white: rgb(228,228,228);
+    --color-white-lighter: rgb(249,249,249);
+    --color-grey: rgb(121,121,121);
+    --color-orange: rgb(221, 144, 0);
+    --color-link-color: rgb(146, 136, 255);
+    --color-green: rgb(0, 138, 0);
+    --color-blue: rgb(0, 123, 224);
+    --color-border: rgba(228,228,228, .25);
+    
+    --border: 0.03125rem solid var(--color-border);
+    --border-hover: 0.03125rem solid rgba(228,228,228, .75);
+}
+
+::selection {
+    background-color: #f14c4cb8;
+}
+
+* {
+    font-family: 'Rubik', monospace;
+    color: var(--color-white-lighter);
+    box-sizing: border-box;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    background-color: var(--color-dark);
+}
+
+a {
+    color: var(--color-link-color);
+}

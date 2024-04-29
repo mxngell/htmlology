@@ -1,0 +1,213 @@
+
+[class$="_block"]:not(:last-child) {
+    margin-bottom: 2.5rem;
+}
+
+/*========================= YOUR-THEMES-BLOCK =========================*/
+
+.your-themes-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.your-themes-list .list-item,
+.themes-list-empty {
+    background-color: var(--color-dark-lighter);
+    padding: 1rem;
+    border-radius: .4rem;
+    border: .15rem solid var(--color-border);
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    justify-content: space-between;
+}
+
+.your-themes-list .list-item.deleted {
+    transform: scale(0);
+}
+
+.themes-list-empty {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    padding: .8rem;
+    color: var(--color-orange);
+    border: .15rem solid var(--color-orange);
+    font-weight: 500;
+}
+
+.themes-list-empty > svg {
+    width: 1.8rem;
+}
+
+.your-themes-list .list-item:not(:last-child) {
+    margin-bottom: .6rem;
+}
+
+@media (hover: hover) {
+    .your-themes-list .list-item:hover {
+        border: .15rem solid rgba(228,228,228, .75);
+    }
+}
+
+.list-item-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.item-title {
+    font-weight: 500;
+    flex: 1 0 auto;
+}
+
+.item-description {
+    color: var(--color-white-op-text);
+    text-align: justify;
+}
+
+.list-item-actions {
+    flex: 0 0 auto;
+}
+
+.list-item-actions > a {
+    display: inline-block;
+}
+
+.action-edit,
+.action-delete {
+    width: 1.5rem;
+    cursor: pointer;
+}
+
+.action-delete {
+    margin-left: .5rem;
+}
+
+@media (max-width: 576px) { 
+    .your-themes-list .list-item {
+        flex-direction: column;
+    }
+    .list-item-actions {
+        gap: 2rem;
+    }
+    .action-edit,
+    .action-delete {
+        width: 2rem;
+    }
+    .action-delete {
+        margin-left: 3rem;
+    }
+    .your-themes-list .list-item {
+        gap: .8rem;
+    }
+    .list-item-info {
+        border-bottom: var(--border);
+        padding-bottom: 1rem;
+    }
+} 
+
+/*========================= NEW-THEME-BLOCK =========================*/
+
+#create-theme-form .create-theme-form-item > label {
+    margin-bottom: .3rem;
+}
+
+#create-theme-form .create-theme-form-item > input {
+    transition: .1s ease all;
+    font-weight: 400;
+}
+
+#create-theme-form .form-actions > input[type='submit'] {
+    border: 0.1rem solid var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    padding: .6rem 1rem;
+    transition: .1s ease all;
+    margin-right: .3rem;
+}
+
+#create-theme-form .form-actions > input[type='reset'] {
+    border: 0.1rem solid var(--color-error);
+    background-color: var(--color-error);
+    color: var(--color-white);
+    padding: .6rem 1rem;
+    transition: .1s ease all;
+}
+
+@media (hover: hover) {
+    #create-theme-form .form-actions > input[type='submit']:hover {
+        background-color: transparent;
+        color: var(--color-white);
+    }
+    #create-theme-form .form-actions > input[type='reset']:hover {
+        background-color: transparent;
+        color: var(--color-error);
+    }
+}
+
+@media (max-width: 576px) {
+    #create-theme-form .form-actions > input[type='submit'],
+    #create-theme-form .form-actions > input[type='reset'] {
+        margin: 0;
+        width: 50%;
+    }
+    #create-theme-form .form-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+    }
+}
+
+/*============== EDITOR =============*/
+
+[id$="_editor"] {
+    color: var(--color-white)!important;
+    background-color: var(--color-dark-lighter);
+    border-radius: 0 0 .3rem .3rem;
+    border: var(--border)!important;
+}
+
+/*==== TOOLBAR ====*/
+
+.ql-toolbar {
+    background-color: var(--color-dark-lighter);
+    border-radius: .3rem .3rem 0 0;
+    border: var(--border)!important;
+    border-bottom: none!important;
+}
+
+.ql-toolbar .ql-picker-options{
+    background-color: var(--color-dark)!important;
+}
+
+.ql-toolbar .ql-stroke,
+.ql-toolbar .ql-fill{
+    stroke: var(--color-white)!important;
+}
+
+.ql-toolbar .ql-selected, 
+.ql-active {
+    color: var(--color-orange)!important;
+}
+
+@media (hover: hover) {
+    .ql-toolbar .ql-picker-item:hover{
+        color: var(--color-orange)!important;
+    }
+    .ql-toolbar .ql-picker-label:hover{
+        color: var(--color-orange)!important;
+    }
+    .ql-toolbar .ql-picker-label:hover .ql-stroke{
+        stroke: var(--color-orange)!important;
+    }
+    .ql-toolbar button:hover .ql-stroke {
+        stroke: var(--color-orange)!important;
+     }
+    .ql-toolbar button:hover .ql-fill {
+        fill: var(--color-orange)!important;
+        stroke: var(--color-orange)!important;
+    }
+}

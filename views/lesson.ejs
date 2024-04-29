@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <%- include('./partials/head') %>
+    
+    <link rel="stylesheet" href="/module/quill/dist/quill.core.css"> 
+    <link rel="stylesheet" href="/styles/main-page-styles.css">    
+    <link rel="stylesheet" href="/styles/lesson-page-styles.css">    
+    <title>Обучение</title>
+</head>
+<body>
+    <div class="wrapper">  
+        <main class="main">
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+                <section class="theory-section" id="theory-section">
+                    <div class="theme-title mb-3" >
+                        <div class="theme-title_inner d-flex align-items-center justify-content-between">
+                            <h1><%= theme.title %></h1>
+                            <%= surname + ' ' + name.charAt(0)  + '. ' +  middle_name.charAt(0) + '.' %>
+                        </div>
+                    </div>
+                    <div class="theory-section_inner">
+                        <%- theme.theory %>
+                    </div>
+                </section>
+                <section class="practice-section" id="practice-section">
+                    <div class="practice-section_inner">
+                        <div class="practice-title d-flex align-items-center mb-3">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21ZM11.7682 15.6402L16.7682 9.64018L15.2318 8.35982L10.9328 13.5186L8.70711 11.2929L7.29289 12.7071L10.2929 15.7071L11.0672 16.4814L11.7682 15.6402Z" fill="rgb(0, 138, 0)"/>
+                            </svg>
+                            <h1>Задачи</h1>
+                        </div>
+                        <%- theme.task %>
+                    </div>
+                </section>
+                <section class="completion-section" id="completion-section">
+                    <div class="complete-section_inner">
+                        <textarea user-id="<%=user_id%>" theme-id="<%=theme.theme_id%>" name="answer" id="answer-textarea" rows="14" placeholder="Ваш ответ на практическое задание"></textarea>
+                    </div>
+                </section>
+            <div id="control-panel-container">
+                <div id="control-panel" class="d-flex justify-content-between align-items-center p-2 rounded">
+                    <a href="/study" id="home-btn">
+                        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28.41 13.1999C26.7389 11.5299 25.8 9.2643 25.8 6.90183V4.19985C25.8 3.20985 24.99 2.39985 24 2.39985H22.2C21.21 2.39985 20.4 3.20985 20.4 4.19985C20.4 4.56734 19.9558 4.75147 19.6958 4.49175L16.8 1.59885C16.3086 1.13445 15.8586 0.599854 15 0.599854C14.1414 0.599854 13.6914 1.13445 13.2 1.59885L1.58998 13.1999C1.02838 13.7849 0.599976 14.2115 0.599976 14.9999C0.599976 16.0133 1.37758 16.7999 2.39998 16.7999C3.39409 16.7999 4.19998 17.6057 4.19998 18.5999V27.5999C4.19998 28.5899 5.00998 29.3999 5.99998 29.3999C8.98231 29.3999 11.4 26.9822 11.4 23.9999V20.3999C11.4 19.4099 12.21 18.5999 13.2 18.5999H16.8C17.79 18.5999 18.6 19.4099 18.6 20.3999V23.9999C18.6 26.9822 21.0176 29.3999 24 29.3999C24.99 29.3999 25.8 28.5899 25.8 27.5999V18.5999C25.8 17.6057 26.6059 16.7999 27.6 16.7999C28.6224 16.7999 29.4 16.0133 29.4 14.9999C29.4 14.2115 28.9716 13.7849 28.41 13.1999Z" fill="#E4E4E4"/>
+                        </svg>
+                    </a>
+                    <div class="nav-btns d-flex align-items-center gap-4">
+                        <a href="#theory-section" id="theory-btn">
+                            <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="9.16666" y="7.33325" width="25.6667" height="31.1667" rx="2" stroke="#E4E4E4" stroke-width="2.5"/>
+                                <path d="M16.5 16.5H27.5" stroke="#E4E4E4" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M16.5 23.8333H27.5" stroke="#E4E4E4" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M16.5 31.1667H23.8333" stroke="#E4E4E4" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="#practice-section" id="practice-btn">
+                            <svg viewBox="0 0 24 24" fill="#E4E4E4">
+                                <path d="M23 12L15.9289 19.0711L14.5147 17.6569L20.1716 12L14.5147 6.34317L15.9289 4.92896L23 12ZM3.82843 12L9.48528 17.6569L8.07107 19.0711L1 12L8.07107 4.92896L9.48528 6.34317L3.82843 12Z"></path>
+                            </svg>
+                        </a>
+                        <a href="#completion-section" id="completion-btn">
+                            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="20" r="15" stroke="#E4E4E4" stroke-width="2"/>
+                                <path d="M13.3333 20L18.3333 25L26.6667 15" stroke="#E4E4E4" stroke-width="2"/>
+                            </svg>                                
+                        </a>
+                    </div>
+                    <a href="" id="end-btn">
+                        <span>Завершить</span>
+                        <svg viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M36.9548 15L37.9997 13.9238L39.1083 15L37.9997 16.0763L36.9548 15ZM2.48874 16.5C1.66032 16.5 0.988743 15.8285 0.988743 15C0.988743 14.1716 1.66032 13.5 2.48874 13.5V16.5ZM24.2132 0.539952L37.9997 13.9238L35.91 16.0763L22.1236 2.69247L24.2132 0.539952ZM37.9997 16.0763L24.2132 29.4601L22.1236 27.3076L35.91 13.9238L37.9997 16.0763ZM36.9548 16.5H2.48874V13.5H36.9548V16.5Z" fill="#F9F9F9"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/scripts/lesson-page-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+/*========================= MAIN =========================*/
+
+.profile-section {
+    display: grid;
+    grid-template-columns: 40% auto;
+    grid-template-rows: 27rem minmax(auto, auto);
+    grid-gap: .8rem;
+}
+
+.content-block {
+    border-radius: .4rem;
+    background-color: var(--color-dark-lighter);
+    padding: 1.25rem;
+}
+
+/*========================= AVATAR-BLOCK =========================*/
+
+.avatar-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.7rem!important;
+}
+
+.avatar-block-profile-icon {
+    width: 100%;
+    height: 100%;
+}
+
+/*========================= PERSONAL-INFO-BLOCK =========================*/
+
+.personal-info-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.personal-info-block-body {
+    margin-bottom: 1rem;
+}
+
+.personal-info-block-body-header {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: .05rem;
+}
+
+.h-line {
+    margin: .4rem 0 1.1rem 0;
+    padding: 0;
+    height: 0;
+    border: none;
+    border-top: .0625rem solid var(--color-white);
+}
+
+.user-data-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.user-data-table-row {
+    font-size: 1.16rem;
+}
+
+.user-data-table-row:nth-child(odd) {
+    background-color: #3a3a3a;
+}
+
+@media (hover: hover) {
+    .user-data-table-row:hover {
+        background-color: #4b4b4b;
+    }
+}
+
+.user-data-table-row-field,
+.user-data-table-row-value {
+    text-align: start;
+    padding: .4rem 0 .4rem .3rem;
+}
+
+.user-data-table-row-value {
+    font-weight: 300;
+}
+
+.user-data-table-row-field {
+    font-weight: 700;
+}
+
+.css-student-user-status,
+.css-teacher-user-status,
+.css-admin-user-status {
+    font-weight: 700;
+}
+
+.css-student-user-status {
+    color: var(--color-red);
+}
+
+.css-teacher-user-status {
+    color: var(--color-orange);
+}
+
+.css-admin-user-status {
+    color: var(--color-blue);
+}
+
+.personal-info-block-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-profile-button,
+.log-out-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: .45rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: .625rem;
+    padding: .6rem .7rem;
+    font-weight: 500;
+}
+
+.edit-profile-button {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+}
+
+.log-out-button {
+    background-color: var(--color-red-lighter);
+    color: var(--color-white);
+}
+
+.edit-profile-button-icon,
+.log-out-button-icon {
+    display: flex;
+    align-items: center;
+}
+
+.edit-profile-button-icon-icon,
+.log-out-button-icon-icon {
+    width: 1.5rem;
+}
+
+@media (max-width: 576px) {
+    .personal-info-block-btns {
+        flex-direction: column;
+        gap: .5rem;
+    }
+    .edit-profile-button,
+    .log-out-button {
+        width: 100%;
+    }
+    .edit-profile-button,
+    .log-out-button {
+        border-radius: .4rem;
+    }
+}
+
+/*========================= STATISTIC-BLOCK =========================*/
+
+.statistic-block {
+    grid-column: 1/3;
+}
+
+/*========================= MEDIA-QUERIES =========================*/
+
+@media (max-width: 576px) {
+    .profile-section {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 25rem minmax(auto, auto);
+    }
+    .statistic-block {
+        grid-column: 1;
+    }
+}
+
+/*========================= EDIT-PROFILE-MODAL =========================*/
+
+/*@-webkit-keyframes zoomIn{
+    0%{
+        opacity:0;
+        -webkit-transform:scale3d(.3,.3,.3);
+        transform:scale3d(.3,.3,.3)
+    }
+    50%{
+        opacity:1
+    }
+} */
+
+#editDataModal-form .edit-form-item > input {
+    color: var(--color-white);
+    border: var(--border);
+    background-color: #404040;
+    border-radius: .3rem;
+    padding: .4rem;
+    width: 100%;
+    transition: .1s ease all;
+    font-weight: 400;
+}
+
+#editDataModal-form .edit-form-item > input:focus {
+    background-color: #585858;
+}
+
+#editDataModal-form .edit-form-item > input[type='submit'] {
+    border: 0.1rem solid var(--color-green);
+    background-color: var(--color-green);
+}
+
+@media (hover: hover) {
+    #editDataModal-form .edit-form-item > input[type='submit'] {
+        background-color: var(--color-green);
+        color: var(--color-white);
+        border: 0.1rem solid var(--color-green);
+        padding: .5rem;
+    }
+
+    #editDataModal-form .edit-form-item > input[type='submit']:hover {
+        background-color: transparent;
+        color: var(--color-green);
+    }
+}

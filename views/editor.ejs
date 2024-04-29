@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <%- include('./partials/head') %>
+
+        <link rel="stylesheet" href="/styles/main-page-styles.css">
+        <link rel="stylesheet" href="/styles/alerts.css">
+        <link rel="stylesheet" href="/styles/editor-page-styles.css">
+        <link rel="stylesheet" href="/module/quill/dist/quill.snow.css">
+        <title>Редактор</title>
+</head>
+<body>
+    <div class="wrapper">
+        <%- include('./partials/header') %>
+
+        <main class="main">
+            <div class="main_inner">
+                <section class="editor-section">
+                    <div class="your-themes_block">
+                        <h1 class="mb-3">Ваши темы</h1>
+                        <ul class="your-themes-list">
+                            <% if (themes.length != 0) {
+                                themes.forEach((theme) => { %>
+                                    <li class="list-item">
+                                        <div class="list-item-info">
+                                            <div class="item-title"><%= theme.title %></div>
+                                            <div class="item-description"><%= theme.description %></div>                                    
+                                        </div>
+                                        <div class="list-item-actions">
+                                            <a href="study/update-theme/<%= theme.theme_id %>">
+                                                <svg class="action-edit" viewBox="0 0 24 24" fill="rgb(0, 138, 0)">
+                                                    <path d="m18.988 2.012 3 3L19.701 7.3l-3-3zM8 16h3l7.287-7.287-3-3L8 13z"/><path d="M19 19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 0 0 2-2v-8.668l-2 2V19z"/>
+                                                </svg>
+                                            </a>
+                                            <svg class="action-delete" data-theme="<%= theme.theme_id %>" viewBox="0 0 24 24" fill="rgb(204, 44, 44)">
+                                                <path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"/><path d="M9 10h2v8H9zm4 0h2v8h-2z"/>
+                                            </svg>
+                                        </div>
+                                    </li>                                
+                                <% })
+                            } else { %>
+                                <li class="themes-list-empty">
+                                    <svg viewBox="0 0 24 24" fill="rgb(221, 144, 0)">
+                                        <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z"></path>
+                                    </svg>
+                                    У вас пока нет созданных тем
+                                </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div class="new-theme_block">
+                        <h1 class="mb-3">Новая тема</h1>
+                        <form id="create-theme-form">
+                            <div class="mb-3 create-theme-form-item d-flex flex-column">
+                                <label for="title">Название</label>
+                                <input type="text" placeholder="Название темы" name="title" id="title">
+                            </div>
+                            <div class="mb-3 create-theme-form-item d-flex flex-column">
+                                <label for="description">Описание</label>
+                                <input type="text" placeholder="Описание темы" name="description" id="description">
+                            </div>
+                            <div class="mb-3 create-theme-form-item d-flex flex-column">
+                                <label>Теория</label>
+                                <div id="theory_editor"></div>
+                            </div>
+                            <div class="mb-3 create-theme-form-item d-flex flex-column">
+                                <label>Практическое задание</label>
+                                <div id="task_editor"></div>
+                            </div>
+                            <div class="create-theme-form-item form-actions">
+                                <input type="hidden" value="<%= user.user_id %>" name="author" id="author">
+                                <input type="submit" value="Готово">
+                                <input type="reset" value="Очистить">
+                            </div>
+                        </form>                        
+                    </div>
+                </section>                
+            </div>
+        </main>
+
+        <%- include('./partials/footer') %>
+    </div>
+    <script src="/module/quill/dist/quill.js"></script>
+    <script src="/scripts/alerts.js"></script>
+    <script src="/scripts/editor-page-script.js"></script>
+</body>
+</html>
