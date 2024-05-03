@@ -10,13 +10,13 @@ module.exports.authUser = async ({email, password}) => {
                 throw new Error('Неверный пароль')
             }
         } else {
-            throw new Error('Профиль с такой почтой не найден')
+            throw new Error('Профиль с данной почтой не найден')
         }
 
         const accessToken = jwt.sign({
             id: user[0].user_id,
             role: user[0].role
-        }, process.env.SECRET_KEY, {expiresIn: '24h'})
+        }, process.env.SECRET_KEY, {expiresIn: '2h'})
 
         return {
             access: true,

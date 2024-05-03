@@ -5,6 +5,7 @@
 
         <link rel="stylesheet" href="/styles/main-page-styles.css">
         <link rel="stylesheet" href="/styles/alerts.css">
+        <link rel="stylesheet" href="/styles/text-editors.css">
         <link rel="stylesheet" href="/styles/editor-page-styles.css">
         <link rel="stylesheet" href="/module/quill/dist/quill.snow.css">
         <title>Редактор</title>
@@ -17,7 +18,7 @@
             <div class="main_inner">
                 <section class="editor-section">
                     <div class="your-themes_block">
-                        <h1 class="mb-3">Ваши темы</h1>
+                        <h1 class="mb-2">Ваши темы</h1>
                         <ul class="your-themes-list">
                             <% if (themes.length != 0) {
                                 themes.forEach((theme) => { %>
@@ -27,7 +28,7 @@
                                             <div class="item-description"><%= theme.description %></div>                                    
                                         </div>
                                         <div class="list-item-actions">
-                                            <a href="study/update-theme/<%= theme.theme_id %>">
+                                            <a href="editor/<%= theme.theme_id %>">
                                                 <svg class="action-edit" viewBox="0 0 24 24" fill="rgb(0, 138, 0)">
                                                     <path d="m18.988 2.012 3 3L19.701 7.3l-3-3zM8 16h3l7.287-7.287-3-3L8 13z"/><path d="M19 19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 0 0 2-2v-8.668l-2 2V19z"/>
                                                 </svg>
@@ -49,7 +50,7 @@
                         </ul>
                     </div>
                     <div class="new-theme_block">
-                        <h1 class="mb-3">Новая тема</h1>
+                        <h1 class="mb-2">Новая тема</h1>
                         <form id="create-theme-form">
                             <div class="mb-3 create-theme-form-item d-flex flex-column">
                                 <label for="title">Название</label>

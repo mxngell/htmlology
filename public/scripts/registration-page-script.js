@@ -10,7 +10,7 @@ $(function() {
                 type: "POST",
                 data: form_data,
                 dataType: 'json',
-                url: '/registration/reg-new-user',
+                url: '/registration/',
                 success: function (response) {
                     if(response.result == true) {
                         createAlert('success', 'Регистрация прошла успешно')

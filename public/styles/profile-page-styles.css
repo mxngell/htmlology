@@ -169,7 +169,7 @@
 
 /*========================= MEDIA-QUERIES =========================*/
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .profile-section {
         display: grid;
         grid-template-columns: 1fr;

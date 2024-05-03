@@ -13,7 +13,7 @@ $(function() {
         e.preventDefault();
         if(formValidation(authorization_form) == true) {
             let form_data = $('#authorization-form').serialize();
-            $.post('/authorization/auth-user', form_data, function (response) {
+            $.post('/authorization/', form_data, function (response) {
                 if(response.access == true) {
                     window.location.replace('/home')
                 } else {

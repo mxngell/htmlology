@@ -1,0 +1,45 @@
+.nav-btn {
+    margin-bottom: .5rem;
+}
+
+#cancel-btn svg {
+    width: 1.3rem;
+}
+
+#cancel-btn {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+#update-theme-form .update-theme-form-item > label {
+    margin-bottom: .3rem;
+}
+
+#update-theme-form .update-theme-form-item > input {
+    transition: .1s ease all;
+    font-weight: 400;
+}
+
+#update-theme-form .form-actions > input[type='submit'] {
+    border: 0.1rem solid var(--color-green);
+    background-color: var(--color-green);
+    color: var(--color-white);
+    margin-right: .3rem;
+    padding: .6rem 1rem;
+    transition: .1s ease all;
+}
+
+@media (hover: hover) {
+    #update-theme-form .form-actions > input[type='submit']:hover {
+        background-color: transparent;
+        color: var(--color-green);
+    }
+}
+
+@media (max-width: 576px) {
+    #update-theme-form .form-actions > input[type='submit']{
+        margin: 0;
+        width: 100%;
+    }
+}

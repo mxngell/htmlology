@@ -6,7 +6,7 @@ const studyService = require('../services/study-service')
 
 router.get('/' , async (request, response) => {
     try {
-        const user = await usersService.getUser(response.decodedUserToken.id)
+        const user = await usersService.getUser(request.decodedUserToken.id)
         const themes = await studyService.getAuthorsThemes(user.user_id)
         response.status(200).render('editor', {
             user,
@@ -17,9 +17,14 @@ router.get('/' , async (request, response) => {
     }
 })
 
-router.get('/editing' , async (request, response) => {
+router.get('/:theme_id' , async (request, response) => {
     try {
-        response.status(200).render('editing')
+        const user = await usersService.getUser(request.decodedUserToken.id)
+        const theme = await studyService.getTheme(request.params.theme_id)
+        response.status(200).render('editing', {
+            user,
+            theme
+        })
     } catch (error) {
         response.status(500).render('500', {error})
     }

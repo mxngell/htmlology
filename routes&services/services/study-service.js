@@ -19,7 +19,9 @@ module.exports.addTheme = async (title, description, theory, task, author) => {
     try {
         const [check_title] = await connect.query(`SELECT theme_id FROM themes WHERE title = ?`, [title])
         if(!check_title.length) { 
-            await connect.query(`INSERT INTO Themes (theme_id, title, description, theory, task, author) VALUES (NULL, ?, ?, ?, ?, ?)`, [title, description, theory, task, author])
+            await connect.query(`
+                INSERT INTO Themes (theme_id, title, description, theory, task, author) 
+                VALUES (NULL, ?, ?, ?, ?, ?)`, [title, description, theory, task, author])
             return {
                 result: true
             }
@@ -34,6 +36,25 @@ module.exports.addTheme = async (title, description, theory, task, author) => {
     }
 }
 
+module.exports.updateTheme = async (theme_id, title, description, theory, task) => {
+    try {
+        const [{affectedRows}] = await connect.query(`
+        UPDATE themes SET title = ?, description = ?, theory = ?, task = ? WHERE theme_id = ?`, [title, description, theory, task, theme_id])
+        if(affectedRows != 0) {
+            return {
+                result: true
+            }
+        } else {
+            throw new Error('Ошибка при обновлении темы')
+        }
+    } catch(error) {
+        return {
+            result: false,
+            message: error.message
+        }
+    }
+} 
+
 module.exports.deleteTheme = async (theme_id) => {
     try {
         const [{affectedRows}] = await connect.query(`DELETE FROM themes WHERE theme_id = ?`, [theme_id])
@@ -42,7 +63,7 @@ module.exports.deleteTheme = async (theme_id) => {
                 result: true
             }
         } else {
-            throw new Error()
+            throw new Error('Ошибка при удалении темы')
         }
     } catch(error) {
         return {

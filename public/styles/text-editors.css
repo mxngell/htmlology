@@ -1,0 +1,48 @@
+[id$="_editor"] {
+    color: var(--color-white)!important;
+    background-color: var(--color-dark-lighter);
+    border-radius: 0 0 .3rem .3rem;
+    border: var(--border)!important;
+}
+
+/*==== TOOLBAR ====*/
+
+.ql-toolbar {
+    background-color: var(--color-dark-lighter);
+    border-radius: .3rem .3rem 0 0;
+    border: var(--border)!important;
+    border-bottom: none!important;
+}
+
+.ql-toolbar .ql-picker-options{
+    background-color: var(--color-dark)!important;
+}
+
+.ql-toolbar .ql-stroke,
+.ql-toolbar .ql-fill{
+    stroke: var(--color-white)!important;
+}
+
+.ql-toolbar .ql-selected, 
+.ql-active {
+    color: var(--color-orange)!important;
+}
+
+@media (hover: hover) {
+    .ql-toolbar .ql-picker-item:hover{
+        color: var(--color-orange)!important;
+    }
+    .ql-toolbar .ql-picker-label:hover{
+        color: var(--color-orange)!important;
+    }
+    .ql-toolbar .ql-picker-label:hover .ql-stroke{
+        stroke: var(--color-orange)!important;
+    }
+    .ql-toolbar button:hover .ql-stroke {
+        stroke: var(--color-orange)!important;
+     }
+    .ql-toolbar button:hover .ql-fill {
+        fill: var(--color-orange)!important;
+        stroke: var(--color-orange)!important;
+    }
+}

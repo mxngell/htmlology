@@ -194,7 +194,6 @@ img, svg {
     border-radius: .4rem;
     width: 100%;
     outline: none;
-    margin-bottom: .2rem;
     transition: .2s ease all;
     border: .15rem solid var(--color-white-op-text);
     background-color: var(--color-dark-lighter);
@@ -211,6 +210,7 @@ img, svg {
 .answer-empty-error {
     color: var(--color-error);
     font-size: .9rem;
+    margin-bottom: 0;
 }
 
 /*========================= COMPLETE-MODAL =========================*/

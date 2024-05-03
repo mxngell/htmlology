@@ -5,7 +5,7 @@ const usersService = require('../services/users-service')
 
 router.get('/' , async (request, response) => {
     try {
-        const user = await usersService.getUser(response.decodedUserToken.id)
+        const user = await usersService.getUser(request.decodedUserToken.id)
         response.status(200).render('home', {
             user
         })

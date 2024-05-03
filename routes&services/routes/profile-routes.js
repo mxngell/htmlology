@@ -5,8 +5,8 @@ const usersService = require('../services/users-service')
 
 router.get('/' , async (request, response) => {
     try {
-        const user = await usersService.getUser(response.decodedUserToken.id)
-        const userRole = await usersService.getUserRole(response.decodedUserToken.id)
+        const user = await usersService.getUser(request.decodedUserToken.id)
+        const userRole = await usersService.getUserRole(request.decodedUserToken.id)
         response.status(200).render('profile', {
             user,
             userRole

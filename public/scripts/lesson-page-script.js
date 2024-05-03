@@ -56,10 +56,7 @@ $(function() {
                 } else {
                     if(!$('#answer-textarea').hasClass('answer-is-empty')) {
                         $('#answer-textarea').addClass('answer-is-empty');
-                        $('#answer-textarea').after(`
-                        <div class="answer-empty-error">              
-                            ${response.message}
-                        </div>`)
+                        $('#answer-textarea').after(`<p class="answer-empty-error">${response.message}</p>`)
                     }
                 }
             }
