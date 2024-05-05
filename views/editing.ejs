@@ -30,10 +30,12 @@
                         <div class="mb-3 update-theme-form-item d-flex flex-column">
                             <label for="title">Название</label>
                             <input type="text" value="<%= theme.title %>" name="title" id="title">
+                            <p class="character-counter">Символы: <span class="character-count"></span>/<span class="max-count">30</span></p>
                         </div>
                         <div class="mb-3 update-theme-form-item d-flex flex-column">
                             <label for="description">Описание</label>
                             <input type="text" value="<%= theme.description %>" name="description" id="description">
+                            <p class="character-counter">Символы: <span class="character-count"></span>/<span class="max-count">110</span></p>
                         </div>
                         <div class="mb-3 update-theme-form-item d-flex flex-column">
                             <label>Теория</label>

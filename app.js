@@ -8,6 +8,14 @@ const path = require("path")
 const session = require('express-session')
 const routes = require('./routes&services/routes/index')
 
+const colors = require('colors');
+colors.setTheme({
+    info: ['bgCyan', 'brightWhite', 'bold'],
+    success: ['bgGreen', 'brightWhite', 'bold'],
+    warn: ['bgYellow', 'brightWhite', 'bold'],
+    error: ['bgRed', 'brightWhite', 'bold'],
+});
+
 app.set('view engine', 'ejs')
 
 // MIDDLEWARES
@@ -36,5 +44,5 @@ const PORT = process.env.DB_PORT
 const HOST = process.env.DB_HOST
 
 app.listen(PORT, () => {
-    console.log(`Sever started: http://${HOST}:${PORT}`);
+    console.log(`Sever started: http://${HOST}:${PORT}`.success);
 })

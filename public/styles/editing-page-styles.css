@@ -1,15 +1,21 @@
-.nav-btn {
-    margin-bottom: .5rem;
-}
-
 #cancel-btn svg {
     width: 1.3rem;
 }
 
 #cancel-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: .3rem;
+}
+
+.character-counter {
+    margin: .2rem 0 0 0;
+    font-size: .9rem;
+    color: var(--color-white-op-text);
+}
+
+.character-counter span{
+    color: inherit;
 }
 
 #update-theme-form .update-theme-form-item > label {

@@ -62,7 +62,7 @@ CREATE TABLE `Statistic` (
 
 CREATE TABLE `Themes` (
   `theme_id` int NOT NULL,
-  `title` varchar(255) NOT NULL,
+  `title` varchar(30) NOT NULL,
   `description` varchar(110) NOT NULL,
   `theory` text NOT NULL,
   `task` text CHARACTER SET cp1251 COLLATE cp1251_general_ci NOT NULL,

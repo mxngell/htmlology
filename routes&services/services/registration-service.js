@@ -12,17 +12,17 @@ module.exports.regNewUser = async (requestBody) => {
     
         const [check_email] = await connect.query(`SELECT * FROM users WHERE email = ?`, [email]) 
 
-        if(!check_email[0]) { 
-            await connect.query(`
-                INSERT INTO users (user_id, name, surname, middle_name, email, password, role) 
-                VALUES (NULL, ?, ?, ?, ?, ?, 1)
-            `, [name, surname, middle_name, email, hashedPassword])
-            return {
-                result: true
-            }             
-        } else {
-            throw new Error('Введённая почта уже зарегистрирована') 
-        }
+        if(check_email[0]) throw new Error('Введённая почта уже зарегистрирована') 
+
+        await connect.query(`
+        INSERT INTO users (user_id, name, surname, middle_name, email, password, role) 
+        VALUES (NULL, ?, ?, ?, ?, ?, 1)
+        `, [name, surname, middle_name, email, hashedPassword])
+
+        return {
+            result: true
+        }  
+
     } catch(error) {
         return {
             result: false,

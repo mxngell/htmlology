@@ -209,7 +209,6 @@ img, svg {
 
 .answer-empty-error {
     color: var(--color-error);
-    font-size: .9rem;
     margin-bottom: 0;
 }
 

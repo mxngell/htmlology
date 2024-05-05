@@ -52,4 +52,11 @@ $(function() {
             }
         })
     })
+
+    $('input[name="title"]').next().children('span.character-count').text($('input[name="title"]').val().trim().length)
+    $('input[name="description"]').next().children('span.character-count').text($('input[name="description"]').val().trim().length)
+    $('input[name="title"], input[name="description"]').on('input', function() {
+        $(this).val($(this).val().substring(0,$(this).next().children('span.max-count').text()))
+        $(this).next().children('span.character-count').text($(this).val().trim().length)
+    })
 })

@@ -68,5 +68,10 @@ $(function() {
         theory_editor.deleteText(0, theory_editor.getLength())
         createAlert('warning', 'Форма очищена')
     })    
+
+    $('input[name="title"], input[name="description"]').on('input', function() {
+        $(this).val($(this).val().substring(0,$(this).next().children('span.max-count').text()))
+        $(this).next().children('span.character-count').text($(this).val().trim().length)
+    })
 })
 
