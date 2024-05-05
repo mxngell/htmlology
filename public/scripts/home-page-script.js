@@ -1,16 +1,11 @@
 $(function() {
     let hours = new Date().getHours()
     let greeting = $('.greeting-time')
-    if(hours <= 5) {
-        $(greeting).text('Доброй ночи, ')
-    } else if (hours <= 10) {
-        $(greeting).text('Доброе утро, ')
-    } else if (hours <= 16) {
-        $(greeting).text('Добрый день, ')
-    } else {
-        $(greeting).text('Добрый вечер, ')
-    }
-    
+    hours <= 5 ? $(greeting).text('Доброй ночи, ') 
+    : hours <= 10 ? $(greeting).text('Доброе утро, ') 
+    : hours <= 16 ? $(greeting).text('Добрый день, ') 
+    : $(greeting).text('Добрый вечер, ')
+
     particlesJS('particles-js',
         {
             "particles": {
