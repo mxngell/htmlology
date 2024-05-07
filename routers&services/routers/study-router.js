@@ -33,7 +33,8 @@ router.route('/')
                 allThemes
             })
         } catch (error) {
-            response.status(500).render('500', {error})
+            console.log('Error message:'.error ,error) 
+            response.status(500).render('500')
         }
     })
     .post(async (request, response) => {
@@ -41,7 +42,8 @@ router.route('/')
             const result = await studyService.addTheme(request.body.title, request.body.description, request.body.theory, request.body.task, request.body.author)
             response.status(200).json(result)
         } catch (error) {
-            response.status(500).render('500', {error})
+            console.log('Error message:'.error ,error) 
+            response.status(500).render('500')
         }
     })
     .patch(async (request, response) => {
@@ -49,7 +51,8 @@ router.route('/')
             const result = await studyService.updateTheme(request.body.theme_id, request.body.title, request.body.description, request.body.theory, request.body.task, request.body.author)
             response.status(200).json(result)
         } catch (error) {
-            response.status(500).render('500', {error})
+            console.log('Error message:'.error ,error) 
+            response.status(500).render('500')
         }
     })
     .delete(async (request, response) => {
@@ -57,7 +60,8 @@ router.route('/')
             const result = await studyService.deleteTheme(request.body.theme_id)
             response.status(200).json(result)
         } catch (error) {
-            response.status(500).render('500', {error})
+            console.log('Error message:'.error ,error) 
+            response.status(500).render('500')
         }  
     })
 
@@ -76,7 +80,8 @@ router.get('/:id', async (request, response) => {
             response.status(404).render('404');
         }            
     } catch (error) {
-        response.status(500).render('500', {error})
+        console.log('Error message:'.error ,error) 
+        response.status(500).render('500')
     }
 })
 
@@ -122,7 +127,8 @@ router.post('/send-answer', async (request, response) => {
             response.status(200).json({result: false, message: 'Поле ввода ответа не должно быть пустым'})
         }
     } catch (error) {
-        response.status(500).render('500', {error})
+        console.log('Error message:'.error ,error) 
+        response.status(500).render('500')
     }
 })
 

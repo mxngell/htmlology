@@ -10,7 +10,8 @@ router.get('/' , async (request, response) => {
             user
         })
     } catch (error) {
-        response.status(500).render('500', {error})
+        console.log('Error message:'.error ,error) 
+        response.status(500).render('500')
     }
 })
 

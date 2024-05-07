@@ -12,6 +12,7 @@ module.exports = function (request, response, next) {
             next()
         })
     } catch(error) {
-        response.status(500).json(error)
+        console.log('Error message:'.error ,error) 
+        response.status(500).render('500')
     }
 }

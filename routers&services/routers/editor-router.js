@@ -13,7 +13,8 @@ router.get('/' , async (request, response) => {
             themes
         })
     } catch (error) {
-        response.status(500).render('500', {error})
+        console.log('Error message:'.error ,error) 
+        response.status(500).render('500')
     }
 })
 
@@ -26,7 +27,8 @@ router.get('/:theme_id' , async (request, response) => {
             theme
         })
     } catch (error) {
-        response.status(500).render('500', {error})
+        console.log('Error message:'.error ,error) 
+        response.status(500).render('500')
     }
 })
 

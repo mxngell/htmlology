@@ -6,7 +6,7 @@ const express = require('express')
 const app = express()
 const path = require("path")
 const session = require('express-session')
-const routes = require('./routes&services/routes/index')
+const routers = require('./routers&services/routers/index')
 
 const colors = require('colors');
 colors.setTheme({
@@ -36,7 +36,7 @@ app.use(
     "/module",
     express.static(path.join(__dirname, "node_modules/"))
 )
-app.use(routes);
+app.use(routers);
 
 // SERVER
 

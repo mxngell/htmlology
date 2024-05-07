@@ -41,7 +41,7 @@ $(function() {
     $('.js-update-row-button').on('click', (e) => {
         e.preventDefault()
         let current_element = $(e.currentTarget)
-        let userd_id = current_element.data('user-id')
+        let userd_id = current_element.data('user')
         let current_row = e.target.closest('tr')
         let select_element_val = $(current_row).find('select').val()
         $.ajax({

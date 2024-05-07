@@ -12,7 +12,8 @@ router.get('/' , async (request, response) => {
             userRole
         })
     } catch (error) {
-        response.status(500).render('500', {error})
+        console.log('Error message:'.error ,error) 
+        response.status(500).render('500')
     }
 })
 
@@ -25,7 +26,8 @@ router.post('/update-user-data' , async (request, response) => {
             response.status(200).redirect('back')
         }
     } catch (error) {
-        response.status(500).render('500', {error})
+        console.log('Error message:'.error ,error) 
+        response.status(500).render('500')
     }
 })
 
@@ -34,7 +36,8 @@ router.get('/log-out' , async (request, response) => {
         request.session.destroy()
         response.status(200).redirect('/authorization')
     } catch (error) {
-        response.status(500).render('500', {error})
+        console.log('Error message:'.error ,error) 
+        response.status(500).render('500')
     }
 })
 

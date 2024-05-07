@@ -1,22 +1,27 @@
 const connect = require('../../models/database')
 
 module.exports.getAllUsers = async () => {
-    const [users] = await connect.query(`SELECT * FROM users WHERE role NOT IN (SELECT role_id FROM roles WHERE role_id = 3)`)
-    const [roles] = await connect.query(`SELECT * FROM roles WHERE role_id NOT IN (SELECT role_id FROM roles WHERE role_id = 3)`)
-    return {
-        users,
-        roles
-    }
+    const [users] = await connect.query(`SELECT * FROM Users WHERE role NOT IN (SELECT role_id FROM Roles WHERE role_id = 3) ORDER BY name, surname, middle_name`)
+    return users
+}
+
+module.exports.getRoles = async () => {
+    const [roles] = await connect.query(`SELECT * FROM Roles WHERE role_id NOT IN (SELECT role_id FROM Roles WHERE role_id = 3)`)
+    return roles
 }
 
 module.exports.getUser = async (user_id) => {
-    const [user] = await connect.query(`SELECT * FROM users WHERE user_id = ?`, [user_id])
+    const [user] = await connect.query(`
+    SELECT user_id, Users.name, surname, middle_name, email, Roles.name as role 
+    FROM Users 
+    INNER JOIN Roles ON Users.role = Roles.role_id 
+    WHERE user_id = ?`, [user_id])
     return user[0]
 }
 
 module.exports.deleteUser = async (user_id) => {
     try {
-        const [{affectedRows}] = await connect.query(`DELETE FROM users WHERE user_id = ?`, [user_id])
+        const [{affectedRows}] = await connect.query(`DELETE FROM Users WHERE user_id = ?`, [user_id])
         if(affectedRows != 0) {
             return {
                 result: true
@@ -53,7 +58,7 @@ module.exports.updateUserData = async (user_id, name, surname, middle_name, emai
 
 module.exports.updateUserRole = async (user_id, role_id) => {
     try {
-        const [{affectedRows}] = await connect.query(`UPDATE users SET role = ? WHERE user_id = ?`, [role_id, user_id])
+        const [{affectedRows}] = await connect.query(`UPDATE Users SET role = ? WHERE user_id = ?`, [role_id, user_id])
         if(affectedRows != 0) {
             return {
                 result: true
@@ -70,7 +75,7 @@ module.exports.updateUserRole = async (user_id, role_id) => {
 }   
 
 module.exports.getUserRole = async (user_id) => {
-    const [userRole] = await connect.query(`SELECT roles.name FROM users JOIN roles ON users.role = roles.role_id WHERE users.user_id = ?`, [user_id])
+    const [userRole] = await connect.query(`SELECT Roles.name FROM Users JOIN Roles ON Users.role = Roles.role_id WHERE Users.user_id = ?`, [user_id])
     return userRole[0]
 }
 

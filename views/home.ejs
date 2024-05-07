@@ -19,13 +19,13 @@
                 <div class="greeting">
                     <span class="greeting-time"></span>
                     <% switch(user.role) {
-                        case 1: %>
+                        case 'Обучающийся': %>
                         <span class="greeting-name-student"><%= user.name %></span>
                         <% break;
-                        case 2: %>
+                        case 'Преподаватель': %>
                         <span class="greeting-name-teacher"><%= user.name %></span>
                         <% break;
-                        case 3: %>
+                        case 'Администратор': %>
                         <span class="greeting-name-admin"><%= user.name %></span>
                         <% break;
                     } %>

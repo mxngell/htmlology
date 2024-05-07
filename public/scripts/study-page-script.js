@@ -15,7 +15,7 @@ $(function() {
         let data = $('.themes-list-item');
         if (query != '') {
             data.each((index, value) => {
-                if ($(value).children('.item-header, .item-description').text().trim().toLowerCase().search(query.toLowerCase()) == -1) {
+                if (!$(value).children('.item-header, .item-description').text().trim().toLowerCase().includes(query.toLowerCase())) {
                     $(value).addClass('hidden-theme')
                 } else {
                     $(value).removeClass('hidden-theme')

@@ -9,7 +9,8 @@ router.route('/')
             const allUsers = await usersService.getAllUsers()
             response.status(200).json(allUsers)
         } catch (error) {
-            response.status(500).render('500', {error})
+            console.log('Error message:'.error ,error) 
+            response.status(500).render('500')
         }
     })
     .delete(async (request, response) => {
@@ -17,7 +18,8 @@ router.route('/')
             const result = await usersService.deleteUser(request.body.user_id)
             response.status(200).json(result)
         } catch (error) {
-            response.status(500).render('500', {error})
+            console.log('Error message:'.error ,error) 
+            response.status(500).render('500')
         }  
     })
     .patch(async (request, response) => {
@@ -25,7 +27,8 @@ router.route('/')
             const result = await usersService.updateUserRole(request.body.user_id, request.body.role)
             response.status(200).json(result)
         } catch (error) {
-            response.status(500).render('500', {error})
+            console.log('Error message:'.error ,error) 
+            response.status(500).render('500')
         } 
     })
 
@@ -34,7 +37,8 @@ router.get('/:id', async (request, response) => {
         const user = await usersService.getUser(request.params.id)
         response.status(200).json(user)
     } catch (error) {
-        response.status(500).render('500', {error})
+        console.log('Error message:'.error ,error) 
+        response.status(500).render('500')
     }
 })
 

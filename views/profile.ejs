@@ -47,13 +47,13 @@
                                 <tr class="user-data-table-row">
                                     <th class="user-data-table-row-field">Статус:</th>
                                     <% switch(user.role) {
-                                        case 1: %>
+                                        case 'Обучающийся': %>
                                             <td class="user-data-table-row-value css-student-user-status"><%= userRole.name %></td>
                                         <% break;
-                                        case 2: %>
+                                        case 'Преподаватель': %>
                                             <td class="user-data-table-row-value css-teacher-user-status"><%= userRole.name %></td>
                                         <% break;
-                                        case 3: %>
+                                        case 'Администратор': %>
                                             <td class="user-data-table-row-value css-admin-user-status"><%= userRole.name %></td>
                                         <% break;
                                     } %>
