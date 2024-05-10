@@ -81,7 +81,7 @@ CREATE TABLE `Users` (
   `surname` varchar(20) NOT NULL,
   `middle_name` varchar(20) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `password` varchar(60) NOT NULL,
   `role` char(7) CHARACTER SET cp1251 COLLATE cp1251_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 

@@ -39,7 +39,7 @@
                                             <select name="user-status" class="js-select-status">
                                                 <%  roles.forEach((role) => { 
                                                     if(role.role_id == user.role) { %> 
-                                                    <option selected value="<%=role.role_id%>"><%=role.name%></option>
+                                                    <option value="<%=role.role_id%>" selected><%=role.name%></option>
                                                 <% } else { %> 
                                                     <option value="<%=role.role_id%>"><%=role.name%></option>
                                                 <% }

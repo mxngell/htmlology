@@ -24,7 +24,7 @@ $(function() {
         $.ajax({
             type: "DELETE",
             data: {
-                user_id: current_element.data('user-id')
+                user_id: current_element.data('user')
             },
             url: '/users',
             success: function (response) {
@@ -41,13 +41,12 @@ $(function() {
     $('.js-update-row-button').on('click', (e) => {
         e.preventDefault()
         let current_element = $(e.currentTarget)
-        let userd_id = current_element.data('user')
         let current_row = e.target.closest('tr')
         let select_element_val = $(current_row).find('select').val()
         $.ajax({
             type: "PATCH",
             data: {
-                user_id: userd_id,
+                user_id: current_element.data('user'),
                 role: select_element_val,
             },
             url: '/users',

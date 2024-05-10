@@ -1,12 +1,12 @@
 const connect = require('../../models/database')
 
 module.exports.getAllUsers = async () => {
-    const [users] = await connect.query(`SELECT * FROM Users WHERE role NOT IN (SELECT role_id FROM Roles WHERE role_id = 3) ORDER BY name, surname, middle_name`)
+    const [users] = await connect.query(`SELECT * FROM Users ORDER BY name, surname, middle_name`)
     return users
 }
 
 module.exports.getRoles = async () => {
-    const [roles] = await connect.query(`SELECT * FROM Roles WHERE role_id NOT IN (SELECT role_id FROM Roles WHERE role_id = 3)`)
+    const [roles] = await connect.query(`SELECT * FROM Roles`)
     return roles
 }
 
