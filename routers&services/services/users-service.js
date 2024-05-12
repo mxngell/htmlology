@@ -1,16 +1,16 @@
 const connect = require('../../models/database')
 
-module.exports.getAllUsers = async () => {
+exports.getAllUsers = async () => {
     const [users] = await connect.query(`SELECT * FROM Users ORDER BY name, surname, middle_name`)
     return users
 }
 
-module.exports.getRoles = async () => {
+exports.getRoles = async () => {
     const [roles] = await connect.query(`SELECT * FROM Roles`)
     return roles
 }
 
-module.exports.getUser = async (user_id) => {
+exports.getUser = async (user_id) => {
     const [user] = await connect.query(`
     SELECT user_id, Users.name, surname, middle_name, email, Roles.name as role 
     FROM Users 
@@ -19,7 +19,7 @@ module.exports.getUser = async (user_id) => {
     return user[0]
 }
 
-module.exports.deleteUser = async (user_id) => {
+exports.deleteUser = async (user_id) => {
     try {
         const [{affectedRows}] = await connect.query(`DELETE FROM Users WHERE user_id = ?`, [user_id])
         if(affectedRows != 0) {
@@ -38,7 +38,7 @@ module.exports.deleteUser = async (user_id) => {
 
 }
 
-module.exports.updateUserData = async (user_id, name, surname, middle_name, email) => {
+exports.updateUserData = async (user_id, name, surname, middle_name, email) => {
     try {
         const [{affectedRows}] = await connect.query(`UPDATE Users SET name = ?, surname = ?, middle_name = ?, email = ? WHERE user_id = ?`, [name, surname, middle_name, email, user_id])
         if(affectedRows != 0) {
@@ -56,7 +56,7 @@ module.exports.updateUserData = async (user_id, name, surname, middle_name, emai
     }
 }   
 
-module.exports.updateUserRole = async (user_id, role_id) => {
+exports.updateUserRole = async (user_id, role_id) => {
     try {
         const [{affectedRows}] = await connect.query(`UPDATE Users SET role = ? WHERE user_id = ?`, [role_id, user_id])
         if(affectedRows != 0) {
@@ -73,9 +73,3 @@ module.exports.updateUserRole = async (user_id, role_id) => {
         }
     }
 }   
-
-module.exports.getUserRole = async (user_id) => {
-    const [userRole] = await connect.query(`SELECT Roles.name FROM Users JOIN Roles ON Users.role = Roles.role_id WHERE Users.user_id = ?`, [user_id])
-    return userRole[0]
-}
-

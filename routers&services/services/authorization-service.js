@@ -2,7 +2,7 @@ const connect = require('../../models/database')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-module.exports.authUser = async ({email, password}) => {
+exports.authUser = async ({email, password}) => {
     const [user] = await connect.query(`SELECT user_id, password, Roles.name as role FROM Users INNER JOIN Roles ON Users.role = Roles.role_id WHERE email = ?`, [email])
 
     if(!user[0]) return {access: false, message: 'Профиль с данной почтой не найден'}

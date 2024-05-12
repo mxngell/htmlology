@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const ShortUniqueId = require('short-unique-id')
 const { randomUUID } = new ShortUniqueId({ length: 7 });
 
-module.exports.regNewUser = async (requestBody) => {
+exports.regNewUser = async (requestBody) => {
     const user_id = randomUUID()
     const email = await requestBody.email
     const password =  await requestBody.password
