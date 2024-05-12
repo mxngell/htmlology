@@ -48,13 +48,13 @@
                                     <th class="user-data-table-row-field">Статус:</th>
                                     <% switch(user.role) {
                                         case 'Обучающийся': %>
-                                            <td class="user-data-table-row-value css-student-user-status"><%= userRole.name %></td>
+                                            <td class="user-data-table-row-value css-student-user-status"><%= user.role %></td>
                                         <% break;
                                         case 'Преподаватель': %>
-                                            <td class="user-data-table-row-value css-teacher-user-status"><%= userRole.name %></td>
+                                            <td class="user-data-table-row-value css-teacher-user-status"><%= user.role %></td>
                                         <% break;
                                         case 'Администратор': %>
-                                            <td class="user-data-table-row-value css-admin-user-status"><%= userRole.name %></td>
+                                            <td class="user-data-table-row-value css-admin-user-status"><%= user.role %></td>
                                         <% break;
                                     } %>
                                 </tr>
@@ -69,7 +69,6 @@
                             </button>
                             <a href="/profile/log-out" class="log-out-button">
                                 <div class="log-out-button-icon">
-                                    <!-- <img src="/assets/icons/log-out-icon.svg" alt="Log-out-icon" class="log-out-button-icon-icon"> -->
                                     <svg  class="log-out-button-icon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M14 7.63636L14 4.5C14 4.22386 13.7761 4 13.5 4L4.5 4C4.22386 4 4 4.22386 4 4.5L4 19.5C4 19.7761 4.22386 20 4.5 20L13.5 20C13.7761 20 14 19.7761 14 19.5L14 16.3636" stroke="rgb(228,228,228)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M10 12L21 12M21 12L18.0004 8.5M21 12L18 15.5" stroke="rgb(228,228,228)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -81,6 +80,7 @@
                     </div>
                     <div class="statistic-block content-block">
                         statistic-block (В разработке)
+                        <% console.log(userStatistic) %>
                     </div>                    
                 </section>
             </div>
