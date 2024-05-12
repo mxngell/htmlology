@@ -18,7 +18,8 @@ const task_editor = new Quill('#task_editor', {
     theme: 'snow',
     modules: {
         toolbar: [
-            ['bold', 'italic', 'underline'],      
+            ['bold', 'italic', 'underline'],  
+            [{ 'align': [] }],    
             [{ 'list': 'ordered'}, { 'list': 'bullet' }],
             ['blockquote', 'code-block'],
             ['link', 'image'],
@@ -33,7 +34,7 @@ $(function() {
         e.preventDefault()
         $.ajax({
             type: "POST",
-            url: "/study",
+            url: "/themes",
             data: {
                 title: $('input#title').val().trim(),
                 description: $('input#description').val().trim(),
@@ -50,7 +51,7 @@ $(function() {
     $('.action-delete').on('click', (e) => {
         $.ajax({
             type: "DELETE",
-            url: "/study",
+            url: "/themes",
             data: { theme_id: $(e.currentTarget).data('theme') },
             success: function(response) {
                 if(response.result == true) {

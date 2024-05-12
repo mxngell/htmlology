@@ -24,7 +24,8 @@ const task_editor = new Quill('#task_editor', {
     theme: 'snow',
     modules: {
         toolbar: [
-            ['bold', 'italic', 'underline'],      
+            ['bold', 'italic', 'underline'],  
+            [{ 'align': [] }],    
             [{ 'list': 'ordered'}, { 'list': 'bullet' }],
             ['blockquote', 'code-block'],
             ['link', 'image'],
@@ -39,7 +40,7 @@ $(function() {
         e.preventDefault()
         $.ajax({
             type: "PATCH",
-            url: "/study",
+            url: "/themes",
             data: {
                 theme_id: $('input#theme_id').val(),
                 title: $('input#title').val().trim(),
