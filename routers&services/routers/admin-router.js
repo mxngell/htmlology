@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
 
-const usersService = require('../services/users-service')
+const {getUser, getAllUsers, getRoles} = require('../services/users-service')
 
 router.get('/', async (request, response) => {
     try {
-        const user = await usersService.getUser(request.decodedUserToken.id)
-        const users = await usersService.getAllUsers()
-        const roles = await usersService.getRoles()
+        const user = await getUser(request.decodedUserToken.id)
+        const users = await getAllUsers()
+        const roles = await getRoles()
         response.status(200).render('admin-panel', {
             user,
             users,

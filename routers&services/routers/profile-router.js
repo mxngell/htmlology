@@ -1,15 +1,16 @@
 const express = require('express')
 const router = express.Router()
 
-const usersService = require('../services/users-service')
+const { getUser, getUserRole, updateUserData } = require('../services/users-service')
+const { getUserStatistic } = require('../services/statistic-service')
 
 router.get('/' , async (request, response) => {
     try {
-        const user = await usersService.getUser(request.decodedUserToken.id)
-        const userRole = await usersService.getUserRole(request.decodedUserToken.id)
+        const user = await getUser(request.decodedUserToken.id)
+        const userStatistic = await getUserStatistic(request.decodedUserToken.id)
         response.status(200).render('profile', {
             user,
-            userRole
+            userStatistic
         })
     } catch (error) {
         console.log('Error message:'.error ,error) 
@@ -19,7 +20,7 @@ router.get('/' , async (request, response) => {
 
 router.post('/update-user-data' , async (request, response) => {
     try {
-        const result = await usersService.updateUserData(request.body.user_id, request.body.name, request.body.surname, request.body.middle_name, request.body.email)
+        const result = await updateUserData(request.body.user_id, request.body.name, request.body.surname, request.body.middle_name, request.body.email)
         if(request.xhr) {
             response.status(200).json(result)
         } else {

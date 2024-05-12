@@ -20,57 +20,29 @@ const mailer = nodemailer.createTransport(
     }
 );
 
-const usersService = require('../services/users-service')
-const studyService = require('../services/study-service')
+const { getUser } = require('../services/users-service')
+const themesService = require('../services/themes-service')
 
-router.route('/')
-    .get(async (request, response) => {
-        try {
-            const user = await usersService.getUser(request.decodedUserToken.id)
-            const allThemes = await studyService.getAllThemes()
-            response.status(200).render('study', {
-                user,
-                allThemes
-            })
-        } catch (error) {
-            console.log('Error message:'.error ,error) 
-            response.status(500).render('500')
-        }
-    })
-    .post(async (request, response) => {
-        try {
-            const result = await studyService.addTheme(request.body.title, request.body.description, request.body.theory, request.body.task, request.body.author)
-            response.status(200).json(result)
-        } catch (error) {
-            console.log('Error message:'.error ,error) 
-            response.status(500).render('500')
-        }
-    })
-    .patch(async (request, response) => {
-        try {
-            const result = await studyService.updateTheme(request.body.theme_id, request.body.title, request.body.description, request.body.theory, request.body.task, request.body.author)
-            response.status(200).json(result)
-        } catch (error) {
-            console.log('Error message:'.error ,error) 
-            response.status(500).render('500')
-        }
-    })
-    .delete(async (request, response) => {
-        try {
-            const result = await studyService.deleteTheme(request.body.theme_id)
-            response.status(200).json(result)
-        } catch (error) {
-            console.log('Error message:'.error ,error) 
-            response.status(500).render('500')
-        }  
-    })
+router.get('/', async (request, response) => {
+    try {
+        const user = await getUser(request.decodedUserToken.id)
+        const allThemes = await themesService.getAllThemes()
+        response.status(200).render('study', {
+            user,
+            allThemes
+        })
+    } catch (error) {
+        console.log('Error message:'.error ,error) 
+        response.status(500).render('500')
+    }
+})
 
 router.get('/:id', async (request, response) => {
     try {
-        const theme = await studyService.getTheme(request.params.id)
+        const theme = await themesService.getTheme(request.params.id)
         if(theme) {
-            const {name, surname, middle_name} = await usersService.getUser(theme.author)
-            const {user_id} = await usersService.getUser(request.decodedUserToken.id)
+            const {name, surname, middle_name} = await getUser(theme.author)
+            const {user_id} = await getUser(request.decodedUserToken.id)
             response.status(200).render('lesson', {
                 user_id,
                 theme,
@@ -87,9 +59,9 @@ router.get('/:id', async (request, response) => {
 
 router.post('/send-answer', async (request, response) => {
     try {
-        const {title, author} = await studyService.getTheme(request.body.theme_id)
-        const {name, surname, middle_name, email} = await usersService.getUser(author)
-        const user = await usersService.getUser(request.body.user_id)
+        const {title, author} = await themesService.getTheme(request.body.theme_id)
+        const {name, surname, middle_name, email} = await getUser(author)
+        const user = await getUser(request.body.user_id)
         const user_answer = await request.body.answer
         if(user_answer.trim() !== '') {
             mailer.sendMail({
