@@ -22,8 +22,6 @@ html {
     margin: 1rem 0;
 }
 
-/*========================= AUTHORIZATION-BLOCK =========================*/
-
 .authorization-block {
     background-color: var(--color-dark-lighter);
     width: 34rem;
@@ -37,8 +35,6 @@ html {
     -moz-box-shadow: 4px 4px 34px 7px rgba(255, 255, 255, 0.06);
     box-shadow: 4px 4px 34px 7px rgba(255, 255, 255, 0.06);
 }
-
-/* BLOCK-HEADER */
 
 .authorization-block-header {
     margin-bottom: 1.5rem;
@@ -58,8 +54,6 @@ html {
     line-height: normal;
     color: var(--color-white-lighter);
 }
-
-/* BLOCK-BODY */
 
 .authorization-block-body-item {
     padding: 0.5rem 0.5rem;
@@ -140,8 +134,6 @@ html {
     text-align: center;
 }
 
-/* ERRORS */
-
 .alert {
     border-radius: .6rem!important;
 }
@@ -159,8 +151,6 @@ html {
 .input-with-error > input {
     color: var(--color-error);
 }
-
-/*========================= MEDIA =========================*/
 
 @media (max-width: 576px) { 
     .wrapper-content {
@@ -182,19 +172,6 @@ html {
         bottom: 0;
     }
 }
-
-@media (min-width: 576px) and (max-width: 767px) { 
-
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-
-} 
-
-@media (min-width: 992px) and (max-width: 1299px) {
-
-}
-
 
 @media (hover: hover) {
     

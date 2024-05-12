@@ -95,7 +95,7 @@ img, svg {
     width: 100%;
 }
 
-/*========================= PROGRESS-BAR =========================*/
+/*================================================*/
 
 #progress-bar-container {
     width: 100%;
@@ -111,8 +111,6 @@ img, svg {
     width: 0%;
     height: .25rem;
 }
-
-/*========================= CONTROL-PANEL =========================*/
 
 #control-panel-container {
     position: fixed;
@@ -181,8 +179,6 @@ img, svg {
         padding: 0 1rem;
     }
 } 
-
-/*========================= COMPLETION-SECTION =========================*/
 
 .completion-section {
     min-height: 100%;

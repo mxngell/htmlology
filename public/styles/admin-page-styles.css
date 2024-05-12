@@ -1,5 +1,3 @@
-/*========================= GENERAL =========================*/
-
 .users-table-block [class$='-block']:not(:last-child) {
     margin-bottom: 1.1rem;
 }
@@ -9,8 +7,6 @@
     border-radius: 0.625rem;
     padding: 1.25rem;
 }
-
-/* == ADMIN-PANEL-TABLE == */
 
 .users-table-table {
     margin-top: 1rem;

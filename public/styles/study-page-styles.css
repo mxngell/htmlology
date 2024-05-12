@@ -1,5 +1,3 @@
-/*========================= THEMES-SECTION =========================*/
-
 .themes-header {
     margin: 0 0 2rem 0;
 }
@@ -17,8 +15,6 @@
     font-weight: 300;
     color: var(--color-white-op-text);
 }
-
-/* == SEARCH-BLOCK == */
 
 .search {
     width: 100%;
@@ -47,8 +43,6 @@
 .search-input:focus {
     background-color: transparent!important;
 }
-
-/* ============= */
 
 .themes-list {
     display: grid;
@@ -130,16 +124,4 @@
     .themes-list {
         grid-template-columns: repeat(auto-fit, 27rem);
     }
-}
-
-@media (min-width: 768px) and (max-width: 991px) { 
-    
-}
-
-@media (min-width: 768px) and (max-width: 991px) { 
-    
-}
-
-@media (min-width: 992px) and (max-width: 1299px) {
-
 }

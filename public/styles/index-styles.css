@@ -8,6 +8,7 @@ body {line-height: 1;height: 100%;width: 100%}
 table {border-collapse: collapse;border-spacing: 0}
 input {text-decoration: none;outline: none; border: none;}
 a {text-decoration: none;color: inherit}
+ul {list-style-type: disc;}
 
 /* ======================================================= */
 
@@ -58,4 +59,22 @@ html {
 
 a {
     color: var(--color-link-color);
+}
+
+/* ======= MEIDA =======*/
+
+@media (max-width: 576px) { 
+    
+}
+
+@media (max-width: 767px) { 
+  
+}
+
+@media (max-width: 991px) {
+    
+} 
+
+@media (max-width: 1299px) {
+
 }

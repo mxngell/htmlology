@@ -1,7 +1,5 @@
 @import url(../styles/index-styles.css);
 
-/* ======================================= */
-
 .wrapper {
     display: flex;
     justify-content: center;
@@ -9,8 +7,6 @@
 
     padding: 1rem;
 }
-
-/* ================== ERROR-BLOCK ====================== */
 
 .error-block-header, 
 .error-block-body-name,

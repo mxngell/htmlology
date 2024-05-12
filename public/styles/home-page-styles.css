@@ -1,5 +1,3 @@
-/*========================= HEAD-SECTION =========================*/
-
 .head-section {
     position: relative;
     display: flex;
@@ -29,8 +27,6 @@
 .greeting-name-teacher {
     color: var(--color-orange);
 }
-
-/*======== HEAD-SECTION-BACKGROUND =========*/
 
 canvas{
     display:block;

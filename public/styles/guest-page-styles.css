@@ -15,8 +15,6 @@ section {
     padding: 0 1rem;
 }
 
-/*========================= GENERAL =========================*/
-
 span.color-blue{
     color: var(--color-blue);
 }
@@ -90,6 +88,29 @@ span.color-green {
     }
     100% {
         right: -4.5rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .head-section-logo-cursor {
+        display: none;
+    }
+    .head-section-logo-logo {
+        width: 100%;
+        animation: none;
+        font-size: 6rem;
+    }
+} 
+
+@media (max-width: 767px) { 
+    .head-section-logo-logo {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 576px) { 
+    .head-section-logo-logo {
+        font-size: 4rem;
     }
 }
 
@@ -251,6 +272,8 @@ span.color-green {
 
 .features-section {
     background-color: var(--color-dark);
+    max-width: 85rem;
+    margin: 0 auto;
 }
 
 .features-section_container {
@@ -260,8 +283,7 @@ span.color-green {
 
 .features {
     display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, 30rem);
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 1rem;
 }
 
@@ -275,16 +297,8 @@ span.color-green {
     opacity: 0;
 }
 
-.feature-card.visible:nth-child(1) {
+.feature-card.visible{
     animation: showing-from-left .6s ease forwards;
-}
-
-.feature-card.visible:nth-child(2) {
-    animation: showing-from-left .6s ease .6s forwards;
-}
-
-.feature-card.visible:nth-child(3) {
-    animation: showing-from-left .6s ease 1.2s forwards;
 }
 
 .card-header > svg {
@@ -306,22 +320,4 @@ span.color-green {
         opacity: 1;
         transform: translateX(0);
     }
-}
-
-/*========================= MEDIA_QUERIES =========================*/
-
-@media (max-width: 576px) { 
-    
-}
-
-@media (min-width: 576px) and (max-width: 767px) { 
-  
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    
-} 
-
-@media (min-width: 992px) and (max-width: 1299px) {
-
 }

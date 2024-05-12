@@ -5,8 +5,6 @@
     border: var(--border)!important;
 }
 
-/*==== TOOLBAR ====*/
-
 .ql-toolbar {
     background-color: var(--color-dark-lighter);
     border-radius: .3rem .3rem 0 0;
