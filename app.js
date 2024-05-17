@@ -8,8 +8,8 @@ const path = require("path")
 const session = require('express-session')
 const routers = require('./routers&services/routers/index')
 
-const colors = require('colors');
-colors.setTheme({
+const { setTheme } = require('colors');
+setTheme({
     info: ['bgCyan', 'brightWhite', 'bold'],
     success: ['bgGreen', 'brightWhite', 'bold'],
     warn: ['bgYellow', 'brightWhite', 'bold'],
