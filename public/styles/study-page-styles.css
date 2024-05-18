@@ -119,9 +119,3 @@
     text-align: justify;
     color: var(--color-white-op-text);
 }
-
-@media (max-width: 421px) { 
-    .themes-list {
-        grid-template-columns: repeat(auto-fit, 27rem);
-    }
-}
