@@ -33,7 +33,7 @@ app.use(
     express.static(path.join(__dirname, "public/assets/libs/"))
 )
 app.use(
-    "/module",
+    "/modules",
     express.static(path.join(__dirname, "node_modules/"))
 )
 app.use(routers);
@@ -44,5 +44,5 @@ const PORT = process.env.DB_PORT
 const HOST = process.env.DB_HOST
 
 app.listen(PORT, () => {
-    console.log(`Sever started: http://${HOST}:${PORT}`.success);
+    console.log(`Sever started: http://${HOST}:${PORT}`.info);
 })
