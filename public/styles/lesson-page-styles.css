@@ -203,7 +203,7 @@ img, svg {
     border: .15rem solid var(--color-white);
 }
 
-.answer-empty-error {
+.answer-error {
     color: var(--color-error);
     margin-bottom: 0;
 }
