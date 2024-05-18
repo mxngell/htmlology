@@ -108,7 +108,7 @@ INSERT INTO `Users` (`user_id`, `name`, `surname`, `middle_name`, `email`, `pass
 ('NGInEUe', 'Малик', 'Никаев', 'Магамедович', 'madmalik@inbox.ru', '$2b$07$oUWG3IiYr6.5qhfwyMpz6.Ph9gZN2Id66gk179DGcZUEh2XyFRkfK', 'WnzmzM6'),
 ('niC9azj', 'Админ', 'Админ', 'Админ', 'admin', '$2b$07$MBjVI8xdj2OQsZ6.JVo/duYaaSO0sKqRFaZnjabozfGH.p73U7l3G', 'pfCv5LG'),
 ('rOMxG5b', 'Мария', 'Сутулина', 'Олеговна', 'maria@yahoo.com', '$2b$07$69Bm41jTyxil/S1bvTXP2elApS51hU1KyTieSMVpQthQpIG6zxzHa', 'KhJEgjk'),
-('y6udlWM', 'Егор', 'Малышенко', 'Роминович', 'egor@mail.ru', '$2b$07$ThG6fC38oH3AZIE7YKFYS.u0TTtkQiIJ2k.AlLFRNlrH1YTr2tNdK', 'KhJEgjk'),
+('y6udlWM', 'Егор', 'Малышенко', 'Романович', 'egor@mail.ru', '$2b$07$ThG6fC38oH3AZIE7YKFYS.u0TTtkQiIJ2k.AlLFRNlrH1YTr2tNdK', 'KhJEgjk'),
 ('z66fEvu', 'Расим', 'Алиев', 'Рауфович', 'rasim@gmail.com', '$2b$07$SxVbuWdL.8jKnGYtWHFUYey.mDSb4S4mBPmIoagWpr310OhJjLinu', 'KhJEgjk');
 
 --
