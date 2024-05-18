@@ -6,7 +6,7 @@ const express = require('express')
 const app = express()
 const path = require("path")
 const session = require('express-session')
-const routers = require('./routers&services/routers/index')
+const routers = require('./routers&controllers&services/routers/index')
 
 const { setTheme } = require('colors');
 setTheme({
