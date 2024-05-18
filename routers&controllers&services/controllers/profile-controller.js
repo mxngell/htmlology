@@ -10,7 +10,7 @@ exports.getProfile = async (request, response) => {
             userStatistic
         })
     } catch (error) {
-        console.log('Error message:'.error ,error) 
+        console.log('Error message: '.error ,error) 
         response.status(500).render('500')
     }
 }
@@ -24,7 +24,7 @@ exports.updateUserData = async (request, response) => {
             response.status(200).redirect('back')
         }
     } catch (error) {
-        console.log('Error message:'.error ,error) 
+        console.log('Error message: '.error ,error) 
         response.status(500).render('500')
     }
 }
@@ -34,7 +34,7 @@ exports.logOut = async (request, response) => {
         request.session.destroy()
         response.status(200).redirect('/authorization')
     } catch (error) {
-        console.log('Error message:'.error ,error) 
+        console.log('Error message: '.error ,error) 
         response.status(500).render('500')
     }
 }

@@ -13,7 +13,7 @@ exports.reg = async (request, response) => {
         const result = await registrationService.regNewUser(request.body)
         response.status(200).json(result)
     } catch (error) {
-        console.log('Error message:'.error ,error) 
+        console.log('Error message: '.error ,error) 
         response.status(500).render('500')
     }
 }

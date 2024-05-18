@@ -14,7 +14,7 @@ exports.auth = async (request, response) => {
         if(result.access == true) request.session.token = result.token
         response.status(200).json(result)
     } catch (error) {
-        console.log('Error message:'.error ,error) 
+        console.log('Error message: '.error ,error) 
         response.status(500).render('500')
     }
 }

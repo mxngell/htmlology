@@ -11,7 +11,7 @@ exports.getAdminPage = async (request, response) => {
             roles
         })
     } catch (error) {
-        console.log('Error message:'.error ,error) 
+        console.log('Error message: '.error ,error) 
         response.status(500).render('500')
     }
 }

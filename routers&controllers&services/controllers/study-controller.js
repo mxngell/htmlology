@@ -29,7 +29,7 @@ exports.getStudyPage = async (request, response) => {
             allThemes
         })
     } catch (error) {
-        console.log('Error message:'.error ,error) 
+        console.log('Error message: '.error ,error) 
         response.status(500).render('500')
     }
 }
@@ -46,7 +46,7 @@ exports.getTheme = async (request, response) => {
             name, surname, middle_name
         })                       
     } catch (error) {
-        console.log('Error message:'.error ,error) 
+        console.log('Error message: '.error ,error) 
         response.status(500).render('500')
     }
 }
@@ -90,7 +90,7 @@ exports.sendAnswer = async (request, response) => {
             })
         })            
     } catch (error) {
-        console.log('Error message:'.error ,error) 
+        console.log('Error message: '.error ,error) 
         response.status(500).render('500')
     }
 }

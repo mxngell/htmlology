@@ -10,7 +10,7 @@ exports.getEditorPage = async (request, response) => {
             themes
         })
     } catch (error) {
-        console.log('Error message:'.error ,error) 
+        console.log('Error message: '.error ,error) 
         response.status(500).render('500')
     }
 }
@@ -24,7 +24,7 @@ exports.getEditingTheme = async (request, response) => {
             theme
         })
     } catch (error) {
-        console.log('Error message:'.error ,error) 
+        console.log('Error message: '.error ,error) 
         response.status(500).render('500')
     }
 }

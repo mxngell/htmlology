@@ -7,7 +7,7 @@ exports.getHomePage = async (request, response) => {
             user
         })
     } catch (error) {
-        console.log('Error message:'.error ,error) 
+        console.log('Error message: '.error ,error) 
         response.status(500).render('500')
     }
 }
