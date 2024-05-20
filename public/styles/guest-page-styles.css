@@ -272,7 +272,7 @@ span.color-green {
 
 .features-section {
     background-color: var(--color-dark);
-    max-width: 70rem;
+    max-width: 85rem;
     margin: 0 auto;
 }
 
@@ -283,13 +283,11 @@ span.color-green {
 
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 1rem;
 }
 
 .feature-card {
-    display: flex;
-    gap: 1.5rem;
     background-color: var(--color-dark);
     border: .1rem solid var(--color-border);
     padding: 1.5rem;
@@ -303,12 +301,12 @@ span.color-green {
     animation: showing-from-left .6s ease forwards;
 }
 
-.card-icon > svg {
+.card-header > svg {
     width: 5rem;
 }
 
 .feature {
-    text-align: left;
+    text-align: justify;
     margin-bottom: 0;
 }
 
