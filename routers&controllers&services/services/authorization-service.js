@@ -11,7 +11,7 @@ exports.authUser = async ({email, password}) => {
     const accessToken = jwt.sign({
         id: user[0].user_id,
         role: user[0].role
-    }, process.env.SECRET_KEY, {expiresIn: '2h'})
+    }, process.env.SECRET_KEY, {expiresIn: '1h'})
 
     return {
         access: true,
