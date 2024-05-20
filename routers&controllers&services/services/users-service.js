@@ -27,7 +27,7 @@ exports.deleteUser = async (user_id) => {
                 result: true
             }
         } else {
-            throw new Error()
+            throw new Error('Ошибка при удалении пользователя')
         }
     } catch(error) {
         return {
@@ -46,7 +46,7 @@ exports.updateUserData = async (user_id, name, surname, middle_name, email) => {
                 result: true
             }
         } else {
-            throw new Error()
+            throw new Error('Ошибка при обновлении личных данных')
         }
     } catch(error) {
         return {

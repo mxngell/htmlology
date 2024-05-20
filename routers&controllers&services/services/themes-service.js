@@ -74,5 +74,4 @@ exports.deleteTheme = async (theme_id) => {
             message: error.message
         }
     }
-
 }

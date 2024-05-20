@@ -6,17 +6,11 @@ $(function() {
         e.preventDefault();
         if(formValidation(registration_form) == true) { 
             let form_data = $('#registration-form').serialize();
-            $.ajax({
-                type: "POST",
-                data: form_data,
-                dataType: 'json',
-                url: '/registration/',
-                success: function (response) {
-                    if(response.result == true) {
-                        createAlert('success', 'Регистрация прошла успешно')
-                    } else {
-                        createAlert('warning', response.message)
-                    }
+            $.post('/registration/', form_data, function (response) {
+                if(response.result == true) {
+                    createAlert('success', 'Регистрация прошла успешно')
+                } else {
+                    createAlert('warning', response.message)
                 }
             })
         }
