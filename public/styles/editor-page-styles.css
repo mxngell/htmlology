@@ -35,7 +35,7 @@
     padding: .8rem;
     color: var(--color-orange);
     border: .15rem solid var(--color-orange);
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .themes-list-empty > svg {
@@ -65,7 +65,7 @@
 
 .item-description {
     color: var(--color-white-op-text);
-    text-align: justify;
+    text-align: left;
 }
 
 .list-item-actions {
