@@ -52,7 +52,7 @@ CREATE TABLE `Statistic` (
   `user` char(7) CHARACTER SET cp1251 COLLATE cp1251_general_ci NOT NULL,
   `theme` char(7) NOT NULL,
   `note` varchar(120) DEFAULT NULL,
-  `score` int NOT NULL
+  `score` tinyint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 
 -- --------------------------------------------------------
