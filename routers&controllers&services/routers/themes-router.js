@@ -6,7 +6,7 @@ const themesController = require('../controllers/themes-controller')
 router.route('/')
     .get(themesController.getAllThemes)
     .post(themesController.addTheme)
-    .patch()
+    .patch(themesController.updateTheme)
     .delete(themesController.deleteTheme)
 
 router.get('/:id', themesController.getTheme)
