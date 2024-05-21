@@ -34,14 +34,22 @@
 }
 
 .personal-info-block-body-header {
-    text-transform: uppercase;
+   text-transform: uppercase;
     font-weight: 700;
     font-size: 1.35rem;
     letter-spacing: .05rem;
+    display: flex;
+    gap: .3rem;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.personal-info-block-body-header > svg {
+    width: 2rem;
 }
 
 .h-line {
-    margin: .4rem 0 1.1rem 0;
+    margin: .5rem 0 .5rem 0;
     padding: 0;
     height: 0;
     border: none;
@@ -202,4 +210,128 @@
         background-color: transparent;
         color: var(--color-green);
     }
+}
+
+.filter-buttons {
+    margin-bottom: .5rem;
+    display: flex;
+    gap: .4rem;
+}
+
+.filter-button {
+    color: var(--color-white);
+    border: var(--border);
+    background-color: var(--color-dark-lighter);
+    border-radius: 1rem;
+    padding: .2rem .8rem;
+    transition: .1s ease all;
+}
+
+.filter-button.active{
+    background-color: var(--color-white);
+    color: var(--color-dark);
+}
+
+.statistic-block-header {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: .05rem;
+    display: flex;
+    gap: .2rem;
+    align-items: center;
+}
+
+.statistic-block-header > svg {
+    width: 2rem;
+}
+
+.statistic-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.statistic-item, .statistic-empty-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .3rem;
+    padding: .5rem .8rem;
+    background-color: var(--color-dark);
+    border-radius: .3rem;
+    transition: all .1s ease;
+    border: 0.1rem solid var(--color-dark);
+}
+
+@media (hover: hover) {
+    .statistic-item:hover {
+        border-color: var(--color-white);
+    }
+}
+
+.statistic-item:not(:last-child) {
+    margin-bottom: .5rem;
+}
+
+.statistic-empty-item {
+    justify-content: center;
+    color: var(--color-orange);
+    border: .15rem solid var(--color-orange);
+    color: var(--color-orange);
+    font-weight: 400;
+}
+
+.statistic-empty-item > svg {
+    width: 1.8rem;
+}
+
+.statistic-item-info {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+}
+
+.item-info-theme-title {
+    font-weight: 500;
+    flex: 0 0 auto;
+}
+
+.item-info-note {
+    color: var(--color-white-op-text);
+    white-space: normal
+}
+
+.statistic-item-score {
+    font-weight: 500;
+    flex: 0 0 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-dark);
+    border: 0.1rem solid;
+}
+
+.statistic-item-score.score_5 {
+    color: #71AC49;
+    border-color: #71AC49;
+}
+.statistic-item-score.score_4 {
+    color: var(--color-orange);
+    border-color: var(--color-orange);
+}
+.statistic-item-score.score_3 {
+    color: #FFFF00;
+    border-color: #FFFF00;
+}
+.statistic-item-score.score_2 {
+    color: var(--color-red);
+    border-color: var(--color-red);
+
+}
+.statistic-item-score.score_1 {
+    color: var(--color-error);
+    border-color: var(--color-error);
 }

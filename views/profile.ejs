@@ -24,9 +24,14 @@
                     <div class="personal-info-block content-block">
                         <div class="personal-info-block-body">
                             <div class="personal-info-block-body-header">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.9334 21.2571C17.7171 20.0575 16.9849 18.9644 15.8732 18.1813C14.7615 17.3983 13.346 16.9787 11.8906 17.0008C10.4352 17.0229 9.0391 17.4852 7.96236 18.3015C6.88562 19.1178 6.20171 20.2325 6.03804 21.4378" stroke="rgb(249,249,249)" stroke-width="1.5"/>
+                                    <circle cx="12" cy="10" r="3" stroke="rgb(249,249,249)" stroke-width="1.5" stroke-linecap="round"/>
+                                    <rect x="2.75" y="2.75" width="18.5" height="18.5" rx="3.25" stroke="rgb(249,249,249)" stroke-width="1.5"/>
+                                </svg>                                                                   
                                 ЛИЧНАЯ ИНФОРМАЦИЯ
-                                <hr class="h-line">
                             </div>
+                            <hr class="h-line">
                             <table class="user-data-table">
                                 <tr class="user-data-table-row">
                                     <th class="user-data-table-row-field">Имя:</th>
@@ -78,10 +83,56 @@
                             </a>
                         </div>
                     </div>
-                    <div class="statistic-block content-block">
-                        statistic-block (В разработке)
-                        <% console.log(userStatistic) %>
-                    </div>                    
+                    <% switch(user.role) {
+                        case 'Обучающийся': %>
+                            <div class="statistic-block content-block">
+                                <div class="statistic-block-header">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.30676 16.3821C5.64514 16.899 6.04391 17.3775 6.4968 17.8067C7.61899 18.8703 9.02535 19.586 10.5458 19.8671C12.0662 20.1482 13.6354 19.9826 15.0637 19.3905C16.492 18.7984 17.7181 17.8051 18.5937 16.5308C19.4693 15.2564 19.9569 13.7557 19.9974 12.21C20.0379 10.6644 19.6296 9.14014 18.822 7.82167C18.0144 6.5032 16.842 5.44701 15.4467 4.78089C14.5024 4.33008 13.4834 4.07101 12.4481 4.01294L13.0032 6.08484C13.5483 6.17728 14.0809 6.34509 14.585 6.58577C15.6315 7.08536 16.5108 7.8775 17.1165 8.86635C17.7223 9.8552 18.0284 10.9984 17.9981 12.1576C17.9677 13.3168 17.602 14.4424 16.9453 15.3982C16.2886 16.3539 15.369 17.0989 14.2978 17.543C13.2266 17.9871 12.0496 18.1112 10.9093 17.9004C9.76905 17.6896 8.71427 17.1529 7.87263 16.3551C7.69689 16.1886 7.53201 16.0121 7.37866 15.8269L5.30676 16.3821Z" fill="rgb(249,249,249)"/>
+                                        <path d="M5.91239 4.06647C6.68924 3.47037 7.54796 2.99272 8.46042 2.64739C8.87978 2.48868 9.08946 2.40932 9.28694 2.51053C9.48442 2.61174 9.54649 2.84338 9.67063 3.30667L11.7412 11.0341C11.8632 11.4894 11.9242 11.7171 11.8206 11.8964C11.7171 12.0758 11.4894 12.1368 11.0341 12.2588L3.30667 14.3294C2.84338 14.4535 2.61174 14.5156 2.42535 14.3952C2.23896 14.2747 2.20284 14.0535 2.13061 13.6109C1.97344 12.6481 1.95774 11.6656 2.08555 10.6947C2.25696 9.39275 2.68314 8.13728 3.33975 7C3.99636 5.86272 4.87054 4.8659 5.91239 4.06647Z" stroke="rgb(249,249,249)" stroke-width="2"/>
+                                    </svg>
+                                    Статистика обучения
+                                </div>
+                                <hr class="h-line">
+                                <div class="filter-buttons">
+                                    <button class="filter-button">5</button>
+                                    <button class="filter-button">4</button>
+                                    <button class="filter-button">3</button>
+                                    <button class="filter-button">2</button>
+                                    <button class="filter-button">1</button>
+                                    <button class="filter-button active">Все</button>
+                                </div>
+                                <ul class="statistic-list">
+                                    <% if (userStatistic.length) {
+                                        userStatistic.forEach((stat) => { %>
+                                            <li class="statistic-item border-score-5">
+                                                <div class="statistic-item-info">
+                                                    <div class="item-info-theme-title"><%= stat.themeTitle %></div>
+                                                    <div class="item-info-note"><%= stat.note %></div>
+                                                </div>
+                                                <div class="statistic-item-score score_<%= stat.score %>">
+                                                    <%= stat.score %>
+                                                </div>
+                                            </li>
+                                        <% })
+                                    } else { %>
+                                        <li class="statistic-empty-item">
+                                            <svg viewBox="0 0 24 24" fill="rgb(221, 144, 0)">
+                                                <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z"></path>
+                                            </svg>
+                                            Ваша статистика пока пуста
+                                        </li>
+                                    <% } %>
+                                </ul>
+                            </div>  
+                        <% break;
+                        case 'Преподаватель': %>
+                            Преподаватель
+                        <% break;
+                        case 'Администратор': %>
+                            Админ
+                        <% break;
+                    } %>
                 </section>
             </div>
             <div class="modal micromodal-slide" id="modal-1">
@@ -130,14 +181,5 @@
     </div>
     <script src="/libs/micromodal/micromodal.min.js"></script>
     <script src="/scripts/profile-page-script.js"></script>
-    <script>
-        MicroModal.init({
-            openTrigger: 'data-custom-open',
-            closeTrigger: 'data-custom-close',
-            openClass: 'is-open',
-            awaitOpenAnimation: true,
-            awaitCloseAnimation: true
-        });
-    </script>
 </body>
 </html>
