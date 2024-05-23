@@ -11,38 +11,30 @@ $(function() {
 
     authorization_form.on('submit', function(e) {
         e.preventDefault();
-        if(formValidation(authorization_form) == true) {
+        if(formValidation()) {
             let form_data = $('#authorization-form').serialize();
             $.post('/authorization/', form_data, function (response) {
-                if(response.access == true) {
-                    window.location.replace('/home')
-                } else {
-                    createAlert('danger', response.message)
-                }
+                response.access == true ? window.location.replace('/home') : createAlert('danger', response.message)
             })
         };
     })
 
-    function formValidation(form) {
+    function formValidation() {
         let result = true;
         deleteErrors(all_inputs);
-        all_inputs.each(function() {
-            isEmpty($(this))
+
+        all_inputs.each(function(index, element) {
+            if($(element).val() == "") createError($(element), 'Поле должно быть заполнено')
          })
-        function isEmpty(element){
-            if(element.val() == "") {
-                createError(element, 'Поле должно быть заполнено')
-            }
-        }
+
         function createError(element, text) {
             const current_element = element.parent()
-            if(current_element.hasClass('input-no-error')) {
-                current_element.removeClass('input-no-error');
-            }
+            if(current_element.hasClass('input-no-error')) current_element.removeClass('input-no-error')
             current_element.addClass('input-with-error');
             current_element.after(`<div class="input-error-message">${text}</div>`)
             result = false;
         }
+
         function deleteErrors(element) {
             const current_element = element.parent()
             if(current_element.hasClass('input-with-error')) {
@@ -50,6 +42,7 @@ $(function() {
                 current_element.next().remove();
             }
         }
+        
         return result;
     }
 })
