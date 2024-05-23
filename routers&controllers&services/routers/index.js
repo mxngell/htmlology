@@ -25,8 +25,7 @@ router.use('/profile', authenticateJWT, profileRouter)
 router.use('/editor', authenticateJWT, roleMiddleware(['Преподаватель']), editorRouter)
 router.use('/study', authenticateJWT, roleMiddleware(['Обучающийся']), studyRouter)
 router.use('/admin', authenticateJWT, roleMiddleware(['Администратор']), adminRouter)
-
-router.use('/statistic', authenticateJWT, statisticRouter)
+router.use('/statistic', authenticateJWT, roleMiddleware(['Преподаватель']), statisticRouter)
 
 router.use('/themes', authenticateJWT, roleMiddleware(['Преподаватель']), themesRouter)
 router.use('/users', authenticateJWT, roleMiddleware(['Администратор']), usersRouter)
