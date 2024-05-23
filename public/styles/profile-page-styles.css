@@ -193,20 +193,43 @@
     background-color: #585858;
 }
 
-#editDataModal-form .edit-form-item > input[type='submit'] {
+#editDataModal-form .edit-form-action > input {
+    width: 100%;
     border: 0.1rem solid var(--color-green);
     background-color: var(--color-green);
 }
 
+.input-error-message {
+    color: var(--color-white);
+    font-size: .85rem;
+    line-height: 1.2rem;
+    width: 100%;
+    padding: .3rem .4rem;
+    background-color: var(--color-error);
+    border-radius: .3rem;
+    text-wrap: wrap;
+    margin-top: .3rem;
+}
+
+.input-with-error > input {
+    color: var(--color-error)!important;
+    border: .1rem solid var(--color-error)!important;
+}
+
+.input-no-error > input{
+    color: var(--color-green)!important;
+    border: .1rem solid var(--color-green)!important;
+}
+
 @media (hover: hover) {
-    #editDataModal-form .edit-form-item > input[type='submit'] {
+    #editDataModal-form .edit-form-action > input {
         background-color: var(--color-green);
         color: var(--color-white);
         border: 0.1rem solid var(--color-green);
         padding: .5rem;
     }
 
-    #editDataModal-form .edit-form-item > input[type='submit']:hover {
+    #editDataModal-form .edit-form-action > input:hover {
         background-color: transparent;
         color: var(--color-green);
     }
