@@ -17,8 +17,8 @@
         <main class="main">
             <div class="main_inner" id="main-page">
                 <section class="users-table-section">
-                    <div class="users-table-block">
-                         <table id="users-table-table" class="users-table-table" style="width:100%">
+                    <div class="users-table-container">
+                         <table id="users-table" class="users-table" style="width:100%">
                             <thead>
                                 <th>Имя</th>
                                 <th>Фамилия</th>
@@ -28,7 +28,7 @@
                                 <th></th>
                                 <th></th>
                             </thead>
-                            <tbody class="users-table-table-tbody">
+                            <tbody class="users-table-tbody">
                                 <% users.forEach((user) => { %>
                                     <tr>
                                         <td class="js-user-name"><%=user.name%></td>

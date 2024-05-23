@@ -1,41 +1,37 @@
-.users-table-block [class$='-block']:not(:last-child) {
-    margin-bottom: 1.1rem;
-}
-
-.users-table-block {
+.users-table-container {
     background-color: var(--color-dark-lighter);
     border-radius: 0.625rem;
     padding: 1.25rem;
 }
 
-.users-table-table {
+.users-table {
     margin-top: 1rem;
     width: 100%;
 }
 
-.users-table-table thead {
+.users-table thead {
     width: 100%;
     border-bottom: .1rem solid var(--color-white);
 }
 
-.users-table-table th {
+.users-table th {
     padding: .4rem;
     font-size: 1.1rem;
     font-weight: 500;
     color: var(--color-white-lighter);
 }
 
-.users-table-table td {
+.users-table td {
     padding: .3rem;
     font-size: .9rem;
 }
 
-.users-table-table-tbody tr:nth-child(even) {
+.users-table-tbody tr:nth-child(even) {
     background: #3a3a3a;
 }
 
 @media (hover: hover) {
-    .users-table-table-tbody tr:hover {
+    .users-table-tbody tr:hover {
         background: #4b4b4b;
     }
 }
