@@ -157,7 +157,7 @@ section {
     }
 
     #more-details-btn:hover > svg {
-        margin-left: 1rem;
+        margin-left: 1.1rem;
         transform: rotate(90deg);
     }
 }
