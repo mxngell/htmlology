@@ -35,7 +35,6 @@ exports.deleteUser = async (user_id) => {
             message: error.message
         }
     }
-
 }
 
 exports.updateUserData = async (user_id, name, surname, middle_name, email) => {

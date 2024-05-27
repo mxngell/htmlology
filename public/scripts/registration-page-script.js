@@ -39,10 +39,8 @@ $(function() {
             $(element).val() == "" ? createError($(element), 'Поле должно быть заполнено') : successInput($(element))
          })
         
-        if(!email.parent().hasClass('input-with-error')){
-            if(!email.val().trim().match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/gm)) {
-                createError(email, 'Введите правильную почту. Например: example@mail.ru');
-            }
+        if(!email.parent().hasClass('input-with-error') && !email.val().trim().match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/gm)){
+            createError(email, 'Введите правильную почту. Например: example@mail.ru');
         }
 
         if(!password.parent().hasClass('input-with-error')){

@@ -19,7 +19,6 @@ $('.filter-button').on('click', function(){
         }
     })
 })
-
 $('#editDataModal-form').on('submit', function(e) {
     e.preventDefault()
     if(formValidation()) return this.submit();
@@ -39,30 +38,22 @@ function formValidation() {
        isEmpty($(this))
     })
     
-    if(!email.parent().hasClass('input-with-error')){
-        if(!email.val().trim().match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/gm)) {
-            createError(email, 'Введите правильную почту. Например: example@mail.ru');
-        }
+    if(!email.parent().hasClass('input-with-error') && !email.val().trim().match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/gm)){
+        createError(email, 'Введите правильную почту. Например: example@mail.ru');
     }
 
     let reg_exp = /^[А-Яа-я]{2,20}$/gm;
 
-    if(!name.parent().hasClass('input-with-error')){
-        if(!name.val().trim().match(reg_exp)) {
-            createError(name, 'Введите правильное имя на кириллице. Например: Василий');
-        }
+    if(!name.parent().hasClass('input-with-error') && !name.val().trim().match(reg_exp)){
+        createError(name, 'Введите правильное имя на кириллице. Например: Василий');
     }
 
-    if(!surname.parent().hasClass('input-with-error')){
-        if(!surname.val().trim().match(reg_exp)) {
-            createError(surname, 'Введите правильную фамилию на кириллице. Например: Смирнов');
-        }
+    if(!surname.parent().hasClass('input-with-error') && !surname.val().trim().match(reg_exp)){
+        createError(surname, 'Введите правильную фамилию на кириллице. Например: Смирнов');
     }
 
-    if(!middle_name.parent().hasClass('input-with-error')){
-        if(!middle_name.val().trim().match(reg_exp)) {
-            createError(middle_name, 'Введите правильное отчество на кириллице. Например: Михайлович');
-        }
+    if(!middle_name.parent().hasClass('input-with-error') && !middle_name.val().trim().match(reg_exp)){
+        createError(middle_name, 'Введите правильное отчество на кириллице. Например: Михайлович');
     }
 
     function isEmpty(element){
