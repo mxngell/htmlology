@@ -255,16 +255,40 @@ footer {
 
 .footer-block {
     width: 100%;
-
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-
     font-size: 0.93rem;
+}
+
+.footer-block > span {
     color: #a7a7a7;
+    border-left: .1rem solid #a7a7a7;;
+    border-right: .1rem solid #a7a7a7;
+    padding: 0 1rem 0 1rem;
 }
 
 .footer-icon {
-    width: 1.18rem;
+    width: 1.2rem;
+}
+
+.help-btn {
+    color: #a7a7a7;
+    display: flex;
+    align-items: center;
+}
+
+.help-btn > svg {
+    width: 1.4rem;
+    fill: #a7a7a7;
+}
+
+@media (hover: hover) {
+    .help-btn:hover {
+        color: var(--color-white);
+    }
+    .help-btn:hover > svg {
+        fill: var(--color-white);
+    }
 }
