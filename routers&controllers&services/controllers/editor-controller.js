@@ -1,10 +1,10 @@
 const { getUser } = require('../services/users-service')
-const { getAuthorsThemes, getTheme } = require('../services/themes-service')
+const { getAuthorThemes, getTheme } = require('../services/themes-service')
 
 exports.getEditorPage = async (request, response) => {
     try {
         const user = await getUser(request.decodedUserToken.id)
-        const themes = await getAuthorsThemes(user.user_id)
+        const themes = await getAuthorThemes(user.user_id)
         response.status(200).render('editor', {
             user,
             themes

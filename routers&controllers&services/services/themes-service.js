@@ -12,7 +12,7 @@ exports.getTheme = async (theme_id) => {
     return theme[0]
 }
 
-exports.getAuthorsThemes = async (author_id) => {
+exports.getAuthorThemes = async (author_id) => {
     const [themes] = await connect.query(`SELECT * FROM Themes WHERE author = ? ORDER BY title`, [author_id])
     return themes
 }
