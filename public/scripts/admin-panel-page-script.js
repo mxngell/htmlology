@@ -1,6 +1,6 @@
 $(function() {
 
-    $('#users-table-table').DataTable( {
+    $('#users-table').DataTable( {
         paging: false,
         searching: true,
         ordering: true,
