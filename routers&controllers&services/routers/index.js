@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const authenticateJWT = require('../../middlewares/authenticate-JWT-middleware.js')
+const authenticateJWT = require('../../middlewares/authenticateJWT-middleware.js')
 const roleMiddleware = require('../../middlewares/role-middleware.js')
 
 const registrationRouter = require('./registration-router.js')
