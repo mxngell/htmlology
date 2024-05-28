@@ -289,7 +289,7 @@ section {
 }
 
 .feature-card.visible{
-    animation: showing-from-left .6s ease forwards;
+    animation: showing-from-left .7s ease forwards;
 }
 
 .card-icon > svg {
