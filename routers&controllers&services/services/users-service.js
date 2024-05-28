@@ -19,6 +19,23 @@ exports.getUser = async (user_id) => {
     return user[0]
 }
 
+exports.checkUser =  async (email)  => {
+    const [user] = await connect.query(`
+    SELECT user_id, password, Roles.name as role 
+    FROM Users 
+    INNER JOIN Roles ON Users.role = Roles.role_id 
+    WHERE email = ?`, [email])
+    return user[0]
+}
+
+exports.addUser =  async (user_id, name, surname, middle_name, email, hashedPassword)  => {
+    const [user] = await connect.query(`
+    INSERT INTO Users (user_id, name, surname, middle_name, email, password, role) 
+    VALUES (?, ?, ?, ?, ?, ?, 'KhJEgjk')
+    `, [user_id, name, surname, middle_name, email, hashedPassword])
+    return user
+}
+
 exports.deleteUser = async (user_id) => {
     try {
         const [{affectedRows}] = await connect.query(`DELETE FROM Users WHERE user_id = ?`, [user_id])
