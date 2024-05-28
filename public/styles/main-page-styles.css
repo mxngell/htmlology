@@ -260,6 +260,7 @@ footer {
     justify-content: center;
     gap: 1rem;
     font-size: 0.93rem;
+    text-align: center;
 }
 
 .footer-block > span {
@@ -290,5 +291,20 @@ footer {
     }
     .help-btn:hover > svg {
         fill: var(--color-white);
+    }
+}
+
+@media (max-width: 576px) { 
+    .footer-block {
+        flex-direction: column;
+    }
+    .footer-block > span {
+        border: none;
+    }
+    .help-btn > svg {
+        display: none;
+    }
+    .help-btn {
+        text-decoration: underline;
     }
 }
