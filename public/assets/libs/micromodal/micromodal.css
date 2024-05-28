@@ -28,10 +28,14 @@ justify-content: space-between;
 align-items: center;
 gap: 5rem;
 }
+@media (max-width: 576px) {
+.modal__header{
+gap: 0;}
+}
 .modal__title {
 margin-top: 0;
 margin-bottom: 0;
-font-weight: 600;
+font-weight: 500;
 font-size: 1.4rem;
 line-height: 1.25;
 color: var(--color-white);
