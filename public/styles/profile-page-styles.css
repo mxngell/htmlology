@@ -178,6 +178,20 @@
     }
 }
 
+#editDataModal .modal__title > svg{
+    width: 2rem;
+}
+
+#editDataModal-form {
+    width: 30rem;
+}
+
+@media (max-width: 576px) {
+    #editDataModal-form {
+        width: 100%;
+    }
+}
+
 #editDataModal-form .edit-form-item > input {
     color: var(--color-white);
     border: var(--border);
@@ -236,7 +250,7 @@
 }
 
 .filter-buttons {
-    margin-bottom: .5rem;
+    margin-bottom: .8rem;
     display: flex;
     gap: .4rem;
 }
@@ -276,15 +290,40 @@
 }
 
 .statistic-item, .statistic-empty-item {
+    padding: .5rem .8rem;
+    background-color: var(--color-dark);
+    border: 0.1rem solid var(--color-dark);
+    border-radius: .4rem;
+    transition: all .2s ease;
+    overflow: hidden;
+}
+
+.statistic-item-header,.statistic-empty-item  {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: .3rem;
-    padding: .5rem .8rem;
-    background-color: var(--color-dark);
-    border-radius: .3rem;
-    transition: all .1s ease;
-    border: 0.1rem solid var(--color-dark);
+}
+
+.statistic-item-details {
+    margin-top: .5rem;
+    display: none;
+}
+
+.statistic-item-details .deatils-date,
+.statistic-item-details .deatils-teacher-info {
+    display: inline-flex;
+    align-items: center;
+    gap: .15rem;
+}
+
+.statistic-item-details .deatils-date > svg,
+.statistic-item-details .deatils-teacher-info > svg {
+    width: 1.3rem;
+}
+
+.statistic-item-details .deatils-teacher-info {
+    margin-right: 1rem;
 }
 
 @media (hover: hover) {
@@ -301,7 +340,6 @@
     justify-content: center;
     color: var(--color-orange);
     border: .15rem solid var(--color-orange);
-    color: var(--color-orange);
     font-weight: 400;
 }
 

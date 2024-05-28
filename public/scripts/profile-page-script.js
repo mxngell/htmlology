@@ -19,6 +19,13 @@ $('.filter-button').on('click', function(){
         }
     })
 })
+
+$('.statistic-item').on('mouseenter', function() {
+    $(this).find('.statistic-item-details').stop(true, true).slideDown(150).animate({ opacity: 1 }, { queue: false, duration: 200 });
+}).on('mouseleave', function() {
+    $(this).find('.statistic-item-details').stop(true, true).slideUp(150).animate({ opacity: 0 }, { queue: false, duration: 200 });
+});
+
 $('#editDataModal-form').on('submit', function(e) {
     e.preventDefault()
     if(formValidation()) return this.submit();

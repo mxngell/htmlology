@@ -66,7 +66,7 @@
                             </table>
                         </div>
                         <div class="personal-info-block-btns">
-                            <button class="edit-profile-button" data-custom-open="modal-1">
+                            <button class="edit-profile-button" data-custom-open="editDataModal">
                                 <div class="edit-profile-button-icon">
                                     <img src="/assets/icons/settings-icon.svg" alt="Log-out-icon" class="edit-profile-button-icon-icon">
                                 </div>
@@ -105,13 +105,32 @@
                                 <ul class="statistic-list">
                                     <% if (userStatistic.length) {
                                         userStatistic.forEach((stat) => { %>
-                                            <li class="statistic-item border-score-5">
-                                                <div class="statistic-item-info">
-                                                    <div class="item-info-theme-title"><%= stat.themeTitle %></div>
-                                                    <div class="item-info-note"><%= stat.note %></div>
+                                            <li class="statistic-item">
+                                                <div class="statistic-item-header">
+                                                    <div class="statistic-item-info">
+                                                        <div class="item-info-theme-title"><%= stat.themeTitle %></div>
+                                                        <div class="item-info-note"><%= stat.note %></div>
+                                                    </div>
+                                                    <div class="statistic-item-score score_<%= stat.score %>">
+                                                        <%= stat.score %>
+                                                    </div>
                                                 </div>
-                                                <div class="statistic-item-score score_<%= stat.score %>">
-                                                    <%= stat.score %>
+                                                <div class="statistic-item-details">
+                                                    <div class="deatils-teacher-info">
+                                                        <svg viewBox="0 0 24 24" fill="none">
+                                                            <circle cx="12" cy="7" r="4" stroke="#E4E4E4" stroke-width="2" stroke-linecap="round"/>
+                                                            <path d="M5.33788 18.3206C5.99897 15.5269 8.77173 14 11.6426 14H12.3574C15.2283 14 18.001 15.5269 18.6621 18.3206C18.79 18.8611 18.8917 19.4268 18.9489 20.0016C19.0036 20.5512 18.5523 21 18 21H6C5.44772 21 4.99642 20.5512 5.0511 20.0016C5.1083 19.4268 5.20997 18.8611 5.33788 18.3206Z" stroke="#E4E4E4" stroke-width="2" stroke-linecap="round"/>
+                                                        </svg>                                                            
+                                                        <%= stat.authorSurname + ' ' + stat.authorName.charAt(0)  + '. ' + stat.authorMidName.charAt(0) + '.' %>
+                                                    </div>
+                                                    <div class="deatils-date">
+                                                        <svg viewBox="0 0 24 24" style="fill: rgba(228, 228, 228, 1)"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg>                                                          
+                                                        <%= stat.date.toLocaleString("ru", {
+                                                            year: 'numeric',
+                                                            month: 'numeric',
+                                                            day: 'numeric',
+                                                        }) %>
+                                                    </div>
                                                 </div>
                                             </li>
                                         <% })
@@ -135,18 +154,23 @@
                     } %>
                 </section>
             </div>
-            <div class="modal micromodal-slide" id="modal-1">
+            <div class="modal micromodal-slide" id="editDataModal">
                 <div class="modal__overlay">
                   <div class="modal__container" role="dialog">
                     <div class="modal__header">
-                        <h2 class="modal__title">
+                        <h2 class="modal__title d-inline-flex align-items-center gap-1">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.9334 21.2571C17.7171 20.0575 16.9849 18.9644 15.8732 18.1813C14.7615 17.3983 13.346 16.9787 11.8906 17.0008C10.4352 17.0229 9.0391 17.4852 7.96236 18.3015C6.88562 19.1178 6.20171 20.2325 6.03804 21.4378" stroke="rgb(249,249,249)" stroke-width="1.5"/>
+                                <circle cx="12" cy="10" r="3" stroke="rgb(249,249,249)" stroke-width="1.5" stroke-linecap="round"/>
+                                <rect x="2.75" y="2.75" width="18.5" height="18.5" rx="3.25" stroke="rgb(249,249,249)" stroke-width="1.5"/>
+                            </svg>  
                             Личная информация
                         </h2>
-                        <svg class="modal__close" data-custom-close="modal-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 10.8181 3.23279 9.64778 3.68508 8.55585C4.13738 7.46392 4.80031 6.47177 5.63604 5.63604C6.47177 4.80031 7.46392 4.13738 8.55585 3.68508C9.64778 3.23279 10.8181 3 12 3C13.1819 3 14.3522 3.23279 15.4442 3.68508C16.5361 4.13738 17.5282 4.80031 18.364 5.63604C19.1997 6.47177 19.8626 7.46392 20.3149 8.55585C20.7672 9.64778 21 10.8181 21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4441 20.3149C14.3522 20.7672 13.1819 21 12 21L12 21Z" stroke="rgb(228,228,228)" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M9 9L15 15" stroke="rgb(228,228,228)" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M15 9L9 15" stroke="rgb(228,228,228)" stroke-width="2" stroke-linecap="round"/>
-                        </svg>                                                
+                        <svg class="modal__close" data-custom-close="editDataModal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 10.8181 3.23279 9.64778 3.68508 8.55585C4.13738 7.46392 4.80031 6.47177 5.63604 5.63604C6.47177 4.80031 7.46392 4.13738 8.55585 3.68508C9.64778 3.23279 10.8181 3 12 3C13.1819 3 14.3522 3.23279 15.4442 3.68508C16.5361 4.13738 17.5282 4.80031 18.364 5.63604C19.1997 6.47177 19.8626 7.46392 20.3149 8.55585C20.7672 9.64778 21 10.8181 21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4441 20.3149C14.3522 20.7672 13.1819 21 12 21L12 21Z" stroke="rgb(228,228,228)" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M9 9L15 15" stroke="rgb(228,228,228)" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M15 9L9 15" stroke="rgb(228,228,228)" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>                         
                     </div>
                     <div class="modal__content">
                         <form method="POST" action="/profile/update-user-data" id="editDataModal-form">
