@@ -16,6 +16,23 @@ $(function() {
         }
     } );
 
+    $('.js-select-status').on('change', function() {
+        $.ajax({
+            type: "PATCH",
+            data: {
+                user_id: $(this).data('user'),
+                role: $(this).val(),
+            },
+            url: '/users',
+            success: function (response) {
+                if (response.result === true) {
+                    createAlert('success', 'Изменения сохранены')
+                } else {
+                    createAlert('danger', 'Произошла ошика! Повторите действие еще раз')
+                }
+            }
+        })
+    })
 
     $('.js-delete-row-button').on('click', (e) => {
         e.preventDefault()
@@ -33,28 +50,6 @@ $(function() {
                     createAlert('danger', `Пользователь ${user_surname} удален/а`);
                 } else {
                     createAlert('danger', 'Произошла ошика! Повторите действие еще раз');
-                }
-            }
-        })
-    })
-
-    $('.js-update-row-button').on('click', (e) => {
-        e.preventDefault()
-        let current_element = $(e.currentTarget)
-        let current_row = e.target.closest('tr')
-        let select_element_val = $(current_row).find('select').val()
-        $.ajax({
-            type: "PATCH",
-            data: {
-                user_id: current_element.data('user'),
-                role: select_element_val,
-            },
-            url: '/users',
-            success: function (response) {
-                if (response.result === true) {
-                    createAlert('success', 'Изменения сохранены')
-                } else {
-                    createAlert('danger', 'Произошла ошика! Повторите действие еще раз')
                 }
             }
         })
