@@ -25,9 +25,9 @@ $(function() {
             url: '/users',
             success: function (response) {
                 if (response.result === true) {
-                    createAlert('success', 'Изменения сохранены')
+                    createAlert('success', 'Роль успешно изменена')
                 } else {
-                    createAlert('danger', 'Произошла ошика! Повторите действие еще раз')
+                    createAlert('danger', response.message)
                 }
             }
         })
@@ -48,7 +48,7 @@ $(function() {
                     $(current_element).closest('tr').fadeOut(400, function() { $(this).remove() })
                     createAlert('danger', `Пользователь ${user_surname} удален/а`);
                 } else {
-                    createAlert('danger', 'Произошла ошика! Повторите действие еще раз');
+                    createAlert('danger', response.message);
                 }
             }
         })
