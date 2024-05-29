@@ -37,55 +37,19 @@ exports.addUser =  async (user_id, name, surname, middle_name, email, hashedPass
 }
 
 exports.deleteUser = async (user_id) => {
-    try {
-        const [{affectedRows}] = await connect.query(`DELETE FROM Users WHERE user_id = ?`, [user_id])
-        if(affectedRows != 0) {
-            return {
-                result: true
-            }
-        } else {
-            throw new Error('Ошибка при удалении пользователя')
-        }
-    } catch(error) {
-        return {
-            result: false,
-            message: error.message
-        }
-    }
+    const [{affectedRows}] = await connect.query(`DELETE FROM Users WHERE user_id = ?`, [user_id])
+    return affectedRows
 }
 
 exports.updateUserData = async (user_id, name, surname, middle_name, email) => {
-    try {
-        const [{affectedRows}] = await connect.query(`UPDATE Users SET name = ?, surname = ?, middle_name = ?, email = ? WHERE user_id = ?`, [name, surname, middle_name, email, user_id])
-        if(affectedRows != 0) {
-            return {
-                result: true
-            }
-        } else {
-            throw new Error('Ошибка при обновлении личных данных')
-        }
-    } catch(error) {
-        return {
-            result: false,
-            message: error.message
-        }
-    }
+    const [{affectedRows}] = await connect.query(`
+    UPDATE Users 
+    SET name = ?, surname = ?, middle_name = ?, email = ?
+    WHERE user_id = ?`, [name, surname, middle_name, email, user_id])
+    return affectedRows
 }   
 
 exports.updateUserRole = async (user_id, role_id) => {
-    try {
-        const [{affectedRows}] = await connect.query(`UPDATE Users SET role = ? WHERE user_id = ?`, [role_id, user_id])
-        if(affectedRows != 0) {
-            return {
-                result: true
-            }
-        } else {
-            throw new Error()
-        }          
-    } catch(error) {
-        return {
-            result: false,
-            message: error.message
-        }
-    }
+    const [{affectedRows}] = await connect.query(`UPDATE Users SET role = ? WHERE user_id = ?`, [role_id, user_id])
+    return affectedRows
 }   

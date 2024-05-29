@@ -22,7 +22,17 @@ exports.getUser = async (request, response) => {
 
 exports.deleteUser = async (request, response) => {
     try {
-        const result = await usersService.deleteUser(request.body.user_id)
+        const affectedRows = await usersService.deleteUser(request.body.user_id)
+        if(affectedRows != 0) {
+            result = {
+                result: true
+            }
+        } else {
+            result = {
+                result: false,
+                message: 'Произошла ошибка при удалении! Повторите попытку позже'
+            }
+        }
         response.status(200).json(result)
     } catch (error) {
         console.log('Error message: '.error ,error) 
@@ -32,7 +42,17 @@ exports.deleteUser = async (request, response) => {
 
 exports.updateUserRole = async (request, response) => {
     try {
-        const result = await usersService.updateUserRole(request.body.user_id, request.body.role)
+        const affectedRows = await usersService.updateUserRole(request.body.user_id, request.body.role)
+        if(affectedRows != 0) {
+            result = {
+                result: true
+            }
+        } else {
+            result = {
+                result: false,
+                message: 'Произошла ошибка при обновлении! Повторите попытку позже'
+            }
+        }
         response.status(200).json(result)
     } catch (error) {
         console.log('Error message: '.error ,error) 
