@@ -94,6 +94,7 @@
                                     Статистика обучения
                                 </div>
                                 <hr class="h-line">
+                                <% if (userStatistic.length) { %>
                                 <div class="filter-buttons">
                                     <button class="filter-button">5</button>
                                     <button class="filter-button">4</button>
@@ -103,53 +104,50 @@
                                     <button class="filter-button active">Все</button>
                                 </div>
                                 <ul class="statistic-list">
-                                    <% if (userStatistic.length) {
-                                        userStatistic.forEach((stat) => { %>
-                                            <li class="statistic-item">
-                                                <div class="statistic-item-header">
-                                                    <div class="statistic-item-info">
-                                                        <div class="item-info-theme-title"><%= stat.themeTitle %></div>
-                                                        <div class="item-info-note"><%= stat.note %></div>
-                                                    </div>
-                                                    <div class="statistic-item-score score_<%= stat.score %>">
-                                                        <%= stat.score %>
-                                                    </div>
+                                    <% userStatistic.forEach((stat) => { %>
+                                        <li class="statistic-item">
+                                            <div class="statistic-item-header">
+                                                <div class="statistic-item-info">
+                                                    <div class="item-info-theme-title"><%= stat.themeTitle %></div>
+                                                    <div class="item-info-note"><%= stat.note %></div>
                                                 </div>
-                                                <div class="statistic-item-details">
-                                                    <div class="deatils-teacher-info">
-                                                        <svg viewBox="0 0 24 24" fill="none">
-                                                            <circle cx="12" cy="7" r="4" stroke="#E4E4E4" stroke-width="2" stroke-linecap="round"/>
-                                                            <path d="M5.33788 18.3206C5.99897 15.5269 8.77173 14 11.6426 14H12.3574C15.2283 14 18.001 15.5269 18.6621 18.3206C18.79 18.8611 18.8917 19.4268 18.9489 20.0016C19.0036 20.5512 18.5523 21 18 21H6C5.44772 21 4.99642 20.5512 5.0511 20.0016C5.1083 19.4268 5.20997 18.8611 5.33788 18.3206Z" stroke="#E4E4E4" stroke-width="2" stroke-linecap="round"/>
-                                                        </svg>                                                            
-                                                        <%= stat.authorSurname + ' ' + stat.authorName.charAt(0)  + '. ' + stat.authorMidName.charAt(0) + '.' %>
-                                                    </div>
-                                                    <div class="deatils-date">
-                                                        <svg viewBox="0 0 24 24" style="fill: rgba(228, 228, 228, 1)"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg>                                                          
-                                                        <%= stat.date.toLocaleString("ru", {
-                                                            year: 'numeric',
-                                                            month: 'numeric',
-                                                            day: 'numeric',
-                                                        }) %>
-                                                    </div>
+                                                <div class="statistic-item-score score_<%= stat.score %>">
+                                                    <%= stat.score %>
                                                 </div>
-                                            </li>
-                                        <% })
-                                    } else { %>
-                                        <li class="statistic-empty-item">
-                                            <svg viewBox="0 0 24 24" fill="rgb(221, 144, 0)">
-                                                <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z"></path>
-                                            </svg>
-                                            Ваша статистика пока пуста
+                                            </div>
+                                            <div class="statistic-item-details">
+                                                <div class="deatils-teacher-info">
+                                                    <svg viewBox="0 0 24 24" fill="none">
+                                                        <circle cx="12" cy="7" r="4" stroke="#E4E4E4" stroke-width="2" stroke-linecap="round"/>
+                                                        <path d="M5.33788 18.3206C5.99897 15.5269 8.77173 14 11.6426 14H12.3574C15.2283 14 18.001 15.5269 18.6621 18.3206C18.79 18.8611 18.8917 19.4268 18.9489 20.0016C19.0036 20.5512 18.5523 21 18 21H6C5.44772 21 4.99642 20.5512 5.0511 20.0016C5.1083 19.4268 5.20997 18.8611 5.33788 18.3206Z" stroke="#E4E4E4" stroke-width="2" stroke-linecap="round"/>
+                                                    </svg>                                                            
+                                                    <%= stat.authorSurname + ' ' + stat.authorName.charAt(0)  + '. ' + stat.authorMidName.charAt(0) + '.' %>
+                                                </div>
+                                                <div class="deatils-date">
+                                                    <svg viewBox="0 0 24 24" style="fill: rgba(228, 228, 228, 1)"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg>                                                          
+                                                    <%= stat.date.toLocaleString("ru", {
+                                                        year: 'numeric',
+                                                        month: 'numeric',
+                                                        day: 'numeric',
+                                                    }) %>
+                                                </div>
+                                            </div>
                                         </li>
-                                    <% } %>
+                                    <% })%>
                                 </ul>
+                                <%} else { %>
+                                    <div class="statistic-empty-item">
+                                        <svg viewBox="0 0 24 24" fill="rgb(221, 144, 0)">
+                                            <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z"></path>
+                                        </svg>
+                                        Ваша статистика пока пуста
+                                    </div>
+                                <% } %>
                             </div>  
                         <% break;
                         case 'Преподаватель': %>
-                            Преподаватель
                         <% break;
                         case 'Администратор': %>
-                            Админ
                         <% break;
                     } %>
                 </section>
