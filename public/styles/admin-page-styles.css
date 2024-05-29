@@ -75,3 +75,16 @@
     padding: 1rem!important;
     font-weight: 500;
 }
+
+.dt-empty::before {
+    content: '';
+    background-image: url('../assets/icons/sad-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translateY(30%);
+    margin-right: .4rem;
+}
