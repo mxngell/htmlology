@@ -1,5 +1,4 @@
 $(function() {
-
     $('#users-table').DataTable( {
         paging: false,
         searching: true,

@@ -9,16 +9,15 @@
     width: 100%;
 }
 
-.users-table thead {
+.users-table-thead{
     width: 100%;
-    border-bottom: .1rem solid var(--color-white);
+    background-color: var(--color-blue);
 }
 
 .users-table th {
-    padding: .4rem;
+    padding: .5rem;
     font-size: 1.1rem;
     font-weight: 500;
-    color: var(--color-white-lighter);
 }
 
 .users-table td {
@@ -26,13 +25,17 @@
     font-size: .9rem;
 }
 
-.users-table-tbody tr:nth-child(even) {
-    background: #3a3a3a;
+.users-table-tbody tr:not(:last-child) {
+    border-bottom: .1rem solid var(--color-white-op-text);
 }
+
+.users-table-tbody tr:nth-child(even) {
+    background:  #3d3d3d;
+} 
 
 @media (hover: hover) {
     .users-table-tbody tr:hover {
-        background: #4b4b4b;
+        background: var(--color-dark);
     }
 }
 
