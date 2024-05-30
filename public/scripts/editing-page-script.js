@@ -1,9 +1,3 @@
-$(function() {
-    $('input[name="title"]').on('input', function() {
-        $('#theme-title').text($(this).val())
-    })
-})
-
 const theory_editor = new Quill('#theory_editor', {
     theme: 'snow',
     modules: {
@@ -36,6 +30,10 @@ const task_editor = new Quill('#task_editor', {
 })
 
 $(function() {
+    $('input[name="title"]').on('input', function() {
+        $('#theme-title').text($(this).val())
+    })
+    
     $('#update-theme-form').on('submit', (e) => {
         e.preventDefault()
         $.ajax({

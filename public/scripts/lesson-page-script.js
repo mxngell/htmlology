@@ -1,9 +1,9 @@
 $(function() {
 
-    $(window).scroll(function () {
+    $(window).on('scroll', () => {
         var ratio = $(document).scrollTop () / (($(document).height () - $(window).height ()) / 100);
         $("#progress-bar").width (ratio + "%");
-    });
+    })
 
     $('#end-btn').on('click', function(e) {
         e.preventDefault();

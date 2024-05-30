@@ -1,20 +1,20 @@
-$(function() {
-    $('#users-table').DataTable( {
-        paging: false,
-        searching: true,
-        ordering: true,
-        responsive: true,
-        "bInfo" : false,
-        language: {
-            "decimal":        "",
-            "emptyTable":     "Нет доступных данных",
-            "loadingRecords": "Загрузка...",
-            "processing":     "",
-            "search":         "Поиск:",
-            "zeroRecords":    "По запросу ничего не найдено",
-        }
-    } );
+$('#users-table').DataTable( {
+    paging: false,
+    searching: true,
+    ordering: true,
+    responsive: true,
+    "bInfo" : false,
+    language: {
+        "decimal":        "",
+        "emptyTable":     "Нет доступных данных",
+        "loadingRecords": "Загрузка...",
+        "processing":     "",
+        "search":         "Поиск:",
+        "zeroRecords":    "По запросу ничего не найдено",
+    }
+} );
 
+$(function() {
     $('.js-select-status').on('change', function() {
         $.ajax({
             type: "PATCH",
