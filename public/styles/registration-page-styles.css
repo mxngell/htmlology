@@ -73,6 +73,7 @@ html {
 
 .registration-block-body-item-content > input {
     width: 100%;
+    padding-right: 1.6rem;
     background-color: transparent;
     border: none;
     font-size: 1rem;
@@ -174,12 +175,45 @@ html {
     text-wrap: wrap;
 }
 
+.input-no-error,
+.input-with-error {
+    position: relative;
+}
+
 .input-with-error > input {
     color: var(--color-error);
 }
 
 .input-no-error > input{
     color: var(--color-green);
+}
+
+.input-with-error::before{
+    content: '';
+    background-image: url('../assets/icons/cancel-round-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 1.4rem;
+    height: 1.4rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.input-no-error::before{
+    content: '';
+    background-image: url('../assets/icons/check-round-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 @media (max-width: 576px) { 

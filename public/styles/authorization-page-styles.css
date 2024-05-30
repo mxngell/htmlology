@@ -152,6 +152,24 @@ html {
     color: var(--color-error);
 }
 
+.input-with-error {
+    position: relative;
+}
+
+.input-with-error::before{
+    content: '';
+    background-image: url('../assets/icons/cancel-round-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 1.4rem;
+    height: 1.4rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 @media (max-width: 576px) { 
     .wrapper-content {
         margin: 0;
