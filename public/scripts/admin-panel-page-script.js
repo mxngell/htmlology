@@ -7,7 +7,7 @@ $(function() {
         "bInfo" : false,
         language: {
             "decimal":        "",
-            "emptyTable":     "Нет доступных данных!",
+            "emptyTable":     "Нет доступных данных",
             "loadingRecords": "Загрузка...",
             "processing":     "",
             "search":         "Поиск:",
