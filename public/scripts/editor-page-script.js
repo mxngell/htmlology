@@ -39,8 +39,7 @@ $(function() {
                 title: $('input#title').val().trim(),
                 description: $('input#description').val().trim(),
                 theory: theory_editor.getSemanticHTML(),
-                task: task_editor.getSemanticHTML(),
-                author: $('input#author').val()
+                task: task_editor.getSemanticHTML()
             },
             success: function(response) {
                 response.result == true ? createAlert('success', 'Новая тема успешно создана') : createAlert('warning', response.message)
