@@ -30,21 +30,19 @@ html {
 
 input,
 select,
-button {
+button,
+textarea {
     color: var(--color-white);
     border: var(--border);
     background-color: var(--color-dark-lighter);
     border-radius: .3rem;
     padding: .5rem;
     transition: .1s ease all;
+    outline: none;
 }
 
 select:focus {
     outline: none;
-}
-
-input[type='text']:focus {
-    background-color: #404040;
 }
 
 /*========================= HEADER =========================*/

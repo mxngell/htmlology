@@ -192,19 +192,19 @@
     }
 }
 
+#editDataModal-form .edit-form-item > label {
+    margin-bottom: .1rem;
+}
+
 #editDataModal-form .edit-form-item > input {
-    color: var(--color-white);
-    border: var(--border);
     background-color: #404040;
-    border-radius: .3rem;
-    padding: .4rem;
     width: 100%;
     transition: .1s ease all;
     font-weight: 400;
 }
 
 #editDataModal-form .edit-form-item > input:focus {
-    background-color: #585858;
+    background-color: #4e4e4e;
 }
 
 #editDataModal-form .edit-form-action > input {
@@ -306,7 +306,8 @@
 }
 
 .statistic-item-details {
-    margin-top: .5rem;
+    margin-top: .2rem;
+    font-size: .95rem;
     display: none;
 }
 

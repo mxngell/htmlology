@@ -186,11 +186,9 @@ img, svg {
 }
 
 #answer-textarea {
-    padding: .8rem;
-    border-radius: .4rem;
+    padding: .6rem;
     width: 100%;
-    outline: none;
-    transition: .2s ease all;
+    transition: .2s ease border;
     border: .15rem solid var(--color-white-op-text);
     background-color: var(--color-dark-lighter);
 }
