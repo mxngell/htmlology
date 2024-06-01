@@ -19,6 +19,16 @@ exports.getUser = async (user_id) => {
     return user[0]
 }
 
+exports.getStudents = async () => {
+    const [students] = await connect.query(`
+    SELECT user_id, CONCAT(surname, ' ', Users.name, ' ',  middle_name) as fio
+    FROM Users 
+    INNER JOIN Roles ON Users.role = Roles.role_id
+    WHERE Roles.name = 'Обучающийся';
+    `)
+    return students
+}
+
 exports.checkUser =  async (email)  => {
     const [user] = await connect.query(`
     SELECT user_id, password, Roles.name as role 
@@ -29,11 +39,11 @@ exports.checkUser =  async (email)  => {
 }
 
 exports.addUser =  async (user_id, name, surname, middle_name, email, hashedPassword)  => {
-    const [user] = await connect.query(`
+    const [{affectedRows}] = await connect.query(`
     INSERT INTO Users (user_id, name, surname, middle_name, email, password, role) 
     VALUES (?, ?, ?, ?, ?, ?, 'KhJEgjk')
     `, [user_id, name, surname, middle_name, email, hashedPassword])
-    return user
+    return affectedRows
 }
 
 exports.deleteUser = async (user_id) => {
