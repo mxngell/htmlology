@@ -57,7 +57,7 @@ exports.sendAnswer = async (request, response) => {
         const {name, surname, middle_name, email} = await getUser(author)
         const user = await getUser(request.body.user_id)
         const user_answer = await request.body.answer
-        if(!user_answer.trim()) return response.status(200).json({result: false, message: 'Поле ввода ответа не должно быть пустым'})
+        if(!user_answer.trim()) return response.status(200).json({result: false, message: 'Поле с ответом не должно быть пустым'})
         mailer.sendMail({
             to: email,
             subject: 'Пользователь прислал вам ответ на практическое задание',
