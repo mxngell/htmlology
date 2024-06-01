@@ -1,0 +1,191 @@
+.statistic-table-container {
+    background-color: var(--color-dark-lighter);
+    border-radius: 0.625rem;
+    padding: 1.25rem;
+}
+
+#add-mark {
+    margin-bottom: 1rem;
+    background-color: var(--color-orange);
+    border: none;
+    border-radius: 2rem;
+    float: right;
+    padding: .2rem .7rem .2rem .2rem;
+    transition: all .1s ease;
+}
+
+#add-mark > svg {
+    width: 2.1rem;
+}
+
+@media (hover: hover) {
+    #add-mark:hover {
+        background-color: rgb(167, 108, 0);
+    }
+}
+
+#addStatisticModal .modal__title > svg{
+    width: 2rem;
+}
+
+#addStatisticModal-form {
+    width: 30rem;
+}
+
+@media (max-width: 576px) {
+    #addStatisticModal-form {
+        width: 100%;
+    }
+}
+
+#addStatisticModal-form .add-form-item > label {
+    margin-bottom: .2rem;
+}
+
+#addStatisticModal-form .add-form-item > input,
+#addStatisticModal-form .add-form-item > textarea  {
+    background-color: #404040;
+    width: 100%;
+    transition: .1s ease background-color;
+}
+
+#addStatisticModal-form .add-form-item > input:focus,
+#addStatisticModal-form .add-form-item > textarea:focus {
+    background-color: #4e4e4e;
+}
+
+#addStatisticModal-form .add-form-item > select {
+    background-color: #404040;
+    width: 100%;
+    padding: .3rem .5rem;
+    font-size: .9rem;
+}
+
+#addStatisticModal-form .add-form-item > select option:first-child {
+    display: none;
+}
+
+#addStatisticModal-form .add-form-item > select:focus {
+    border: .1rem solid var(--color-orange);
+}
+
+#addStatisticModal-form .add-form-action > input {
+    width: 100%;
+    font-weight: normal;
+}
+
+#addStatisticModal-form .add-form-action > input[type='submit'] {
+    border: 0.1rem solid var(--color-green);
+    background-color: var(--color-green);
+    margin-bottom: .5rem;
+}
+
+#addStatisticModal-form .add-form-action > input[type='reset'] {
+    border: 0.1rem solid var(--color-error);
+    background-color: var(--color-error);
+}
+
+.character-counter {
+    font-size: .9rem;
+    color: var(--color-white-op-text);
+}
+
+.character-counter span{
+    color: inherit;
+}
+
+@media (hover: hover) {
+    #addStatisticModal-form .add-form-action > input[type='submit']  {
+        background-color: var(--color-green);
+        color: var(--color-white);
+        border: 0.1rem solid var(--color-green);
+        padding: .5rem;
+    }
+
+    #addStatisticModal-form .add-form-action > input[type='submit']:hover {
+        background-color: transparent;
+        color: var(--color-green);
+    }
+
+    #addStatisticModal-form .add-form-action > input[type='reset']  {
+        background-color: var(--color-error);
+        color: var(--color-white);
+        border: 0.1rem solid var(--color-error);
+        padding: .5rem;
+    }
+
+    #addStatisticModal-form .add-form-action > input[type='reset']:hover {
+        background-color: transparent;
+        color: var(--color-error);
+    }
+}
+
+.statistic-table {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.statistic-table-thead{
+    width: 100%;
+    background-color: var(--color-orange);
+}
+
+.statistic-table th {
+    padding: .5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.statistic-table td {
+    padding: .6rem;
+    font-size: .9rem;
+}
+
+.js-delete-row-button {
+    width: 1.5rem;
+    cursor: pointer;
+}
+
+.statistic-table-tbody tr:not(:last-child) {
+    border-bottom: .1rem solid var(--color-white-op-text);
+}
+
+.statistic-table-tbody tr:nth-child(even) {
+    background:  #3d3d3d;
+} 
+
+@media (hover: hover) {
+    .statistic-table-tbody tr:hover {
+        background: var(--color-dark);
+    }
+}
+
+.dt-input {
+    margin-left: .5rem;
+    border-radius: .3rem;
+    padding: .2rem;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    fill: var(--color-dark);
+    stroke: var(--color-dark);
+}
+
+.dt-empty {
+    text-align: center;
+    padding: 1rem!important;
+    font-weight: 500;
+    position: relative;
+}
+
+.dt-empty::before {
+    content: '';
+    background-image: url('../assets/icons/sad-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translateY(30%);
+    margin-right: .4rem;
+}
