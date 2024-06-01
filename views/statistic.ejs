@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <%- include('./partials/head') %>
+
+    <link rel="stylesheet" href="/styles/alerts.css">
+    <link rel="stylesheet" href="/libs/micromodal/micromodal.css">
+    <link rel="stylesheet" href="/styles/main-page-styles.css">
+    <link rel="stylesheet" href="/styles/statistic-page-styles.css">
+    <title>Статистика</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <%- include('./partials/header') %>
+
+        <main class="main">
+            <div class="main_inner" id="main-page">
+                <section class="statistic-table-section">
+                    <div class="statistic-table-container">
+                        <button id="add-mark" data-custom-open="addStatisticModal">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="8.4" stroke="#E4E4E4" stroke-width="1.5"/>
+                                <path d="M12 8L12 16" stroke="#E4E4E4" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M16 12L8 12" stroke="#E4E4E4" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>                                
+                            Добавить оценку
+                        </button>
+                        <table id="statistic-table" class="statistic-table" style="width:100%">
+                            <thead class="statistic-table-thead">
+                                <th>Имя</th>
+                                <th>Фамилия</th>
+                                <th>Почта</th>
+                                <th>Тема</th>
+                                <th>Дата</th>
+                                <th>Примечание</th>
+                                <th>Балл</th>
+                                <th></th>
+                            </thead>
+                            <tbody class="statistic-table-tbody">
+                                <% usersStatistic.forEach((stat) => { %>
+                                    <tr>
+                                        <td><%= stat.name %></td>
+                                        <td class="js-user-surname"><%= stat.surname %></td>
+                                        <td><%= stat.email %></td>
+                                        <td><%= stat.themeTitle %></td>
+                                        <td><%= stat.date.toLocaleString("ru", {
+                                            year: 'numeric',
+                                            month: 'numeric',
+                                            day: 'numeric',
+                                        }) %></td>
+                                        <td><%= stat.note %></td>
+                                        <td><%= stat.score %></td>
+                                        <td>
+                                            <svg class="js-delete-row-button" data-stat="<%=stat.statistic_id%>" viewBox="0 0 24 24" fill="rgb(204, 44, 44)">
+                                                <path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"/><path d="M9 10h2v8H9zm4 0h2v8h-2z"/>
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+            <div class="modal micromodal-slide" id="addStatisticModal">
+                <div class="modal__overlay">
+                  <div class="modal__container" role="dialog">
+                    <div class="modal__header">
+                        <h2 class="modal__title d-inline-flex align-items-center gap-1">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 10L8 16" stroke="#E4E4E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 12V16" stroke="#E4E4E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 8V16" stroke="#E4E4E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <rect x="3" y="4" width="18" height="16" rx="2" stroke="#E4E4E4" stroke-width="2"/>
+                            </svg>                                 
+                            Добавить оценку
+                        </h2>
+                        <svg class="modal__close" data-custom-close="addStatisticModal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 10.8181 3.23279 9.64778 3.68508 8.55585C4.13738 7.46392 4.80031 6.47177 5.63604 5.63604C6.47177 4.80031 7.46392 4.13738 8.55585 3.68508C9.64778 3.23279 10.8181 3 12 3C13.1819 3 14.3522 3.23279 15.4442 3.68508C16.5361 4.13738 17.5282 4.80031 18.364 5.63604C19.1997 6.47177 19.8626 7.46392 20.3149 8.55585C20.7672 9.64778 21 10.8181 21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4441 20.3149C14.3522 20.7672 13.1819 21 12 21L12 21Z" stroke="rgb(228,228,228)" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M9 9L15 15" stroke="rgb(228,228,228)" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M15 9L9 15" stroke="rgb(228,228,228)" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>                         
+                    </div>
+                    <div class="modal__content">
+                        <form method="POST" action="/statistic" id="addStatisticModal-form">
+                            <div class="mb-3 add-form-item">
+                                <label for="student">Обучающийся</label>
+                                <select name="student" id="student">
+                                    <option disabled selected>- Выберите обучающегося -</option>
+                                    <% students.forEach((student) => { %>
+                                        <option value="<%=student.user_id%>"><%=student.fio%></option>
+                                    <% } ) %>
+                                </select>
+                            </div>
+                            <div class="mb-3 add-form-item">
+                                <label for="theme">Тема</label>
+                                <select name="theme" id="theme">
+                                    <option disabled selected>- Выберите тему -</option>
+                                    <% themes.forEach((theme) => { %>
+                                        <option value="<%=theme.theme_id%>"><%=theme.title%></option>
+                                    <% } ) %>
+                                </select>
+                            </div>
+                            <div class="mb-3 add-form-item">
+                                <label for="note">Примечание (необязательно)</label>
+                                <textarea type="text" name="note" id="note" rows="8" placeholder="Примечание к оценке"></textarea>
+                                <p class="character-counter">Символы: <span class="character-count">0</span>/<span class="max-count">120</span></p>
+                            </div>
+                            <div class="mb-3 add-form-item">
+                                <label for="score">Балл</label>
+                                <select name="score" id="score">
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <div class="add-form-action">
+                                <input type="submit" value="Добавить">
+                                <input type="reset" value="Очистить">
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </main>
+        <%- include('./partials/footer') %>
+    </div>
+    <script src="/modules/datatables.net/js/dataTables.min.js"></script>
+    <script src="/libs/micromodal/micromodal.min.js"></script>
+    <script src="/scripts/alerts.js"></script>
+    <script src="/scripts/statistic-page-script.js"></script>
+</body>
+
+</html>
