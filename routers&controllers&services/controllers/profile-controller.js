@@ -18,16 +18,7 @@ exports.getProfile = async (request, response) => {
 exports.updateUserData = async (request, response) => {
     try {
         const affectedRows = await updateUserData(request.body.user_id, request.body.name, request.body.surname, request.body.middle_name, request.body.email)
-        if(affectedRows != 0) {
-            result = {
-                result: true
-            }
-        } else {
-            result = {
-                result: false,
-                message: 'Произошла ошибка при обновлении данных! Повторите попытку позже'
-            }
-        }
+        affectedRows != 0 ? result = {result: true} : result = {result: false,message: 'Произошла ошибка при обновлении личных данных'}
         if(request.xhr) {
             response.status(200).json(result)
         } else {
