@@ -22,7 +22,15 @@ exports.getUsersStatistic = async (author_id) => {
     return statistic
 }
 
+exports.addStatistic = async (stat_id, user, theme, date, author, note, score) => {
+    const [{affectedRows}] = await connect.query(`
+    INSERT INTO Statistic (statistic_id, user, theme, date, author, note, score) 
+    VALUES (?, ?, ?, ?, ?, ?, ?);
+    `, [stat_id, user, theme, date, author, note, score])
+    return affectedRows
+}
+
 exports.deleteStatistic = async (stat_id) => {
-    const [statistic] = await connect.query(` DELETE FROM Statistic WHERE statistic_id = ?`, [stat_id])
-    return statistic.affectedRows
+    const [{affectedRows}] = await connect.query(` DELETE FROM Statistic WHERE statistic_id = ?`, [stat_id])
+    return affectedRows
 }
