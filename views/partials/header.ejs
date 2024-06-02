@@ -12,14 +12,14 @@
             <li class="header-navigation-list-item"><a href="/home" class="navigation-list-item-link">Главная</a></li>
             <% switch(user.role) {
                 case 'Обучающийся': %>
-                <li class="header-navigation-list-item"><a href="/study" class="navigation-list-item-link">Обучение</a></li>
+                    <li class="header-navigation-list-item"><a href="/study" class="navigation-list-item-link">Обучение</a></li>
                 <% break;
                 case 'Преподаватель': %>
-                <li class="header-navigation-list-item"><a href="/editor" class="navigation-list-item-link">Редактор</a></li>
-                <li class="header-navigation-list-item"><a href="/statistic" class="navigation-list-item-link">Статистика</a></li>
+                    <li class="header-navigation-list-item"><a href="/editor" class="navigation-list-item-link">Редактор</a></li>
+                    <li class="header-navigation-list-item"><a href="/statistic" class="navigation-list-item-link">Статистика</a></li>
                 <% break;
                 case 'Администратор': %>
-                <li class="header-navigation-list-item"><a href="/admin" class="navigation-list-item-link">Админ-панель</a></li>
+                    <li class="header-navigation-list-item"><a href="/admin" class="navigation-list-item-link">Админ-панель</a></li>
                 <% break;
             } %>
         </nav>
