@@ -3,6 +3,7 @@ const router = express.Router()
 
 const authenticateJWT = require('../../middlewares/authenticateJWT-middleware.js')
 const roleMiddleware = require('../../middlewares/role-middleware.js')
+const fetchUser = require('../../middlewares/fetchUser-middleware.js')
 
 const registrationRouter = require('./registration-router.js')
 const authorizationRouter = require('./authorization-router.js')
@@ -19,16 +20,20 @@ const themesRouter = require('./themes-router.js')
 
 router.use('/registration', registrationRouter)
 router.use('/authorization', authorizationRouter)
-router.use('/home', authenticateJWT, homeRouter)
-router.use('/profile', authenticateJWT, profileRouter)
 
-router.use('/editor', authenticateJWT, roleMiddleware(['Преподаватель']), editorRouter)
-router.use('/study', authenticateJWT, roleMiddleware(['Обучающийся']), studyRouter)
-router.use('/admin', authenticateJWT, roleMiddleware(['Администратор']), adminRouter)
-router.use('/statistic', authenticateJWT, roleMiddleware(['Преподаватель']), statisticRouter)
+router.use(authenticateJWT)
+router.use(fetchUser)
 
-router.use('/themes', authenticateJWT, roleMiddleware(['Преподаватель']), themesRouter)
-router.use('/users', authenticateJWT, roleMiddleware(['Администратор']), usersRouter)
+router.use('/home', homeRouter)
+router.use('/profile', profileRouter)
+
+router.use('/editor', roleMiddleware(['Преподаватель']), editorRouter)
+router.use('/study', roleMiddleware(['Обучающийся']), studyRouter)
+router.use('/admin', roleMiddleware(['Администратор']), adminRouter)
+router.use('/statistic', roleMiddleware(['Преподаватель']), statisticRouter)
+
+router.use('/themes', roleMiddleware(['Преподаватель']), themesRouter)
+router.use('/users', roleMiddleware(['Администратор']), usersRouter)
 
 router.get('/', (request, response) => {
     if(request.session.token) {
