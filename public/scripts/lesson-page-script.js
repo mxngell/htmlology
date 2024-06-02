@@ -40,13 +40,13 @@ $(function() {
                                             <circle cx="12" cy="8" r="4" fill="#E4E4E4" fill-opacity="0.5"/>
                                             <path d="M5.33788 17.3206C5.99897 14.5269 8.77173 13 11.6426 13H12.3574C15.2283 13 18.001 14.5269 18.6621 17.3206C18.79 17.8611 18.8917 18.4268 18.9489 19.0016C19.0036 19.5512 18.5523 20 18 20H6C5.44772 20 4.99642 19.5512 5.0511 19.0016C5.1083 18.4268 5.20997 17.8611 5.33788 17.3206Z" fill="#E4E4E4" fill-opacity="0.5"/>
                                         </svg>                                
-                                        ${response.surname} ${response.name.charAt(0)}. ${response.middle_name.charAt(0)}.
+                                        ${response.authorSurname} ${response.authorName.charAt(0)}. ${response.authorMiddle_name.charAt(0)}.
                                         <br>
                                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect x="4" y="6" width="16" height="12" rx="2" stroke="#E4E4E4" stroke-opacity="0.5" stroke-width="2"/>
                                             <path d="M4 9L11.1056 12.5528C11.6686 12.8343 12.3314 12.8343 12.8944 12.5528L20 9" stroke="#E4E4E4" stroke-opacity="0.5" stroke-width="2"/>
                                         </svg>                                
-                                        ${response.email}
+                                        ${response.authorEmail}
                                     </p>
                                     <a id="complete-btn" href="/study">Продолжить</a>                        
                                 </div>
