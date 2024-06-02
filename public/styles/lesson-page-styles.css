@@ -15,7 +15,7 @@ section.practice-section > * {
 
 .theme-title {
     border-bottom: .1rem solid var(--color-grey);
-    padding: .3rem;
+    padding: .5rem;
 }
 
 @media (max-width: 576px) { 
