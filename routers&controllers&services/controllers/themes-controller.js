@@ -35,7 +35,7 @@ exports.addTheme = async (request, response) => {
         })
 
         const theme_id = randomUUID()
-        await themesService.addTheme(theme_id, request.body.title, request.body.description, request.body.theory, request.body.task, request.decodedUserToken.id)
+        await themesService.addTheme(theme_id, request.body.title, request.body.description, request.body.theory, request.body.task, request.user.user_id)
         response.status(200).json({
             result: true
         })

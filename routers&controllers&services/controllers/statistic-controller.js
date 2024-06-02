@@ -39,7 +39,7 @@ exports.addStatistic = async (request, response) => {
     try {
         const stat_id = randomUUID()
         const date = new Date()
-        const affectedRows = await statisticService.addStatistic(stat_id, request.body.student, request.body.theme, date, request.decodedUserToken.id, request.body.note, request.body.score)
+        const affectedRows = await statisticService.addStatistic(stat_id, request.body.student, request.body.theme, date, request.user.user_id, request.body.note, request.body.score)
         affectedRows != 0 ? result = {result: true} : result = {result: false,message: 'Произошла ошибка при добавлении оценки'}
         if(request.xhr) {
             response.status(200).json(result)
