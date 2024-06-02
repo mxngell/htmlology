@@ -1,13 +1,12 @@
 const statisticService = require('../services/statistic-service')
 const { getAllThemes } = require('../services/themes-service')
-const { getUser, getStudents } = require('../services/users-service')
+const { getStudents } = require('../services/users-service')
 const ShortUniqueId = require('short-unique-id')
 const { randomUUID } = new ShortUniqueId({ length: 7 });
 
 exports.getStatPage = async (request, response) => {
     try {
-        const user = await getUser(request.decodedUserToken.id)
-        const usersStatistic = await statisticService.getUsersStatistic(user.user_id)
+        const usersStatistic = await statisticService.getUsersStatistic(request.user.user_id)
         const students = await getStudents()
         const allThemes = await getAllThemes()
         const themes = allThemes.map((theme) => ({
@@ -15,7 +14,7 @@ exports.getStatPage = async (request, response) => {
             title: theme.title
         }))
         response.status(200).render('statistic', {
-            user,
+            user: request.user,
             usersStatistic,
             students,
             themes

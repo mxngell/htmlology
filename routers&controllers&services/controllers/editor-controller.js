@@ -1,12 +1,10 @@
-const { getUser } = require('../services/users-service')
 const { getAuthorThemes, getTheme } = require('../services/themes-service')
 
 exports.getEditorPage = async (request, response) => {
     try {
-        const user = await getUser(request.decodedUserToken.id)
-        const themes = await getAuthorThemes(user.user_id)
+        const themes = await getAuthorThemes(request.user.user_id)
         response.status(200).render('editor', {
-            user,
+            user: request.user,
             themes
         })
     } catch (error) {
@@ -17,10 +15,9 @@ exports.getEditorPage = async (request, response) => {
 
 exports.getEditingTheme = async (request, response) => {
     try {
-        const user = await getUser(request.decodedUserToken.id)
         const theme = await getTheme(request.params.theme_id)
         response.status(200).render('editing', {
-            user,
+            user: request.user,
             theme
         })
     } catch (error) {

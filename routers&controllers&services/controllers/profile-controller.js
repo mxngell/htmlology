@@ -1,12 +1,11 @@
-const { getUser, getUserRole, updateUserData } = require('../services/users-service')
+const { updateUserData } = require('../services/users-service')
 const { getUserStatistic } = require('../services/statistic-service')
 
 exports.getProfile = async (request, response) => {
     try {
-        const user = await getUser(request.decodedUserToken.id)
-        const userStatistic = await getUserStatistic(request.decodedUserToken.id)
+        const userStatistic = await getUserStatistic(request.user.user_id)
         response.status(200).render('profile', {
-            user,
+            user: request.user,
             userStatistic
         })
     } catch (error) {
