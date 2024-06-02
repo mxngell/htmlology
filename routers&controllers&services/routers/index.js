@@ -21,19 +21,20 @@ const themesRouter = require('./themes-router.js')
 router.use('/registration', registrationRouter)
 router.use('/authorization', authorizationRouter)
 
-router.use(authenticateJWT)
-router.use(fetchUser)
+router.use('/home', authenticateJWT, fetchUser, homeRouter)
+router.use('/profile', authenticateJWT, fetchUser, profileRouter)
 
-router.use('/home', homeRouter)
-router.use('/profile', profileRouter)
+router.use('/editor', authenticateJWT, fetchUser, roleMiddleware(['Преподаватель']), editorRouter)
+router.use('/study', authenticateJWT, fetchUser, roleMiddleware(['Обучающийся']), studyRouter)
+router.use('/admin', authenticateJWT, fetchUser, roleMiddleware(['Администратор']), adminRouter)
+router.use('/statistic', authenticateJWT, fetchUser, roleMiddleware(['Преподаватель']), statisticRouter)
 
-router.use('/editor', roleMiddleware(['Преподаватель']), editorRouter)
-router.use('/study', roleMiddleware(['Обучающийся']), studyRouter)
-router.use('/admin', roleMiddleware(['Администратор']), adminRouter)
-router.use('/statistic', roleMiddleware(['Преподаватель']), statisticRouter)
+router.use('/themes', authenticateJWT, fetchUser, roleMiddleware(['Преподаватель']), themesRouter)
+router.use('/users', authenticateJWT, roleMiddleware(['Администратор']), usersRouter)
 
-router.use('/themes', roleMiddleware(['Преподаватель']), themesRouter)
-router.use('/users', roleMiddleware(['Администратор']), usersRouter)
+router.get('/help', (request, response) => {
+    response.status(200).render('help')   
+})
 
 router.get('/', (request, response) => {
     if(request.session.token) {
