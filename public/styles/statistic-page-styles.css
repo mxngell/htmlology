@@ -56,6 +56,7 @@
 
 #addStatisticModal-form .add-form-item > select {
     background-color: #404040;
+    border: .1rem solid #404040;
     width: 100%;
     padding: .3rem .5rem;
     font-size: .9rem;
