@@ -44,6 +44,9 @@ $(function() {
                 } else {
                     createAlert('danger', response.message);
                 }
+            },
+            error: function (xhr, status, error) {
+                createAlert('danger', 'Произошла ошибка при выполнении запроса');
             }
         })
     })

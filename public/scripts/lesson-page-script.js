@@ -59,6 +59,9 @@ $(function() {
                         $('#answer-textarea').after(`<p class="answer-error">${response.message}</p>`)
                     }
                 }
+            },
+            error: function (xhr, status, error) {
+                createAlert('danger', 'Произошла ошибка при выполнении запроса');
             }
         })
     })

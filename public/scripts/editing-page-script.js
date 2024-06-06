@@ -48,6 +48,9 @@ $(function() {
             },
             success: function(response) {
                 response.result == true ? createAlert('success', 'Изменения сохранены') : createAlert('warning', response.message)
+            },
+            error: function (xhr, status, error) {
+                createAlert('danger', 'Произошла ошибка при выполнении запроса');
             }
         })
     })

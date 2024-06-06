@@ -13,8 +13,12 @@ $(function() {
         e.preventDefault();
         if(formValidation()) {
             let form_data = $('#authorization-form').serialize();
-            $.post('/authorization/', form_data, function (response) {
+            $.post('/authorization/', form_data)
+            .done(function (response) {
                 response.access == true ? window.location.replace('/home') : createAlert('danger', response.message)
+            })
+            .fail(function (xhr, status, error) {
+                createAlert('danger', 'Произошла ошибка при выполнении запроса');
             })
         };
     })

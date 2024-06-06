@@ -6,8 +6,12 @@ $(function() {
         e.preventDefault();
         if(formValidation()) { 
             let form_data = $('#registration-form').serialize();
-            $.post('/registration/', form_data, function (response) {
+            $.post('/registration/', form_data)
+            .done(function (response) {
                 response.result == true ? createAlert('success', 'Регистрация прошла успешно') : createAlert('warning', response.message)
+            })
+            .fail(function (xhr, status, error) {
+                createAlert('danger', 'Произошла ошибка при выполнении запроса');
             })
         }
     })
