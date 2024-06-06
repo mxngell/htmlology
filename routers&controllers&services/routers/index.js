@@ -14,6 +14,7 @@ const editorRouter = require('./editor-router.js')
 const studyRouter = require('./study-router.js')
 const adminRouter = require('./admin-router.js')
 const statisticRouter = require('./statistic-router.js')
+const ratingRouter = require('./rating-router.js')
 
 const usersRouter = require('./users-router.js')
 const themesRouter = require('./themes-router.js')
@@ -28,6 +29,7 @@ router.use('/editor', authenticateJWT, fetchUser, roleMiddleware(['Препод�
 router.use('/study', authenticateJWT, fetchUser, roleMiddleware(['Обучающийся']), studyRouter)
 router.use('/admin', authenticateJWT, fetchUser, roleMiddleware(['Администратор']), adminRouter)
 router.use('/statistic', authenticateJWT, fetchUser, roleMiddleware(['Преподаватель']), statisticRouter)
+router.use('/rating', authenticateJWT, fetchUser, roleMiddleware(['Обучающийся']), ratingRouter)
 
 router.use('/themes', authenticateJWT, fetchUser, roleMiddleware(['Преподаватель']), themesRouter)
 router.use('/users', authenticateJWT, roleMiddleware(['Администратор']), usersRouter)
