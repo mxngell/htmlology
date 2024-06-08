@@ -12,6 +12,7 @@
 .users-table-thead{
     width: 100%;
     background-color: var(--color-blue);
+    border: .1rem solid var(--color-blue);
 }
 
 .users-table th {
@@ -23,6 +24,11 @@
 .users-table td {
     padding: .3rem;
     font-size: .9rem;
+}
+
+.users-table-tbody {
+    border: .1rem solid var(--color-white-op-text);
+    border-top: none;
 }
 
 .users-table-tbody tr:not(:last-child) {
@@ -46,7 +52,7 @@
 
 .js-button {
     cursor: pointer;
-    width: 1.7rem;
+    width: 1.8rem;
     box-sizing: border-box;
 }
 
