@@ -25,7 +25,7 @@
     transform: scale(0);
 }
 
-.alert-close-button {
+.alert-icon {
     width: 1.7rem;
     cursor: pointer;
 }
@@ -42,7 +42,7 @@
     background-color: var(--color-orange);
 }
 
-.alert-close-button {
+.alert-icon {
     color: var(--color-white);
 }
 
