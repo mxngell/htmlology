@@ -14,7 +14,7 @@
 .your-themes-list .list-item,
 .themes-list-empty {
     background-color: var(--color-dark-lighter);
-    padding: .8rem;
+    padding: 1rem;
     border-radius: .4rem;
     border: .15rem solid var(--color-border);
     transition: all .3s ease;
@@ -52,8 +52,15 @@
     }
 }
 
+.list-item-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
 .item-title {
     font-weight: 500;
+    flex: 1 0 auto;
 }
 
 .item-description {
