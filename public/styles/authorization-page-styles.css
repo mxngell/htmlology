@@ -108,7 +108,7 @@ html {
     text-transform: uppercase;
     color: var(--color-dark);
     background-color: var(--color-white);
-    padding: 0.93rem 2.18rem;
+    padding: .9rem 1.5rem;
     cursor: pointer;
     margin-bottom: 0.75rem;
     border-radius: .625rem;
