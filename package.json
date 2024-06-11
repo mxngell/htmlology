@@ -9,6 +9,9 @@
   },
   "author": "N.M.M",
   "license": "ISC",
+  "nodemonConfig": {
+    "ignore": ["public/*"]
+  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.2",
