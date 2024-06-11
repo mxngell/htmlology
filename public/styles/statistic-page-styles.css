@@ -12,6 +12,10 @@
     float: right;
     padding: .2rem .7rem .2rem .2rem;
     transition: all .1s ease;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
 }
 
 #add-mark > svg {
@@ -56,7 +60,6 @@
 
 #addStatisticModal-form .add-form-item > select {
     background-color: #404040;
-    border: .1rem solid #404040;
     width: 100%;
     padding: .3rem .5rem;
     font-size: .9rem;
@@ -68,6 +71,18 @@
 
 #addStatisticModal-form .add-form-item > select:focus {
     border: .1rem solid var(--color-orange);
+}
+
+.themes-list-empty-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3rem;
+    color: var(--color-orange);
+}
+
+.themes-list-empty-message > svg{
+    width: 1.5rem;
 }
 
 #addStatisticModal-form .add-form-action > input {
@@ -129,6 +144,7 @@
 .statistic-table-thead{
     width: 100%;
     background-color: var(--color-orange);
+    border: .1rem solid var(--color-orange);
 }
 
 .statistic-table th {
@@ -145,6 +161,11 @@
 .js-delete-row-button {
     width: 1.5rem;
     cursor: pointer;
+}
+
+.statistic-table-tbody {
+    border: .1rem solid var(--color-white-op-text);
+    border-top: none;
 }
 
 .statistic-table-tbody tr:not(:last-child) {
