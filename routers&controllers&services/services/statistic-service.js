@@ -24,10 +24,12 @@ exports.getUsersStatistic = async (author_id) => {
 
 exports.getRating = async () => {
     const [rating] = await connect.query(`
-    SELECT Users.user_id as student_id, CONCAT(Users.surname, ' ', Users.name, ' ',  Users.middle_name) as fio, SUM(score) as total_score 
-    FROM Statistic 
-    INNER JOIN Users ON Statistic.user = Users.user_id 
-    GROUP BY user 
+    SELECT Users.user_id as student_id, CONCAT(Users.surname, ' ', Users.name, ' ', Users.middle_name) as fio, SUM(score) as total_score 
+    FROM Users 
+    LEFT JOIN Statistic ON Statistic.user = Users.user_id
+    JOIN Roles ON Users.role = Roles.role_id
+    WHERE Roles.name = 'Обучающийся' 
+    GROUP BY Users.user_id 
     ORDER BY total_score DESC, user ASC`)
     return rating
 }
@@ -35,8 +37,7 @@ exports.getRating = async () => {
 exports.addStatistic = async (stat_id, user, theme, date, author, note, score) => {
     const [{affectedRows}] = await connect.query(`
     INSERT INTO Statistic (statistic_id, user, theme, date, author, note, score) 
-    VALUES (?, ?, ?, ?, ?, ?, ?);
-    `, [stat_id, user, theme, date, author, note, score])
+    VALUES (?, ?, ?, ?, ?, ?, ?)`, [stat_id, user, theme, date, author, note, score])
     return affectedRows
 }
 
