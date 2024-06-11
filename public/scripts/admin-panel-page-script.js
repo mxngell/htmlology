@@ -15,17 +15,19 @@ $('#users-table').DataTable( {
 } );
 
 $(function() {
-    $('.js-select-status').on('change', function() {
+    $('.js-select-status').on('change', function(e) {
+        const currentTarget = $(e.currentTarget)
+        const user_surname = currentTarget.closest('td').siblings('.td-user-surname').text()
         $.ajax({
             type: "PATCH",
             data: {
-                user_id: $(this).data('user'),
-                role: $(this).val(),
+                user_id: currentTarget.data('user'),
+                role: currentTarget.val(),
             },
             url: '/users',
             success: function (response) {
                 if (response.result === true) {
-                    createAlert('success', 'Роль успешно изменена')
+                    createAlert('success', `Роль пользователя ${user_surname} успешно изменена`)
                 } else {
                     createAlert('danger', response.message)
                 }
@@ -36,19 +38,18 @@ $(function() {
         })
     })
 
-    $('.js-delete-row-button').on('click', (e) => {
-        e.preventDefault()
-        let current_element = $(e.currentTarget)
-        let user_surname = current_element.closest('td').siblings('.js-user-surname').text()
+    $('.js-delete-row-button').on('click', function(e) {
+        const currentTarget = $(e.currentTarget)
+        const user_surname = currentTarget.closest('td').siblings('.td-user-surname').text()
         $.ajax({
             type: "DELETE",
             data: {
-                user_id: current_element.data('user')
+                user_id: currentTarget.data('user')
             },
             url: '/users',
             success: function (response) {
                 if (response.result === true) {
-                    $(current_element).closest('tr').fadeOut(400, function() { $(this).remove() })
+                    currentTarget.closest('tr').fadeOut(400, function() { $(this).remove() })
                     createAlert('danger', `Пользователь ${user_surname} удален/а`);
                 } else {
                     createAlert('danger', response.message);
