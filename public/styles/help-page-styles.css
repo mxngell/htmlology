@@ -12,6 +12,18 @@ h1, h2, h3, p {
     margin-top: 1rem!important;
 }
 
+.img * {
+    margin-top: 0!important;
+}
+
+.img {
+    text-align: center;
+}
+
+.img p {
+    font-size: .85rem;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
