@@ -5,8 +5,7 @@ const authenticateJWT = require('../../middlewares/authenticateJWT-middleware.js
 const roleMiddleware = require('../../middlewares/role-middleware.js')
 const fetchUser = require('../../middlewares/fetchUser-middleware.js')
 
-const registrationRouter = require('./registration-router.js')
-const authorizationRouter = require('./authorization-router.js')
+const loginRouter = require('./login-router.js')
 const homeRouter = require('./home-router.js')
 const profileRouter = require('./profile-router.js')
 
@@ -19,8 +18,7 @@ const ratingRouter = require('./rating-router.js')
 const usersRouter = require('./users-router.js')
 const themesRouter = require('./themes-router.js')
 
-router.use('/registration', registrationRouter)
-router.use('/authorization', authorizationRouter)
+router.use('/login', loginRouter)
 
 router.use('/home', authenticateJWT, fetchUser, homeRouter)
 router.use('/profile', authenticateJWT, fetchUser, profileRouter)
