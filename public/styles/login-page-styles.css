@@ -18,15 +18,18 @@ html {
 .wrapper-content {
     display: flex;
     flex-direction: column; 
-    gap: .7rem;
     margin: 1rem 0;
+    gap: .7rem;
 }
 
-.authorization-block {
+#registration-form {
+    display: none;
+}
+
+.form-block {
     background-color: var(--color-dark-lighter);
     width: 34rem;
     border-radius: .6rem;
-    display: none;
     border: var(--border);
     z-index: 3;
     padding: 2rem 5rem;
@@ -36,17 +39,17 @@ html {
     box-shadow: 4px 4px 34px 7px rgba(255, 255, 255, 0.06);
 }
 
-.authorization-block-header {
+.form-block-header {
     margin-bottom: 1.5rem;
 }
 
-.authorization-block-header .header-logo {
+.form-block-header .header-logo {
     width: 3.5rem;
     margin: 0 auto;
     margin-bottom: .3rem;
 }
 
-.authorization-block-header .header-text {
+.form-block-header .header-text {
     text-align: center;
     font-size: 1.6rem;
     font-style: normal;
@@ -55,7 +58,7 @@ html {
     color: var(--color-white-lighter);
 }
 
-.authorization-block-body-item {
+.form-block-body-item {
     padding: 0.5rem 0.5rem;
     background-color: #404040;
     border-radius: .3rem;
@@ -65,13 +68,13 @@ html {
     gap: .3rem;
 }
 
-.authorization-block-body-item-content {
+.form-block-body-item-content {
     display: flex;
     align-items: center;
     gap: .4rem;
 }
 
-.authorization-block-body-item-content > input {
+.form-block-body-item-content > input {
     width: 100%;
     background-color: transparent;
     border: none;
@@ -80,19 +83,19 @@ html {
     box-sizing: border-box;
 }
 
-.authorization-block-body-item-content > svg {
+.form-block-body-item-content > svg {
     width: 1.57rem;
 }
 
-.authorization-block-body-item:not(:last-child) {
+.form-block-body-item:not(:last-child) {
     margin: 0 0 1rem 0;
 }
 
-.authorization-block-body-inputs {
+.form-block-body-inputs {
     margin-bottom: 1.8rem;
 }
 
-.authorization-block-body-submit {
+.form-block-body-submit {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,11 +124,13 @@ html {
     transition: color .15s ease-in-out;
 }
 
-.registration-link {
+.registration-link,
+.authorization-link {
     font-weight: 400;
+    cursor: pointer;
 }
 
-.authorization-block-body-submit-text {
+.form-block-body-submit-text {
     opacity: .7;
     font-size: 0.93rem;
     font-style: normal;
@@ -148,12 +153,17 @@ html {
     border-radius: .3rem;
 }
 
+.input-no-error,
+.input-with-error {
+    position: relative;
+}
+
 .input-with-error > input {
     color: var(--color-error);
 }
 
-.input-with-error {
-    position: relative;
+.input-no-error > input{
+    color: var(--color-green);
 }
 
 .input-with-error::before{
@@ -170,6 +180,20 @@ html {
     right: 0;
 }
 
+.input-no-error::before{
+    content: '';
+    background-image: url('../assets/icons/check-round-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 @media (max-width: 576px) { 
     .wrapper-content {
         margin: 0;
@@ -177,7 +201,7 @@ html {
         width: 100%;
     }
 
-    .authorization-block {
+    .form-block {
         width: 100%;
         height: 100%;
         border: none;
