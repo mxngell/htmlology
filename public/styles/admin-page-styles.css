@@ -1,12 +1,14 @@
 .users-table-container {
+    overflow-x: auto;
     background-color: var(--color-dark-lighter);
     border-radius: 0.625rem;
     padding: 1.25rem;
 }
 
 .users-table {
-    margin-top: 1rem;
     width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
 }
 
 .users-table-thead{
@@ -24,20 +26,16 @@
 .users-table td {
     padding: .3rem;
     font-size: .9rem;
-}
-
-.users-table-tbody {
-    border: .1rem solid var(--color-white-op-text);
-    border-top: none;
-}
-
-.users-table-tbody tr:not(:last-child) {
-    border-bottom: .1rem solid var(--color-white-op-text);
+    border: .1rem solid var(--color-grey);
 }
 
 .users-table-tbody tr:nth-child(even) {
     background:  #3d3d3d;
 } 
+
+.users-table-tbody tr td:last-child{
+    text-align: center;
+}
 
 @media (hover: hover) {
     .users-table-tbody tr:hover {
@@ -46,7 +44,7 @@
 }
 
 .js-select-status {
-    padding: .4rem .5rem;
+    padding: .4rem 1rem .4rem .5rem;
     font-size: .9rem;
 }
 
