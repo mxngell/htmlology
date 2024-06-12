@@ -40,23 +40,20 @@
                             </div> 
                         </div>
                     </div>
-                    <ul class="rating-list">
-                        <% let rank = 4;
-                        rating.slice(3).forEach((student) => { %>
+                    <ol class="rating-list" start="4">
+                        <% rating.slice(3).forEach((student) => { %>
                             <li class="rating-list-item <%= student.student_id == user.user_id ? 'user_rating' : '' %>">
-                                <span class="rating-list-item-rank"><%= rank %></span>
                                 <div class="rating-list-item-content">
                                     <div class="rating-list-item-content-info">
                                         <%= student.fio %>
                                     </div>
                                     <div class="rating-list-item-content-score">
-                                        <%= student.total_score %>
+                                        <%= student.total_score != null ? student.total_score : 0 %>
                                     </div>
                                 </div>
                             </li>
-                            <% rank++;
-                        }) %>
-                    </ul>
+                        <% }) %>
+                    </ol>
                 </section>
             </div>
         </main>
