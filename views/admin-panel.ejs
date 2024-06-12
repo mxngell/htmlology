@@ -30,11 +30,11 @@
                             <tbody class="users-table-tbody">
                                 <% users.forEach((user) => { %>
                                     <tr>
-                                        <td class="js-user-name"><%=user.name%></td>
-                                        <td class="js-user-surname"><%=user.surname%></td>
-                                        <td class="js-user-middle_name"><%=user.middle_name%></td>
+                                        <td class="td-user-name"><%=user.name%></td>
+                                        <td class="td-user-surname"><%=user.surname%></td>
+                                        <td class="td-user-middle_name"><%=user.middle_name%></td>
                                         <td><%=user.email%></td>
-                                        <td>
+                                        <td class="td-select-status">
                                             <select data-user="<%=user.user_id%>" name="user-status" class="js-select-status">
                                                 <%  roles.forEach((role) => { 
                                                     if(role.role_id == user.role) { %> 
