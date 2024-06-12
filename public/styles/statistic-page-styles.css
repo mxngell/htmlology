@@ -18,6 +18,18 @@
     -o-border-radius: 2rem;
 }
 
+@media (max-width: 576px) { 
+    #add-mark {
+        float: none;
+        width: 100%;
+        border-radius: .4rem;
+        -webkit-border-radius: .4rem;
+        -moz-border-radius: .4rem;
+        -ms-border-radius: .4rem;
+        -o-border-radius: .4rem;
+}
+}
+
 #add-mark > svg {
     width: 2.1rem;
 }
@@ -136,15 +148,21 @@
     }
 }
 
+.statistic-table-container {
+    overflow-x: auto;
+}
+
 .statistic-table {
-    margin-top: 1rem;
     width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
 }
 
 .statistic-table-thead{
     width: 100%;
     background-color: var(--color-orange);
     border: .1rem solid var(--color-orange);
+    border-bottom: none;
 }
 
 .statistic-table th {
@@ -156,6 +174,7 @@
 .statistic-table td {
     padding: .6rem;
     font-size: .9rem;
+    border: .1rem solid var(--color-grey);
 }
 
 .js-delete-row-button {
@@ -163,13 +182,8 @@
     cursor: pointer;
 }
 
-.statistic-table-tbody {
-    border: .1rem solid var(--color-white-op-text);
-    border-top: none;
-}
-
-.statistic-table-tbody tr:not(:last-child) {
-    border-bottom: .1rem solid var(--color-white-op-text);
+.statistic-table-tbody tr td:last-child{
+    text-align: center;
 }
 
 .statistic-table-tbody tr:nth-child(even) {
