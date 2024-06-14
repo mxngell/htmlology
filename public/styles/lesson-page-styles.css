@@ -227,7 +227,7 @@ img, svg {
 .complete-modal-content {
     background-color: var(--color-dark-lighter);
     padding: 1rem 2rem 1rem 1rem;  
-    border: var(--border);
+    border: 0.1rem solid var(--color-border);
     border-radius: .5rem;
     display: flex;
     gap: 1rem;
