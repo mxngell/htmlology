@@ -57,7 +57,6 @@ select:focus {
     backdrop-filter: blur(2rem);
     -webkit-backdrop-filter: blur(2rem);
     border-bottom: .0625rem solid var(--color-border);
-
     list-style: none;
 }
 
@@ -148,7 +147,12 @@ select:focus {
         height: .2rem;
         left: 0;
         display: block;
-    }
+        border-radius: .2rem;
+        -webkit-border-radius: .2rem;
+        -moz-border-radius: .2rem;
+        -ms-border-radius: .2rem;
+        -o-border-radius: .2rem;
+}
     .header-burger span {
         top: 50%;
         transform: translateY(-50%);
