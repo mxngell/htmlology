@@ -82,6 +82,7 @@
 @media (max-width: 576px) { 
     .your-themes-list .list-item {
         flex-direction: column;
+        align-items: baseline;
     }
     .list-item-actions {
         gap: 2rem;
@@ -95,10 +96,6 @@
     }
     .your-themes-list .list-item {
         gap: .8rem;
-    }
-    .list-item-info {
-        border-bottom: var(--border);
-        padding-bottom: 1rem;
     }
 } 
 
