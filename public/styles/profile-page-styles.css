@@ -316,6 +316,13 @@
     display: none;
 }
 
+
+@media (max-width: 576px) { 
+    .statistic-item-details {
+        margin-top: .5rem;
+    }
+}
+
 .statistic-item-details .deatils-date,
 .statistic-item-details .deatils-teacher-info {
     display: inline-flex;
@@ -357,6 +364,13 @@
     flex: 1;
     display: flex;
     gap: 1rem;
+}
+
+@media (max-width: 576px) { 
+    .statistic-item-info {
+        flex-direction: column;
+        gap: 0;
+    }
 }
 
 .item-info-theme-title {
