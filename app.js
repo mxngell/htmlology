@@ -40,9 +40,9 @@ app.use(routers);
 
 // SERVER
 
-const PORT = process.env.DB_PORT
+const PORT = process.env.NODE_PORT
 const HOST = process.env.DB_HOST
 
 app.listen(PORT, () => {
-    console.log(`Sever started: http://${HOST}:${PORT}`.info);
+    console.log(`Sever started: http://localhost:${PORT}`.info);
 })
