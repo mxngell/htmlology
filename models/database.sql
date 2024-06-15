@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 05 2024 г., 09:19
+-- Время создания: Июн 15 2024 г., 18:40
 -- Версия сервера: 8.0.30
 -- Версия PHP: 7.2.34
 
@@ -62,11 +62,19 @@ CREATE TABLE `Statistic` (
 --
 
 INSERT INTO `Statistic` (`statistic_id`, `user`, `theme`, `date`, `author`, `note`, `score`) VALUES
+('09RdOVD', 'rOMxG5b', '0U8zq3K', '2024-06-15', 'NGInEUe', 'Отсутствует закрывающий тег script', 4),
 ('4i7TpfS', 'y6udlWM', 'zetFZ1s', '2024-06-01', 'NGInEUe', '', 4),
+('7lWS5Kt', 'MArOyEO', '0U8zq3K', '2024-06-15', 'NGInEUe', '', 4),
 ('eUAN5Wx', 'y6udlWM', 'HITpIp4', '2024-06-05', 'NGInEUe', 'Задание не выполнено', 1),
 ('gonf10j', 'y6udlWM', '0U8zq3K', '2024-05-05', 'NGInEUe', 'Задание выполнено верно', 5),
+('KzvLpHJ', 'M9dVtd1', 'zetFZ1s', '2024-06-11', 'NGInEUe', '', 5),
 ('LK3lAxa', '5MZvBBE', 'Mv1O79w', '2024-05-22', 'NGInEUe', 'Есть ошибки в задании с title', 3),
+('mtchWxo', '5MZvBBE', '2lcfTs2', '2024-06-03', 'NGInEUe', 'В решении второго задания есть недочеты', 4),
+('ojQtVQb', 'Gn9Azzd', 'Mv1O79w', '2024-06-06', 'NGInEUe', '', 5),
+('PaBhrrF', 'z66fEvu', '0U8zq3K', '2024-06-14', 'NGInEUe', 'Во втором задании есть недочеты', 4),
 ('SuKMchp', 'y6udlWM', 'Mv1O79w', '2024-04-04', 'NGInEUe', 'Задание выполнено неверно!', 2),
+('tbiMdNH', 'EaGt80u', '2lcfTs2', '2024-06-12', 'NGInEUe', 'Второе задание выполнено неверно!', 3),
+('V2vkgcl', 'M9dVtd1', '0U8zq3K', '2024-06-15', 'NGInEUe', 'Отсутствует второе задание', 3),
 ('Xlh0KwN', 'Gn9Azzd', '0U8zq3K', '2024-05-08', 'NGInEUe', 'Есть недочеты во второй части задания', 4),
 ('YqYfF18', 'y6udlWM', '2lcfTs2', '2024-06-03', 'NGInEUe', 'Есть много недочетов! Изучите тему получше', 3);
 
@@ -121,7 +129,7 @@ INSERT INTO `Users` (`user_id`, `name`, `surname`, `middle_name`, `email`, `pass
 ('DG7dyOy', 'Виктория', 'Субботина', 'Михайловна', 'vik@mail.ru', '$2b$07$VBE.eCkEYi/sK32t3IBXmOuSZXgtpiUg2B5YHL4lYX8M3Jh.I7.tm', 'WnzmzM6'),
 ('EaGt80u', 'Джон', 'Бейкер', 'Баррера', 'john@gmail.com', '$2b$07$pzzBeaE1AU3OVuKJd5AGa.8.xakcNX3fIOF.v1Uyl4WrRglvsoqcu', 'KhJEgjk'),
 ('Gn9Azzd', 'Кристина', 'Ляшина', 'Сергеевна', 'kris@mail.ru', '$2b$07$W.pDUs9N/pSq4hj1LH66D.6LRMPEvjtF6iVQsK1YCE4Gvv72xX8kS', 'KhJEgjk'),
-('M9dVtd1', 'Даша', 'Макарова', 'Васильевна', 'dasha@list.ru', '$2b$07$Bp0YXGa3JHsaFv68U1ghR.cvhY3AF54a9XB7P/f3Qnf3bgKFfH10.', 'KhJEgjk'),
+('M9dVtd1', 'Дарья', 'Макарова', 'Васильевна', 'dasha@list.ru', '$2b$07$Bp0YXGa3JHsaFv68U1ghR.cvhY3AF54a9XB7P/f3Qnf3bgKFfH10.', 'KhJEgjk'),
 ('MArOyEO', 'Иван', 'Насибулин', 'Михайлович', 'ivan@yandex.ru', '$2b$07$GajCcJPuzKmmZE.SPVyKZeGKg6vsaC/8PkifLNtKAUksWDlCiGXPq', 'KhJEgjk'),
 ('nbWW0d2', 'Евгений', 'Кузнецов', 'Николаевич', 'zhenya@gmail.com', '$2b$07$aF0mm4catqBQfJsGXCFVXOlzb8HI0FTf/Yjmoc5Dw9tmf.8gDeXy.', 'WnzmzM6'),
 ('NGInEUe', 'Малик', 'Никаев', 'Магамедович', 'madmalik@inbox.ru', '$2b$07$oUWG3IiYr6.5qhfwyMpz6.Ph9gZN2Id66gk179DGcZUEh2XyFRkfK', 'WnzmzM6'),
