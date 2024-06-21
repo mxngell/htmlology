@@ -10,6 +10,22 @@
   "second-place third-place"
 }
 
+.top-three .user_rating::before {
+    content: '';
+    background-image: url('../assets/icons/current-user-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translateY(30%);
+    -webkit-transform: translateY(30%);
+    -moz-transform: translateY(30%);
+    -ms-transform: translateY(30%);
+    -o-transform: translateY(30%);
+}
+
 @media (max-width: 576px) { 
     .top-three {
         grid-template-columns: 1fr;
@@ -95,6 +111,29 @@
     }
 }
 
+.user_rating {
+    position: relative;
+}
+
+.rating-list .user_rating::after {
+    content: '';
+    background-image: url('../assets/icons/current-user-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: -50%;
+    margin-left: .1rem;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translateY(30%);
+    -webkit-transform: translateY(30%);
+    -moz-transform: translateY(30%);
+    -ms-transform: translateY(30%);
+    -o-transform: translateY(30%);
+}
+
 .rating-list-item-content-score {
     font-size: .9rem;
     width: 1.8rem;
@@ -114,7 +153,3 @@
 .rating-list-item:not(:last-child) {
     margin-bottom: 1rem;
 }
-
-/* .user_rating {
-
-} */

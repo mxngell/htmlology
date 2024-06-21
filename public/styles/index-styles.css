@@ -13,7 +13,7 @@ ul {list-style-type: disc;}
 /* ======================================================= */
 
 :root {
-    --color-dark: rgb(20,20,20);
+    --color-dark: rgb(17, 17, 17);
     --color-dark-op: rgba(20,20,20,.5);
     --color-dark-lighter: rgb(43,43,43);
     --color-error: rgb(204, 44, 44);

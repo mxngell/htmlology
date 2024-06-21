@@ -15,7 +15,40 @@ section {
     padding: 0 1rem;
 }
 
+/* .animate_background {
+    background: #121212;
+    background: linear-gradient(
+      135deg,
+      rgb(249,249,249) 25%,
+      rgb(228,228,228) 25%,
+      rgb(228,228,228) 50%,
+      rgb(249,249,249) 50%,
+      rgb(249,249,249) 75%,
+      rgb(228,228,228) 75%,
+      rgb(228,228,228)
+    );
+    background-size: 3rem 3rem;
+
+    animation: move 4s linear infinite;
+}
+  
+@keyframes move {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 3rem 3rem;
+    }
+}   */
+
 /*========================= HEAD-SECTION =========================*/
+
+.head-section, .about-section {
+    background-color: #ffffff;
+    background-image: radial-gradient(rgba(12, 12, 12, 0.171) 2px, transparent 0);
+    background-size: 30px 30px;
+    background-position: -5px -5px;
+}
 
 .head-section {
     background-color: var(--color-white-lighter);

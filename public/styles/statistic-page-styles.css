@@ -27,7 +27,7 @@
         -moz-border-radius: .4rem;
         -ms-border-radius: .4rem;
         -o-border-radius: .4rem;
-}
+    }
 }
 
 #add-mark > svg {
@@ -177,9 +177,8 @@
     border: .1rem solid var(--color-grey);
 }
 
-.js-delete-row-button {
+.js-delete-row-button > svg{
     width: 1.5rem;
-    cursor: pointer;
 }
 
 .statistic-table-tbody tr td:last-child{
@@ -210,7 +209,6 @@
     text-align: center;
     padding: 1rem!important;
     font-weight: 500;
-    position: relative;
 }
 
 .dt-empty::before {

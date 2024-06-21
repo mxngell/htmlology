@@ -48,10 +48,9 @@
     font-size: .9rem;
 }
 
-.js-button {
-    cursor: pointer;
+.js-button > svg{
     width: 1.8rem;
-    box-sizing: border-box;
+    box-sizing: content-box;
 }
 
 .js-select-status {
