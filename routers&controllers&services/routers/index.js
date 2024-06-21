@@ -37,7 +37,7 @@ router.get('/help', (request, response) => {
 })
 
 router.get('/', (request, response) => {
-    if(request.session.token) {
+    if(request.cookies.token) {
         response.status(200).redirect('/home')   
     } else {
         response.status(200).render('guest') 

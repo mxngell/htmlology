@@ -4,8 +4,8 @@ require('dotenv').config({path: 'config/.env'})
 
 const express = require('express')
 const app = express()
-const path = require("path")
-const session = require('express-session')
+const path = require('path')
+const cookieParser = require('cookie-parser')
 const routers = require('./routers&controllers&services/routers/index')
 
 const { setTheme } = require('colors');
@@ -16,17 +16,12 @@ setTheme({
     error: ['bgRed', 'brightWhite', 'bold'],
 });
 
-app.set('view engine', 'ejs')
-
 // MIDDLEWARES
 
+app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({ extended: false }));
-app.use(session({
-    secret: process.env.SECRET_KEY,
-    resave: false,
-    saveUninitialized: false
-}))
+app.use(cookieParser())
 
 app.use(
     "/libs",

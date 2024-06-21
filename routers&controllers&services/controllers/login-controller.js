@@ -3,9 +3,10 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const ShortUniqueId = require('short-unique-id')
 const { randomUUID } = new ShortUniqueId({ length: 7 });
+const cookie = require('cookie')
 
 exports.getLoginPage = (request, response) => {
-    if(request.session.token) {
+    if(request.cookies.token) {
         response.status(200).redirect('/home');   
     } else {
         response.status(200).render('login') 
@@ -27,10 +28,14 @@ exports.auth = async (request, response) => {
             role: user.role
         }, process.env.SECRET_KEY, {expiresIn: '1h'})
 
-        request.session.token = accessToken
+        response.cookie('token', accessToken, {
+            httpOnly: true,
+            maxAge: 60 * 60 * 1000,
+            path: '/'
+        })
+
         response.status(200).json({
-            access: true,
-            token: accessToken
+            access: true
         })
     } catch (error) {
         console.log('Error message: '.error ,error) 

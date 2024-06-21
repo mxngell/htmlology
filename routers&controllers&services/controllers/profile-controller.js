@@ -31,7 +31,7 @@ exports.updateUserData = async (request, response) => {
 
 exports.logOut = async (request, response) => {
     try {
-        request.session.destroy()
+        response.clearCookie('token')
         response.status(200).redirect('/login')
     } catch (error) {
         console.log('Error message: '.error ,error) 
