@@ -7,8 +7,8 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: mysqlrootsecretpassword
-    expose:
-      - 3306
+    ports:
+      - "3306:3306"
     volumes:
       - ./models/init.sql:/docker-entrypoint-initdb.d/init.sql
   phpmyadmin:
