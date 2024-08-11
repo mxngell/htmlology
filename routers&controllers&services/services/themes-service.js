@@ -1,4 +1,4 @@
-const connect = require('../../models/database')
+const { connect } = require('../../models/database')
 
 exports.getAllThemes = async () => {
     const [themes] = await connect.query(`SELECT * FROM Themes ORDER BY title`)

@@ -1,4 +1,4 @@
-const connect = require('../../models/database')
+const { connect } = require('../../models/database')
 
 exports.getUserStatistic = async (user_id) => {
     const [statistic] = await connect.query(`

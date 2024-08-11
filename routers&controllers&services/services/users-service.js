@@ -1,4 +1,4 @@
-const connect = require('../../models/database')
+const { connect } = require('../../models/database')
 
 exports.getAllUsers = async () => {
     const [users] = await connect.query(`SELECT * FROM Users ORDER BY name, surname, middle_name`)
