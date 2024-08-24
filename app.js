@@ -7,7 +7,7 @@ const app = express()
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const routers = require('./routers&controllers&services/routers/index')
-const { getConnect } = require('./models/database')
+const { getDatabaseConnection } = require('./models/database')
 
 const { setTheme } = require('colors');
 setTheme({
@@ -39,7 +39,7 @@ app.use(routers);
 const PORT = process.env.NODE_PORT
 const HOST = process.env.DB_HOST
 
-getConnect().then(() => {
+getDatabaseConnection().then(() => {
     app.listen(PORT, () => { console.log(`Sever started: http://localhost:${PORT}`.info) })
 }).catch((error) => {
     console.log('Error message: '.error ,error) 

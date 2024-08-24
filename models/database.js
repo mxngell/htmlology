@@ -8,7 +8,7 @@ const connect = createPool({
     database   : process.env.MYSQL_DATABASE_NAME,
 })
 
-const getConnect = async () => {
+const getDatabaseConnection = async () => {
     try {
         await connect.getConnection()
         console.log('Database connection successful'.success) 
@@ -17,4 +17,4 @@ const getConnect = async () => {
     }
 }
 
-module.exports = { connect, getConnect }
+module.exports = { connect, getDatabaseConnection }
